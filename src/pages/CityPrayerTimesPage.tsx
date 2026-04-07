@@ -220,7 +220,7 @@ export default function CityPrayerTimesPage() {
           </h2>
           <div className="grid grid-cols-2 gap-2 md:grid-cols-4 lg:grid-cols-5">
             {saudiCities
-              .filter((c) => c.slug !== citySlug)
+              .filter((c) => c.slug !== slug)
               .slice(0, 20)
               .map((c) => (
                 <Link
