@@ -67,6 +67,18 @@ export default function CityPrayerTimesPage() {
       .finally(() => setMonthLoading(false));
   }, [city, monthOffset]);
 
+  const cityName = city ? (lang === 'ar' ? city.nameAr : city.nameEn) : '';
+  const monthDate = new Date();
+  monthDate.setMonth(monthDate.getMonth() + monthOffset);
+  const monthLabel = monthDate.toLocaleDateString(lang === 'ar' ? 'ar-SA' : 'en-US', { month: 'long', year: 'numeric' });
+
+  useEffect(() => {
+    if (!city) return;
+    document.title = lang === 'ar'
+      ? `مواقيت الصلاة في ${city.nameAr} - مواقيت`
+      : `Prayer Times in ${city.nameEn} - Mawaqit`;
+  }, [city, lang]);
+
   if (!city) {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
@@ -77,17 +89,6 @@ export default function CityPrayerTimesPage() {
       </div>
     );
   }
-
-  const cityName = lang === 'ar' ? city.nameAr : city.nameEn;
-  const monthDate = new Date();
-  monthDate.setMonth(monthDate.getMonth() + monthOffset);
-  const monthLabel = monthDate.toLocaleDateString(lang === 'ar' ? 'ar-SA' : 'en-US', { month: 'long', year: 'numeric' });
-
-  useEffect(() => {
-    document.title = lang === 'ar'
-      ? `مواقيت الصلاة في ${city.nameAr} - مواقيت`
-      : `Prayer Times in ${city.nameEn} - Mawaqit`;
-  }, [city, lang]);
 
   return (
     <div>
