@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 const navItems = [
   { key: 'home' as const, path: '/' },
+  { key: 'prayerTimes' as const, path: '/prayer-times' },
   { key: 'azkar' as const, path: '/azkar' },
   { key: 'duas' as const, path: '/duas' },
   { key: 'qibla' as const, path: '/qibla' },
