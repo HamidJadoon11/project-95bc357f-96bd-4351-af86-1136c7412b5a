@@ -11,6 +11,8 @@ import DuasPage from "./pages/DuasPage";
 import QiblaPage from "./pages/QiblaPage";
 import ZakatPage from "./pages/ZakatPage";
 import CalendarPage from "./pages/CalendarPage";
+import PrayerTimesIndexPage from "./pages/PrayerTimesIndexPage";
+import CityPrayerTimesPage from "./pages/CityPrayerTimesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +27,8 @@ const App = () => (
           <Layout>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/prayer-times" element={<PrayerTimesIndexPage />} />
+              <Route path="/saudi-arabia/:citySlug-prayer-times" element={<CityPrayerTimesPage />} />
               <Route path="/azkar" element={<AzkarPage />} />
               <Route path="/duas" element={<DuasPage />} />
               <Route path="/qibla" element={<QiblaPage />} />
