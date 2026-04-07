@@ -28,7 +28,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/prayer-times" element={<PrayerTimesIndexPage />} />
-              <Route path="/saudi-arabia/:citySlug-prayer-times" element={<CityPrayerTimesPage />} />
+              <Route path="/saudi-arabia/:citySlug" element={<CityPrayerTimesPage />} />
               <Route path="/azkar" element={<AzkarPage />} />
               <Route path="/duas" element={<DuasPage />} />
               <Route path="/qibla" element={<QiblaPage />} />

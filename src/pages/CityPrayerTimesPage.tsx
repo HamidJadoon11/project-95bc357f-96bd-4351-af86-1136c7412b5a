@@ -22,9 +22,10 @@ interface MonthlyDay {
 }
 
 export default function CityPrayerTimesPage() {
-  const { citySlug } = useParams<{ citySlug: string }>();
+  const { citySlug: rawSlug } = useParams<{ citySlug: string }>();
   const { t, lang } = useLanguage();
-  const city = getCityBySlug(citySlug || '');
+  const slug = rawSlug?.replace(/-prayer-times$/, '') || '';
+  const city = getCityBySlug(slug);
   const { times, loading } = usePrayerTimes(city?.lat, city?.lng);
   const [nextPrayer, setNextPrayer] = useState(getNextPrayer(times));
   const [monthlyData, setMonthlyData] = useState<MonthlyDay[]>([]);
