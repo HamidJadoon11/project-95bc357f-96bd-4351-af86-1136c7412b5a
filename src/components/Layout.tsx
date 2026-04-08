@@ -1,11 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { Moon, Sun, Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
-const navItems = [
+const mainNavItems = [
   { key: 'home' as const, path: '/' },
   { key: 'prayerTimes' as const, path: '/prayer-times' },
+  { key: 'azanTimes' as const, path: '/azan-times' },
   { key: 'azkar' as const, path: '/azkar' },
   { key: 'duas' as const, path: '/duas' },
   { key: 'qibla' as const, path: '/qibla' },
@@ -29,13 +30,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-1 md:flex">
-            {navItems.map((item) => (
+          <nav className="hidden items-center gap-1 lg:flex">
+            {mainNavItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 className={`rounded-lg px-3 py-2 text-sm transition-colors hover:bg-primary-foreground/10 ${
-                  location.pathname === item.path ? 'bg-primary-foreground/15 font-semibold' : ''
+                  location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path))
+                    ? 'bg-primary-foreground/15 font-semibold'
+                    : ''
                 }`}
               >
                 {t(item.key)}
@@ -51,21 +54,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           {/* Mobile menu toggle */}
-          <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
         {/* Mobile nav */}
         {menuOpen && (
-          <nav className="border-t border-primary-foreground/10 px-4 pb-4 md:hidden">
-            {navItems.map((item) => (
+          <nav className="border-t border-primary-foreground/10 px-4 pb-4 lg:hidden">
+            {mainNavItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={() => setMenuOpen(false)}
                 className={`block rounded-lg px-3 py-2 text-sm transition-colors hover:bg-primary-foreground/10 ${
-                  location.pathname === item.path ? 'bg-primary-foreground/15 font-semibold' : ''
+                  location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path))
+                    ? 'bg-primary-foreground/15 font-semibold'
+                    : ''
                 }`}
               >
                 {t(item.key)}
@@ -85,10 +90,44 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main>{children}</main>
 
       {/* Footer */}
-      <footer className="bg-primary py-8 text-center text-primary-foreground/70">
-        <p className="font-heading text-lg text-gold">{t('siteName')}</p>
-        <p className="mt-1 text-sm">{t('siteTagline')}</p>
-        <p className="mt-4 text-xs opacity-50">© {new Date().getFullYear()}</p>
+      <footer className="bg-primary py-10 text-primary-foreground">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+            <div>
+              <p className="font-heading text-lg font-bold text-gold">{t('siteName')}</p>
+              <p className="mt-1 text-xs opacity-60">{t('siteTagline')}</p>
+            </div>
+            <div>
+              <p className="mb-2 text-sm font-semibold">{lang === 'ar' ? 'روابط سريعة' : 'Quick Links'}</p>
+              <div className="space-y-1">
+                <Link to="/prayer-times" className="block text-xs opacity-70 hover:opacity-100">{t('prayerTimes')}</Link>
+                <Link to="/azan-times" className="block text-xs opacity-70 hover:opacity-100">{t('azanTimes')}</Link>
+                <Link to="/azkar" className="block text-xs opacity-70 hover:opacity-100">{t('azkar')}</Link>
+                <Link to="/duas" className="block text-xs opacity-70 hover:opacity-100">{t('duas')}</Link>
+              </div>
+            </div>
+            <div>
+              <p className="mb-2 text-sm font-semibold">{lang === 'ar' ? 'أدوات' : 'Tools'}</p>
+              <div className="space-y-1">
+                <Link to="/qibla" className="block text-xs opacity-70 hover:opacity-100">{t('qibla')}</Link>
+                <Link to="/zakat" className="block text-xs opacity-70 hover:opacity-100">{t('zakat')}</Link>
+                <Link to="/calendar" className="block text-xs opacity-70 hover:opacity-100">{t('calendar')}</Link>
+              </div>
+            </div>
+            <div>
+              <p className="mb-2 text-sm font-semibold">{lang === 'ar' ? 'معلومات' : 'Info'}</p>
+              <div className="space-y-1">
+                <Link to="/about" className="block text-xs opacity-70 hover:opacity-100">{t('about')}</Link>
+                <Link to="/contact" className="block text-xs opacity-70 hover:opacity-100">{t('contact')}</Link>
+                <Link to="/privacy" className="block text-xs opacity-70 hover:opacity-100">{t('privacy')}</Link>
+                <Link to="/terms" className="block text-xs opacity-70 hover:opacity-100">{t('terms')}</Link>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 border-t border-primary-foreground/10 pt-4 text-center text-xs opacity-50">
+            © {new Date().getFullYear()} {t('siteName')}. {lang === 'ar' ? 'جميع الحقوق محفوظة.' : 'All rights reserved.'}
+          </div>
+        </div>
       </footer>
     </div>
   );
