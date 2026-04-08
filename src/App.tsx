@@ -11,8 +11,16 @@ import DuasPage from "./pages/DuasPage";
 import QiblaPage from "./pages/QiblaPage";
 import ZakatPage from "./pages/ZakatPage";
 import CalendarPage from "./pages/CalendarPage";
-import PrayerTimesIndexPage from "./pages/PrayerTimesIndexPage";
-import CityPrayerTimesPage from "./pages/CityPrayerTimesPage";
+import PrayerTimesCountriesPage from "./pages/PrayerTimesCountriesPage";
+import CountryPrayerTimesPage from "./pages/CountryPrayerTimesPage";
+import GlobalCityPrayerTimesPage from "./pages/GlobalCityPrayerTimesPage";
+import AzanTimesIndexPage from "./pages/AzanTimesIndexPage";
+import AzanTimesCountryPage from "./pages/AzanTimesCountryPage";
+import AzanTimesCityPage from "./pages/AzanTimesCityPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import TermsPage from "./pages/TermsPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,13 +35,25 @@ const App = () => (
           <Layout>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/prayer-times" element={<PrayerTimesIndexPage />} />
-              <Route path="/saudi-arabia/:citySlug" element={<CityPrayerTimesPage />} />
+              {/* Prayer Times */}
+              <Route path="/prayer-times" element={<PrayerTimesCountriesPage />} />
+              <Route path="/prayer-times/:countrySlug" element={<CountryPrayerTimesPage />} />
+              <Route path="/prayer-times/:countrySlug/:citySlug" element={<GlobalCityPrayerTimesPage />} />
+              {/* Azan Times */}
+              <Route path="/azan-times" element={<AzanTimesIndexPage />} />
+              <Route path="/azan-times/:countrySlug" element={<AzanTimesCountryPage />} />
+              <Route path="/azan-times/:countrySlug/:citySlug" element={<AzanTimesCityPage />} />
+              {/* Tools */}
               <Route path="/azkar" element={<AzkarPage />} />
               <Route path="/duas" element={<DuasPage />} />
               <Route path="/qibla" element={<QiblaPage />} />
               <Route path="/zakat" element={<ZakatPage />} />
               <Route path="/calendar" element={<CalendarPage />} />
+              {/* Legal & Info */}
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/terms" element={<TermsPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
