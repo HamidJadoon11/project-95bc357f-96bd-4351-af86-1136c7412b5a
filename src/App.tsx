@@ -17,6 +17,8 @@ import GlobalCityPrayerTimesPage from "./pages/GlobalCityPrayerTimesPage";
 import AzanTimesIndexPage from "./pages/AzanTimesIndexPage";
 import AzanTimesCountryPage from "./pages/AzanTimesCountryPage";
 import AzanTimesCityPage from "./pages/AzanTimesCityPage";
+import AhadeesPage from "./pages/AhadeesPage";
+import RamadanPage from "./pages/RamadanPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import AboutPage from "./pages/AboutPage";
@@ -43,9 +45,14 @@ const App = () => (
               <Route path="/azan-times" element={<AzanTimesIndexPage />} />
               <Route path="/azan-times/:countrySlug" element={<AzanTimesCountryPage />} />
               <Route path="/azan-times/:countrySlug/:citySlug" element={<AzanTimesCityPage />} />
-              {/* Tools */}
+              {/* Islamic Content */}
               <Route path="/azkar" element={<AzkarPage />} />
               <Route path="/duas" element={<DuasPage />} />
+              <Route path="/ahadees" element={<AhadeesPage />} />
+              {/* Ramadan */}
+              <Route path="/ramadan" element={<RamadanPage />} />
+              <Route path="/ramadan/:year" element={<RamadanPage />} />
+              {/* Tools */}
               <Route path="/qibla" element={<QiblaPage />} />
               <Route path="/zakat" element={<ZakatPage />} />
               <Route path="/calendar" element={<CalendarPage />} />
