@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { useLocation as useGeoLocation, usePrayerTimes, getNextPrayer } from '@/hooks/usePrayerTimes';
-import { MapPin, BookOpen, Compass, Calculator, Calendar, Clock, Loader2, Bell, Globe } from 'lucide-react';
+import { MapPin, BookOpen, Compass, Calculator, Calendar, Clock, Loader2, Bell, Globe, Moon, Star, Heart } from 'lucide-react';
 import { TranslationKey } from '@/i18n/translations';
 import { getPopularCities } from '@/data/countries';
 import CitySearch from '@/components/CitySearch';
@@ -19,8 +19,10 @@ const prayerKeys: { key: TranslationKey; field: string }[] = [
 const quickLinks = [
   { key: 'prayerTimes' as const, path: '/prayer-times', icon: Clock },
   { key: 'azanTimes' as const, path: '/azan-times', icon: Bell },
-  { key: 'azkar' as const, path: '/azkar', icon: BookOpen },
-  { key: 'duas' as const, path: '/duas', icon: BookOpen },
+  { key: 'azkar' as const, path: '/azkar', icon: Star },
+  { key: 'duas' as const, path: '/duas', icon: Heart },
+  { key: 'ahadees' as const, path: '/ahadees', icon: BookOpen },
+  { key: 'ramadan' as const, path: '/ramadan', icon: Moon },
   { key: 'qibla' as const, path: '/qibla', icon: Compass },
   { key: 'zakat' as const, path: '/zakat', icon: Calculator },
   { key: 'calendar' as const, path: '/calendar', icon: Calendar },
@@ -49,51 +51,39 @@ export default function Index() {
 
   return (
     <div>
-      {/* JSON-LD */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: 'Mawaqit',
-        url: 'https://mawaqit.app',
+        '@context': 'https://schema.org', '@type': 'WebSite', name: 'Mawaqit', url: 'https://mawaqit.app',
         description: 'Accurate prayer times and azan times worldwide for all countries and cities.',
         potentialAction: { '@type': 'SearchAction', target: 'https://mawaqit.app/prayer-times?q={search_term_string}', 'query-input': 'required name=search_term_string' },
       }) }} />
 
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="islamic-pattern relative overflow-hidden bg-primary px-4 py-16 text-primary-foreground md:py-24">
         <div className="container mx-auto text-center">
           <h1 className="font-heading text-5xl font-bold text-gold md:text-7xl">{t('siteName')}</h1>
           <p className="mt-3 text-lg opacity-80">{t('siteTagline')}</p>
-
-          {/* City Search */}
           <CitySearch className="mx-auto mt-6 max-w-lg" />
 
           {location && (
             <div className="mt-4 flex items-center justify-center gap-2 text-sm opacity-70">
-              <MapPin className="h-4 w-4" />
-              <span>{location.city}, {location.country}</span>
+              <MapPin className="h-4 w-4" /><span>{location.city}, {location.country}</span>
             </div>
           )}
 
-          {/* Next Prayer Countdown */}
           {nextPrayer && (
             <div className="mx-auto mt-8 max-w-sm rounded-2xl bg-primary-foreground/10 p-6 backdrop-blur-sm">
               <p className="text-sm uppercase tracking-widest opacity-60">{t('nextPrayer')}</p>
-              <p className="mt-1 font-heading text-3xl font-bold text-gold">
-                {t(nextPrayer.name as TranslationKey)}
-              </p>
+              <p className="mt-1 font-heading text-3xl font-bold text-gold">{t(nextPrayer.name as TranslationKey)}</p>
               <p className="mt-1 text-2xl">{nextPrayer.time}</p>
               <div className="mt-2 flex items-center justify-center gap-1 text-sm opacity-70">
-                <Clock className="h-3 w-3" />
-                <span>{nextPrayer.remaining}</span>
+                <Clock className="h-3 w-3" /><span>{nextPrayer.remaining}</span>
               </div>
             </div>
           )}
 
           {loading && (
             <div className="mt-8 flex items-center justify-center gap-2">
-              <Loader2 className="h-5 w-5 animate-spin" />
-              <span>{t('detectingLocation')}</span>
+              <Loader2 className="h-5 w-5 animate-spin" /><span>{t('detectingLocation')}</span>
             </div>
           )}
         </div>
@@ -106,19 +96,13 @@ export default function Index() {
             {prayerKeys.map((p) => {
               const isNext = nextPrayer?.name === p.field;
               return (
-                <div
-                  key={p.field}
-                  className={`rounded-xl p-4 text-center shadow-md transition-transform hover:scale-105 ${
-                    isNext ? 'bg-gold text-gold-foreground ring-2 ring-gold' : 'bg-card text-card-foreground'
-                  }`}
-                >
+                <div key={p.field} className={`rounded-xl p-4 text-center shadow-md transition-transform hover:scale-105 ${isNext ? 'bg-gold text-gold-foreground ring-2 ring-gold' : 'bg-card text-card-foreground'}`}>
                   <p className="text-xs font-semibold uppercase tracking-wide opacity-70">{t(p.key)}</p>
                   <p className="mt-1 font-heading text-xl font-bold">{(times as any)[p.field]}</p>
                 </div>
               );
             })}
           </div>
-
           {times.date?.hijri && (
             <p className="mt-4 text-center text-sm text-muted-foreground">
               {times.date.hijri.day} {lang === 'ar' ? times.date.hijri.month.ar : times.date.hijri.month.en} {times.date.hijri.year} AH
@@ -130,15 +114,11 @@ export default function Index() {
       {/* Quick Access */}
       <section className="container mx-auto px-4 py-12">
         <h2 className="mb-6 text-center font-heading text-2xl font-bold text-foreground">{t('quickAccess')}</h2>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
+        <div className="grid grid-cols-3 gap-4 md:grid-cols-5 lg:grid-cols-9">
           {quickLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className="flex flex-col items-center gap-3 rounded-xl bg-card p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
-            >
+            <Link key={link.path} to={link.path} className="flex flex-col items-center gap-3 rounded-xl bg-card p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
               <link.icon className="h-7 w-7 text-primary" />
-              <span className="text-sm font-semibold text-card-foreground">{t(link.key)}</span>
+              <span className="text-xs font-semibold text-card-foreground text-center">{t(link.key)}</span>
             </Link>
           ))}
         </div>
@@ -148,42 +128,38 @@ export default function Index() {
       <section className="bg-emerald-light px-4 py-12">
         <div className="container mx-auto">
           <h2 className="mb-6 text-center font-heading text-2xl font-bold text-foreground">{t('popularCities')}</h2>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-5">
             {popularCities.map(city => (
-              <Link
-                key={`${city.countrySlug}-${city.slug}`}
-                to={`/prayer-times/${city.countrySlug}/${city.slug}`}
-                className="flex items-center gap-2 rounded-xl border border-border bg-card px-4 py-3 text-card-foreground transition-all hover:border-primary hover:shadow-md"
-              >
+              <Link key={`${city.countrySlug}-${city.slug}`} to={`/prayer-times/${city.countrySlug}/${city.slug}`} className="flex items-center gap-2 rounded-xl border border-border bg-card px-4 py-3 text-card-foreground transition-all hover:border-primary hover:shadow-md">
                 <MapPin className="h-4 w-4 shrink-0 text-primary" />
-                <span className="text-sm font-semibold">
-                  {lang === 'ar' ? city.nameAr : city.nameEn}
-                </span>
+                <span className="text-sm font-semibold">{lang === 'ar' ? city.nameAr : city.nameEn}</span>
               </Link>
             ))}
           </div>
           <div className="mt-6 text-center">
-            <Link
-              to="/prayer-times"
-              className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              <Globe className="h-4 w-4" />
-              {t('allCountries')}
+            <Link to="/prayer-times" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+              <Globe className="h-4 w-4" />{t('allCountries')}
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Daily Verse */}
+      {/* About Prayer Times - SEO Content */}
       <section className="px-4 py-12">
+        <div className="container mx-auto max-w-3xl">
+          <h2 className="font-heading text-2xl font-bold text-foreground text-center">{t('aboutPrayerTimes')}</h2>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{t('aboutPrayerTimesDesc')}</p>
+          <h3 className="mt-6 font-heading text-lg font-bold text-foreground">{t('whyPrayerTimesImportant')}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t('whyPrayerTimesImportantDesc')}</p>
+        </div>
+      </section>
+
+      {/* Daily Verse */}
+      <section className="bg-emerald-light px-4 py-12">
         <div className="container mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-xl text-primary">{t('dailyVerse')}</h2>
-          <p className="mt-4 font-heading text-2xl leading-relaxed text-foreground" dir="rtl">
-            ﴿ إِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾
-          </p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            "Indeed, with hardship comes ease." — Quran 94:6
-          </p>
+          <p className="mt-4 font-heading text-2xl leading-relaxed text-foreground" dir="rtl">﴿ إِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾</p>
+          <p className="mt-2 text-sm text-muted-foreground">"Indeed, with hardship comes ease." — Quran 94:6</p>
         </div>
       </section>
     </div>
