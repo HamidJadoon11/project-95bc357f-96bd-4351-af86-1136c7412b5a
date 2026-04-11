@@ -65,7 +65,7 @@ export default function Index() {
         <div className="container relative mx-auto text-center">
           <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-1.5 text-sm backdrop-blur-sm">
             <Globe className="h-4 w-4" />
-            <span>{lang === 'ar' ? 'مواقيت صلاة دقيقة لأكثر من 300 مدينة حول العالم' : 'Accurate prayer times for 300+ cities worldwide'}</span>
+            <span>{lang === 'ar' ? 'مواقيت صلاة دقيقة لأكثر من 600 مدينة حول العالم' : 'Accurate prayer times for 600+ cities worldwide'}</span>
           </div>
 
           <h1 className="font-heading text-5xl font-bold text-gold md:text-7xl lg:text-8xl">{t('siteName')}</h1>
@@ -183,7 +183,7 @@ export default function Index() {
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
             {lang === 'ar' ? 'مواقيت الصلاة حسب الدولة' : 'Prayer Times by Country'}
           </h2>
-          <p className="mt-2 text-muted-foreground">{lang === 'ar' ? 'أكثر من 80 دولة و300 مدينة حول العالم' : 'Over 80 countries and 300+ cities worldwide'}</p>
+          <p className="mt-2 text-muted-foreground">{lang === 'ar' ? 'أكثر من 80 دولة و600 مدينة حول العالم' : 'Over 80 countries and 600+ cities worldwide'}</p>
         </div>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
           {topCountries.map(slug => {
