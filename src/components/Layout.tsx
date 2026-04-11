@@ -79,7 +79,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
                 <p className="font-heading text-lg font-bold text-gold">{t('siteName')}</p>
               </div>
-              <p className="text-xs opacity-60 leading-relaxed">{lang === 'ar' ? 'مواقيت الصلاة والأذان الدقيقة لجميع مدن العالم. أكثر من 80 دولة و300 مدينة.' : 'Accurate prayer times and azan times for all cities worldwide. Over 80 countries and 300+ cities.'}</p>
+              <p className="text-xs opacity-60 leading-relaxed">{lang === 'ar' ? 'مواقيت الصلاة والأذان الدقيقة لجميع مدن العالم. أكثر من 80 دولة و600 مدينة.' : 'Accurate prayer times and azan times for all cities worldwide. Over 80 countries and 600+ cities.'}</p>
             </div>
             <div>
               <p className="mb-3 text-sm font-semibold text-gold">{lang === 'ar' ? 'روابط سريعة' : 'Quick Links'}</p>
