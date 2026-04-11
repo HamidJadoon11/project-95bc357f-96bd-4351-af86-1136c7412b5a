@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { Loader2, Moon, ArrowRight, Calendar, Clock, Star } from 'lucide-react';
+import { getPopularCities, GlobalCityData } from '@/data/countries';
+import { Loader2, Moon, ArrowRight, Calendar, Clock, Star, MapPin, BookOpen, Heart, ChevronDown } from 'lucide-react';
 
 const ramadanYears = Array.from({ length: 16 }, (_, i) => 2025 + i);
 
@@ -28,6 +29,17 @@ const ramadanInfo: Record<number, { startEst: string; endEst: string; startEstAr
   2040: { startEst: 'September 18, 2039', endEst: 'October 18, 2039', startEstAr: '18 سبتمبر 2039', endEstAr: '18 أكتوبر 2039' },
 };
 
+const dailyTips = [
+  { en: 'Break your fast with dates and water, following the Sunnah of Prophet Muhammad ﷺ', ar: 'افطر على تمر وماء اتباعاً لسنة النبي محمد ﷺ' },
+  { en: 'Perform Taraweeh prayer every night for immense spiritual reward', ar: 'صلِّ صلاة التراويح كل ليلة لأجر عظيم' },
+  { en: 'Increase Quran recitation — aim to complete it at least once during Ramadan', ar: 'أكثر من تلاوة القرآن الكريم واستهدف ختمه مرة واحدة على الأقل' },
+  { en: 'Give charity generously — rewards are multiplied during Ramadan', ar: 'تصدق بسخاء — الأجر مضاعف في رمضان' },
+  { en: 'Make dua at the time of Iftar — it is among the accepted supplications', ar: 'ادعُ الله عند الإفطار — فهو من أوقات الدعاء المستجاب' },
+  { en: 'Seek Laylat al-Qadr in the odd nights of the last ten days', ar: 'تحرَّ ليلة القدر في الليالي الوترية من العشر الأواخر' },
+  { en: 'Have a nutritious Suhoor — delay it as close to Fajr as possible', ar: 'تناول سحوراً مغذياً وأخّره إلى ما قبيل الفجر' },
+  { en: 'Observe I\'tikaf during the last ten days for spiritual retreat', ar: 'اعتكف في العشر الأواخر لخلوة روحانية' },
+];
+
 export default function RamadanPage() {
   const { year: yearParam } = useParams<{ year: string }>();
   const { lang } = useLanguage();
@@ -36,6 +48,9 @@ export default function RamadanPage() {
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const info = ramadanInfo[year];
+  const popularCities = getPopularCities().slice(0, 12);
+  const [selectedCity, setSelectedCity] = useState<GlobalCityData>(popularCities[2]); // Riyadh default
+  const [showCityPicker, setShowCityPicker] = useState(false);
 
   useEffect(() => {
     document.title = lang === 'ar'
@@ -45,7 +60,9 @@ export default function RamadanPage() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://api.aladhan.com/v1/gpiCalendarByCity/${year}/3?city=Mecca&country=Saudi%20Arabia&method=4`)
+    const city = selectedCity?.nameEn || 'Mecca';
+    const country = selectedCity?.countrySlug === 'saudi-arabia' ? 'Saudi Arabia' : selectedCity?.countrySlug || 'Saudi Arabia';
+    fetch(`https://api.aladhan.com/v1/gpiCalendarByCity/${year}/3?city=${encodeURIComponent(city)}&country=${encodeURIComponent(country)}&method=4`)
       .then(r => r.json())
       .then(res => {
         const ramadanDays = (res.data || []).filter((d: any) => d?.hijri?.month?.number === 9);
@@ -53,14 +70,16 @@ export default function RamadanPage() {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [year]);
+  }, [year, selectedCity]);
+
+  const currentTip = dailyTips[new Date().getDate() % dailyTips.length];
 
   return (
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'WebPage',
         name: `Ramadan ${year} Calendar - Suhoor & Iftar Timetable`,
-        description: `Complete Ramadan ${year} / ${hijriYear} AH calendar with accurate Suhoor, Iftar, and prayer times for Mecca.`,
+        description: `Complete Ramadan ${year} / ${hijriYear} AH calendar with accurate Suhoor, Iftar, and prayer times.`,
         url: `https://mawaqit.app/ramadan/${year}`,
         breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: '/' },
@@ -69,6 +88,7 @@ export default function RamadanPage() {
         ]},
       }) }} />
 
+      {/* Hero */}
       <section className="islamic-pattern hero-gradient px-4 py-14 text-primary-foreground">
         <div className="container mx-auto text-center">
           <Moon className="mx-auto h-12 w-12 text-gold" />
@@ -79,7 +99,7 @@ export default function RamadanPage() {
             {lang === 'ar' ? `رمضان ${hijriYear} هـ` : `Ramadan ${hijriYear} AH`}
           </p>
           <p className="mt-1 text-sm opacity-70">
-            {lang === 'ar' ? 'إمساكية وأوقات السحور والإفطار ومواقيت الصلاة - مكة المكرمة' : 'Suhoor & Iftar Timetable with Prayer Times - Mecca'}
+            {lang === 'ar' ? 'إمساكية وأوقات السحور والإفطار ومواقيت الصلاة' : 'Suhoor & Iftar Timetable with Prayer Times'}
           </p>
         </div>
       </section>
@@ -91,35 +111,117 @@ export default function RamadanPage() {
             <Link
               key={y}
               to={`/ramadan/${y}`}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${y === year ? 'bg-primary text-primary-foreground shadow-md' : 'bg-card text-card-foreground border border-border hover:border-primary hover:bg-muted'}`}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 ${y === year ? 'bg-primary text-primary-foreground shadow-md scale-105' : 'bg-card text-card-foreground border border-border hover:border-primary hover:bg-primary/5 hover:text-primary active:scale-95'}`}
             >
               {y}
             </Link>
           ))}
         </div>
 
+        {/* City Picker */}
+        <div className="mb-6 flex justify-center">
+          <div className="relative">
+            <button
+              onClick={() => setShowCityPicker(!showCityPicker)}
+              className="inline-flex items-center gap-2 rounded-2xl border border-border bg-card px-5 py-3 text-sm font-semibold shadow-sm transition-all hover:border-primary hover:shadow-md active:scale-95"
+            >
+              <MapPin className="h-4 w-4 text-primary" />
+              <span className="text-foreground">{lang === 'ar' ? selectedCity.nameAr : selectedCity.nameEn}</span>
+              <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform ${showCityPicker ? 'rotate-180' : ''}`} />
+            </button>
+            {showCityPicker && (
+              <div className="absolute z-50 mt-2 w-64 rounded-xl border border-border bg-card shadow-xl">
+                <p className="px-4 py-2 text-xs font-semibold text-muted-foreground border-b border-border">
+                  {lang === 'ar' ? 'اختر مدينة' : 'Select a city'}
+                </p>
+                <div className="max-h-60 overflow-y-auto">
+                  {popularCities.map(city => (
+                    <button
+                      key={city.slug}
+                      onClick={() => { setSelectedCity(city); setShowCityPicker(false); }}
+                      className={`flex w-full items-center gap-2 px-4 py-2.5 text-sm transition-colors hover:bg-primary/5 ${selectedCity.slug === city.slug ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}
+                    >
+                      <MapPin className="h-3 w-3 shrink-0 text-primary" />
+                      {lang === 'ar' ? city.nameAr : city.nameEn}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Daily Ramadan Tip */}
+        <div className="mb-8 rounded-2xl border border-gold/30 bg-gold/5 p-5">
+          <div className="flex items-start gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold/10">
+              <Heart className="h-5 w-5 text-gold" />
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-gold">{lang === 'ar' ? 'نصيحة رمضانية' : 'Daily Ramadan Tip'}</p>
+              <p className="mt-1 text-sm text-foreground leading-relaxed">{lang === 'ar' ? currentTip.ar : currentTip.en}</p>
+            </div>
+          </div>
+        </div>
+
         {/* Ramadan Info Cards */}
         {info && (
-          <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-border bg-card p-5 text-center">
+          <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+            <div className="rounded-2xl border border-border bg-card p-5 text-center transition-all hover:shadow-md hover:border-primary/30">
               <Calendar className="mx-auto mb-2 h-6 w-6 text-primary" />
               <p className="text-xs font-semibold text-muted-foreground uppercase">{lang === 'ar' ? 'بداية رمضان (تقديرية)' : 'Ramadan Start (Est.)'}</p>
               <p className="mt-1 font-heading text-lg font-bold text-foreground">{lang === 'ar' ? info.startEstAr : info.startEst}</p>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-5 text-center">
+            <div className="rounded-2xl border border-border bg-card p-5 text-center transition-all hover:shadow-md hover:border-primary/30">
               <Calendar className="mx-auto mb-2 h-6 w-6 text-gold" />
               <p className="text-xs font-semibold text-muted-foreground uppercase">{lang === 'ar' ? 'نهاية رمضان (تقديرية)' : 'Ramadan End (Est.)'}</p>
               <p className="mt-1 font-heading text-lg font-bold text-foreground">{lang === 'ar' ? info.endEstAr : info.endEst}</p>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-5 text-center">
+            <div className="rounded-2xl border border-border bg-card p-5 text-center transition-all hover:shadow-md hover:border-primary/30">
               <Star className="mx-auto mb-2 h-6 w-6 text-gold" />
               <p className="text-xs font-semibold text-muted-foreground uppercase">{lang === 'ar' ? 'السنة الهجرية' : 'Hijri Year'}</p>
               <p className="mt-1 font-heading text-lg font-bold text-foreground">{hijriYear} {lang === 'ar' ? 'هـ' : 'AH'}</p>
             </div>
+            <div className="rounded-2xl border border-border bg-card p-5 text-center transition-all hover:shadow-md hover:border-primary/30">
+              <Clock className="mx-auto mb-2 h-6 w-6 text-primary" />
+              <p className="text-xs font-semibold text-muted-foreground uppercase">{lang === 'ar' ? 'عدد الأيام' : 'Duration'}</p>
+              <p className="mt-1 font-heading text-lg font-bold text-foreground">29-30 {lang === 'ar' ? 'يوم' : 'days'}</p>
+            </div>
           </div>
         )}
 
+        {/* Ramadan Pillars Section */}
+        <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl bg-primary/5 border border-primary/10 p-5 transition-all hover:bg-primary/10">
+            <BookOpen className="h-8 w-8 text-primary mb-3" />
+            <h3 className="font-heading text-lg font-bold text-foreground">{lang === 'ar' ? 'صلاة التراويح' : 'Taraweeh Prayer'}</h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{lang === 'ar'
+              ? 'صلاة نافلة تُؤدى بعد العشاء كل ليلة من ليالي رمضان، ثمان أو عشرون ركعة، وهي سنة مؤكدة عن النبي ﷺ.'
+              : 'A voluntary prayer performed after Isha every night of Ramadan, typically 8 or 20 rak\'ahs. It is a confirmed Sunnah of the Prophet ﷺ.'}</p>
+          </div>
+          <div className="rounded-2xl bg-gold/5 border border-gold/10 p-5 transition-all hover:bg-gold/10">
+            <Star className="h-8 w-8 text-gold mb-3" />
+            <h3 className="font-heading text-lg font-bold text-foreground">{lang === 'ar' ? 'ليلة القدر' : 'Laylat al-Qadr'}</h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{lang === 'ar'
+              ? 'ليلة خير من ألف شهر، تُلتمس في العشر الأواخر من رمضان وخاصة في الليالي الوترية (21، 23، 25، 27، 29).'
+              : 'A night better than a thousand months, sought in the last ten nights of Ramadan, especially the odd nights (21st, 23rd, 25th, 27th, 29th).'}</p>
+          </div>
+          <div className="rounded-2xl bg-primary/5 border border-primary/10 p-5 transition-all hover:bg-primary/10">
+            <Heart className="h-8 w-8 text-primary mb-3" />
+            <h3 className="font-heading text-lg font-bold text-foreground">{lang === 'ar' ? 'زكاة الفطر' : 'Zakat al-Fitr'}</h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{lang === 'ar'
+              ? 'صدقة واجبة على كل مسلم تُخرج قبل صلاة عيد الفطر، وهي طُهرة للصائم من اللغو والرفث.'
+              : 'An obligatory charity due before Eid al-Fitr prayer. It purifies the fasting person from idle talk and is a means to feed the poor.'}</p>
+          </div>
+        </div>
+
         {/* Timetable */}
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="font-heading text-xl font-bold text-foreground">
+            {lang === 'ar' ? `إمساكية رمضان ${year} - ${selectedCity.nameAr}` : `Ramadan ${year} Timetable - ${selectedCity.nameEn}`}
+          </h2>
+        </div>
+
         {loading ? (
           <div className="flex justify-center py-16"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>
         ) : data.length > 0 ? (
@@ -127,24 +229,22 @@ export default function RamadanPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-primary text-primary-foreground">
-                  <th className="px-3 py-3 text-start">{lang === 'ar' ? 'اليوم' : 'Day'}</th>
-                  <th className="px-3 py-3 text-start">{lang === 'ar' ? 'التاريخ الميلادي' : 'Gregorian'}</th>
-                  <th className="px-3 py-3 text-start">{lang === 'ar' ? 'التاريخ الهجري' : 'Hijri'}</th>
-                  <th className="px-3 py-3 text-center">{lang === 'ar' ? 'الإمساك (سحور)' : 'Imsak (Suhoor)'}</th>
-                  <th className="px-3 py-3 text-center">{lang === 'ar' ? 'الفجر' : 'Fajr'}</th>
-                  <th className="px-3 py-3 text-center">{lang === 'ar' ? 'الشروق' : 'Sunrise'}</th>
-                  <th className="px-3 py-3 text-center">{lang === 'ar' ? 'الظهر' : 'Dhuhr'}</th>
-                  <th className="px-3 py-3 text-center">{lang === 'ar' ? 'العصر' : 'Asr'}</th>
-                  <th className="px-3 py-3 text-center font-bold">{lang === 'ar' ? 'المغرب (إفطار)' : 'Maghrib (Iftar)'}</th>
-                  <th className="px-3 py-3 text-center">{lang === 'ar' ? 'العشاء' : 'Isha'}</th>
+                  <th className="px-3 py-3 text-start whitespace-nowrap">{lang === 'ar' ? 'اليوم' : 'Day'}</th>
+                  <th className="px-3 py-3 text-start whitespace-nowrap">{lang === 'ar' ? 'التاريخ' : 'Date'}</th>
+                  <th className="px-3 py-3 text-center whitespace-nowrap">{lang === 'ar' ? 'الإمساك' : 'Imsak'}</th>
+                  <th className="px-3 py-3 text-center whitespace-nowrap">{lang === 'ar' ? 'الفجر' : 'Fajr'}</th>
+                  <th className="px-3 py-3 text-center whitespace-nowrap">{lang === 'ar' ? 'الشروق' : 'Sunrise'}</th>
+                  <th className="px-3 py-3 text-center whitespace-nowrap">{lang === 'ar' ? 'الظهر' : 'Dhuhr'}</th>
+                  <th className="px-3 py-3 text-center whitespace-nowrap">{lang === 'ar' ? 'العصر' : 'Asr'}</th>
+                  <th className="px-3 py-3 text-center font-bold whitespace-nowrap">{lang === 'ar' ? 'المغرب (إفطار)' : 'Maghrib (Iftar)'}</th>
+                  <th className="px-3 py-3 text-center whitespace-nowrap">{lang === 'ar' ? 'العشاء' : 'Isha'}</th>
                 </tr>
               </thead>
               <tbody>
                 {data.map((day: any, i: number) => (
-                  <tr key={i} className={`border-b border-border ${i % 2 === 0 ? 'bg-card' : 'bg-background'}`}>
+                  <tr key={i} className={`border-b border-border transition-colors hover:bg-primary/5 ${i % 2 === 0 ? 'bg-card' : 'bg-background'}`}>
                     <td className="px-3 py-2.5 font-semibold">{day.hijri?.day || i + 1}</td>
-                    <td className="px-3 py-2.5">{day.gregorian?.date}</td>
-                    <td className="px-3 py-2.5 text-gold font-semibold">{day.hijri?.day} {lang === 'ar' ? day.hijri?.month?.ar : day.hijri?.month?.en}</td>
+                    <td className="px-3 py-2.5 text-xs">{day.gregorian?.date}</td>
                     <td className="px-3 py-2.5 text-center font-semibold text-primary">{day.timings?.Imsak?.split(' ')[0]}</td>
                     <td className="px-3 py-2.5 text-center">{day.timings?.Fajr?.split(' ')[0]}</td>
                     <td className="px-3 py-2.5 text-center">{day.timings?.Sunrise?.split(' ')[0]}</td>
@@ -158,7 +258,7 @@ export default function RamadanPage() {
             </table>
           </div>
         ) : (
-          <p className="text-center text-muted-foreground">{lang === 'ar' ? 'لا تتوفر بيانات حالياً' : 'No data available for this year yet.'}</p>
+          <p className="text-center text-muted-foreground py-8">{lang === 'ar' ? 'لا تتوفر بيانات حالياً' : 'No data available for this year yet.'}</p>
         )}
 
         {/* Upcoming Ramadan Calendars */}
@@ -166,12 +266,12 @@ export default function RamadanPage() {
           <h2 className="font-heading text-xl font-bold text-foreground mb-4">
             {lang === 'ar' ? 'تقاويم رمضان القادمة' : 'Upcoming Ramadan Calendars'}
           </h2>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-            {ramadanYears.filter(y => y !== year).slice(0, 8).map(y => {
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+            {ramadanYears.filter(y => y !== year).map(y => {
               const hy = getRamadanHijriYear(y);
               const inf = ramadanInfo[y];
               return (
-                <Link key={y} to={`/ramadan/${y}`} className="group rounded-xl border border-border p-3 transition-all hover:border-primary hover:shadow-md">
+                <Link key={y} to={`/ramadan/${y}`} className="group rounded-xl border border-border p-3 transition-all duration-200 hover:border-primary hover:shadow-md hover:-translate-y-0.5 active:scale-95">
                   <p className="font-heading text-lg font-bold text-foreground group-hover:text-primary">{lang === 'ar' ? `رمضان ${y}` : `Ramadan ${y}`}</p>
                   <p className="text-xs text-gold">{hy} {lang === 'ar' ? 'هـ' : 'AH'}</p>
                   {inf && <p className="mt-1 text-xs text-muted-foreground">{lang === 'ar' ? inf.startEstAr : inf.startEst}</p>}
@@ -181,7 +281,28 @@ export default function RamadanPage() {
           </div>
         </div>
 
-        {/* Ramadan SEO Content */}
+        {/* Ramadan Duas Section */}
+        <div className="mt-10 rounded-2xl bg-card border border-border p-6 shadow-sm">
+          <h2 className="font-heading text-xl font-bold text-foreground mb-4">
+            {lang === 'ar' ? 'أدعية رمضان المأثورة' : 'Essential Ramadan Duas'}
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {[
+              { ar: 'اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي', en: 'O Allah, You are the Pardoner, You love to pardon, so pardon me.', label: { ar: 'دعاء ليلة القدر', en: 'Laylat al-Qadr Dua' } },
+              { ar: 'ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللَّهُ', en: 'The thirst has gone, the veins are moistened, and the reward is confirmed, if Allah wills.', label: { ar: 'دعاء الإفطار', en: 'Iftar Dua' } },
+              { ar: 'اللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ', en: 'O Allah, for You I have fasted and upon Your provision I have broken my fast.', label: { ar: 'دعاء قبل الإفطار', en: 'Before Iftar Dua' } },
+              { ar: 'اللَّهُمَّ بَلِّغْنَا رَمَضَانَ', en: 'O Allah, let us reach Ramadan.', label: { ar: 'دعاء بلوغ رمضان', en: 'Reaching Ramadan Dua' } },
+            ].map((dua, i) => (
+              <div key={i} className="rounded-xl border border-border p-4 transition-all hover:border-primary/30 hover:shadow-sm">
+                <p className="text-xs font-bold uppercase tracking-wider text-primary mb-2">{lang === 'ar' ? dua.label.ar : dua.label.en}</p>
+                <p className="font-heading text-lg text-foreground leading-relaxed">{dua.ar}</p>
+                <p className="mt-2 text-sm text-muted-foreground italic">{dua.en}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SEO Content */}
         <div className="mt-10 space-y-6">
           <div className="rounded-2xl bg-card p-6 shadow-sm">
             <h2 className="font-heading text-xl font-bold text-foreground">
@@ -190,20 +311,16 @@ export default function RamadanPage() {
             <div className="mt-3 space-y-3 text-sm leading-relaxed text-muted-foreground">
               <p>{lang === 'ar'
                 ? `رمضان هو الشهر التاسع في التقويم الهجري الإسلامي، وهو أعظم الشهور عند المسلمين. فُرض صيام رمضان في السنة الثانية للهجرة، وهو الركن الرابع من أركان الإسلام الخمسة. خلال شهر رمضان يمتنع المسلمون عن الطعام والشراب وسائر المفطرات من طلوع الفجر الصادق (وقت السحور) حتى غروب الشمس (وقت الإفطار). نزل القرآن الكريم في شهر رمضان كما قال تعالى: ﴿شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ هُدًى لِّلنَّاسِ وَبَيِّنَاتٍ مِّنَ الْهُدَىٰ وَالْفُرْقَانِ﴾ (البقرة: ١٨٥).`
-                : `Ramadan is the ninth month of the Islamic Hijri calendar and holds the highest significance among all months for Muslims worldwide. Fasting during Ramadan was made obligatory in the second year after Hijrah and constitutes the fourth pillar of Islam. During this blessed month, Muslims abstain from food, drink, and other invalidating acts from the true dawn (Suhoor time) until sunset (Iftar time). The Holy Quran was revealed during Ramadan, as Allah states: "The month of Ramadan in which was revealed the Quran, a guidance for mankind and clear proofs of guidance and criterion" (Quran 2:185).`}
-              </p>
+                : `Ramadan is the ninth month of the Islamic Hijri calendar and holds the highest significance among all months for Muslims worldwide. Fasting during Ramadan was made obligatory in the second year after Hijrah and constitutes the fourth pillar of Islam. During this blessed month, Muslims abstain from food, drink, and other invalidating acts from the true dawn (Suhoor time) until sunset (Iftar time). The Holy Quran was revealed during Ramadan, as Allah states: "The month of Ramadan in which was revealed the Quran, a guidance for mankind and clear proofs of guidance and criterion" (Quran 2:185).`}</p>
               <p>{lang === 'ar'
                 ? `يتميز شهر رمضان ${year} الموافق لرمضان ${hijriYear} هجرية بعدة خصائص روحية عظيمة. من أبرزها ليلة القدر التي هي خير من ألف شهر، وتُلتمس في العشر الأواخر من رمضان. كما يُستحب في رمضان الإكثار من تلاوة القرآن الكريم وصلاة التراويح والقيام والصدقة وإطعام الصائمين. صلاة التراويح هي صلاة نافلة تُؤدى بعد صلاة العشاء في كل ليلة من ليالي رمضان، وعادة ما تكون عشرين أو ثماني ركعات.`
-                : `Ramadan ${year}, corresponding to Ramadan ${hijriYear} AH, carries immense spiritual characteristics. Among the most notable is Laylat al-Qadr (the Night of Power), which is better than a thousand months and is sought during the last ten nights of Ramadan. During Ramadan, Muslims are encouraged to increase their recitation of the Holy Quran, perform Taraweeh prayers, engage in night prayers (Qiyam), give charity, and feed those who are fasting. Taraweeh prayer is a special voluntary prayer performed after Isha prayer every night of Ramadan, typically consisting of eight or twenty rak'ahs (units of prayer).`}
-              </p>
+                : `Ramadan ${year}, corresponding to Ramadan ${hijriYear} AH, carries immense spiritual characteristics. Among the most notable is Laylat al-Qadr (the Night of Power), which is better than a thousand months and is sought during the last ten nights of Ramadan. During Ramadan, Muslims are encouraged to increase their recitation of the Holy Quran, perform Taraweeh prayers, engage in night prayers (Qiyam), give charity, and feed those who are fasting. Taraweeh prayer is a special voluntary prayer performed after Isha prayer every night of Ramadan, typically consisting of eight or twenty rak'ahs (units of prayer).`}</p>
               <p>{lang === 'ar'
-                ? `إمساكية رمضان ${year} توفر مواقيت دقيقة للسحور والإفطار في مكة المكرمة. وقت السحور (الإمساك) هو الوقت الذي يجب أن يتوقف فيه المسلم عن الأكل والشرب قبل أذان الفجر، ويُستحب أن يؤخر المسلم سحوره إلى قبيل الفجر. أما وقت الإفطار فيكون عند غروب الشمس (أذان المغرب)، ويُستحب تعجيل الفطور. من السنة أن يفطر المسلم على تمر وماء قبل أداء صلاة المغرب. تشمل إمساكيتنا أيضاً أوقات جميع الصلوات الخمس خلال شهر رمضان لتسهيل تنظيم العبادات.`
-                : `The Ramadan ${year} timetable provides accurate Suhoor and Iftar times for Mecca. Suhoor (Imsak) time is when Muslims must stop eating and drinking before the Fajr Azan, and it is recommended to delay Suhoor until just before dawn. Iftar time is at sunset (Maghrib Azan), and it is Sunnah to hasten the breaking of the fast. The Prophet Muhammad (peace be upon him) used to break his fast with dates and water before performing Maghrib prayer. Our timetable also includes all five daily prayer times throughout the month of Ramadan to help Muslims organize their worship schedule efficiently. These times are calculated using the Umm Al-Qura method, which is the official method used in Saudi Arabia.`}
-              </p>
+                ? `إمساكية رمضان ${year} توفر مواقيت دقيقة للسحور والإفطار. وقت السحور (الإمساك) هو الوقت الذي يجب أن يتوقف فيه المسلم عن الأكل والشرب قبل أذان الفجر، ويُستحب أن يؤخر المسلم سحوره إلى قبيل الفجر. أما وقت الإفطار فيكون عند غروب الشمس (أذان المغرب)، ويُستحب تعجيل الفطور. من السنة أن يفطر المسلم على تمر وماء قبل أداء صلاة المغرب.`
+                : `The Ramadan ${year} timetable provides accurate Suhoor and Iftar times. Suhoor (Imsak) time is when Muslims must stop eating and drinking before the Fajr Azan, and it is recommended to delay Suhoor until just before dawn. Iftar time is at sunset (Maghrib Azan), and it is Sunnah to hasten the breaking of the fast. The Prophet Muhammad (peace be upon him) used to break his fast with dates and water before performing Maghrib prayer.`}</p>
               <p>{lang === 'ar'
                 ? `من الأعمال المستحبة في رمضان: صلاة التراويح، وختم القرآن الكريم، والاعتكاف في العشر الأواخر، وزكاة الفطر التي تجب على كل مسلم قبل صلاة عيد الفطر. كما يحرص المسلمون على إطعام المساكين وتفطير الصائمين طلباً للأجر العظيم. قال النبي ﷺ: «من فطّر صائماً كان له مثل أجره» (رواه الترمذي). نسأل الله أن يبلغنا رمضان ${year} وأن يتقبل صيامنا وقيامنا.`
-                : `Recommended acts during Ramadan include: performing Taraweeh prayers, completing the recitation of the entire Quran, observing I'tikaf (spiritual retreat) during the last ten days, and paying Zakat al-Fitr which is obligatory on every Muslim before Eid al-Fitr prayer. Muslims also strive to feed the poor and provide Iftar meals to those fasting, seeking great reward from Allah. The Prophet Muhammad (peace be upon him) said: "Whoever provides Iftar for a fasting person will have a reward similar to his" (Tirmidhi). May Allah grant us the blessing of reaching Ramadan ${year} and accept our fasting and prayers.`}
-              </p>
+                : `Recommended acts during Ramadan include: performing Taraweeh prayers, completing the recitation of the entire Quran, observing I'tikaf (spiritual retreat) during the last ten days, and paying Zakat al-Fitr which is obligatory on every Muslim before Eid al-Fitr prayer. Muslims also strive to feed the poor and provide Iftar meals to those fasting, seeking great reward from Allah. The Prophet Muhammad (peace be upon him) said: "Whoever provides Iftar for a fasting person will have a reward similar to his" (Tirmidhi). May Allah grant us the blessing of reaching Ramadan ${year} and accept our fasting and prayers.`}</p>
             </div>
           </div>
 
@@ -213,9 +330,11 @@ export default function RamadanPage() {
             </h2>
             <div className="mt-3 space-y-3 text-sm leading-relaxed text-muted-foreground">
               <p>{lang === 'ar'
-                ? '١. تأخير السحور: يُستحب أن يؤخر المسلم سحوره إلى آخر الليل قبل أذان الفجر مباشرة. قال النبي ﷺ: «تسحروا فإن في السحور بركة» (متفق عليه). ٢. تعجيل الفطور: من السنة الإفطار فور غروب الشمس وعدم تأخيره. ٣. الدعاء عند الإفطار: من أوقات إجابة الدعاء عند الإفطار. ٤. صلاة التراويح: المحافظة على صلاة التراويح كل ليلة في المسجد أو المنزل. ٥. قراءة القرآن: الإكثار من تلاوة القرآن ومحاولة ختمه مرة على الأقل خلال الشهر.'
-                : '1. Delay Suhoor: It is recommended to have Suhoor as late as possible, just before the Fajr Azan. The Prophet (PBUH) said: "Have Suhoor, for in Suhoor there is blessing" (Bukhari & Muslim). 2. Hasten Iftar: It is Sunnah to break the fast immediately at sunset without delay. 3. Dua at Iftar: The time of breaking the fast is among the times when supplications are answered. 4. Taraweeh Prayer: Maintain Taraweeh prayer every night in the mosque or at home. 5. Quran Recitation: Increase recitation of the Holy Quran and try to complete at least one full reading during the month.'}
-              </p>
+                ? 'للاستفادة القصوى من شهر رمضان، ننصح بتنظيم وقتك بين العبادة والعمل والراحة. حافظ على السحور المتأخر لأنه سنة مؤكدة وفيه بركة. أكثر من الاستغفار وذكر الله في جميع الأوقات، واجعل لنفسك ورداً يومياً من القرآن الكريم. لا تنسَ حقوق الجار والفقير في هذا الشهر الكريم.'
+                : 'To make the most of Ramadan, organize your time between worship, work, and rest. Maintain a late Suhoor as it is a confirmed Sunnah with blessings. Increase your remembrance of Allah and Istighfar throughout the day, and set a daily Quran reading schedule. Remember the rights of neighbors and the less fortunate during this blessed month.'}</p>
+              <p>{lang === 'ar'
+                ? 'اهتم بصحتك خلال الصيام بتناول سحور متوازن يحتوي على البروتين والألياف والكربوهيدرات المعقدة. اشرب كميات كافية من الماء بين الإفطار والسحور. تجنب الإفراط في الطعام عند الإفطار وابدأ بالتمر والماء ثم صلِّ المغرب قبل تناول الوجبة الرئيسية.'
+                : 'Take care of your health during fasting by having a balanced Suhoor with protein, fiber, and complex carbohydrates. Drink enough water between Iftar and Suhoor. Avoid overeating at Iftar — start with dates and water, pray Maghrib, then have your main meal.'}</p>
             </div>
           </div>
         </div>
