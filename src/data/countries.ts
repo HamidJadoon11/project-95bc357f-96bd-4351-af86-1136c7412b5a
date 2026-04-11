@@ -540,6 +540,467 @@ export const globalCities: GlobalCityData[] = [
 
   // ======= BRUNEI =======
   { slug: 'bandar-seri-begawan', slugAr: 'بندر-سري-بيغاوان', nameEn: 'Bandar Seri Begawan', nameAr: 'بندر سري بيغاوان', countrySlug: 'brunei', lat: 4.9031, lng: 114.9398 },
+
+  // ======= MORE EGYPT =======
+  { slug: 'ismailia', slugAr: 'الاسماعيلية', nameEn: 'Ismailia', nameAr: 'الإسماعيلية', countrySlug: 'egypt', lat: 30.5965, lng: 32.2715 },
+  { slug: 'zagazig', slugAr: 'الزقازيق', nameEn: 'Zagazig', nameAr: 'الزقازيق', countrySlug: 'egypt', lat: 30.5877, lng: 31.5020 },
+  { slug: 'minya', slugAr: 'المنيا', nameEn: 'Minya', nameAr: 'المنيا', countrySlug: 'egypt', lat: 28.1099, lng: 30.7503 },
+  { slug: 'asyut', slugAr: 'اسيوط', nameEn: 'Asyut', nameAr: 'أسيوط', countrySlug: 'egypt', lat: 27.1783, lng: 31.1859 },
+  { slug: 'faiyum', slugAr: 'الفيوم', nameEn: 'Faiyum', nameAr: 'الفيوم', countrySlug: 'egypt', lat: 29.3084, lng: 30.8441 },
+  { slug: 'beni-suef', slugAr: 'بني-سويف', nameEn: 'Beni Suef', nameAr: 'بني سويف', countrySlug: 'egypt', lat: 29.0661, lng: 31.0994 },
+  { slug: 'sohag', slugAr: 'سوهاج', nameEn: 'Sohag', nameAr: 'سوهاج', countrySlug: 'egypt', lat: 26.5591, lng: 31.6948 },
+  { slug: 'qena', slugAr: 'قنا', nameEn: 'Qena', nameAr: 'قنا', countrySlug: 'egypt', lat: 26.1551, lng: 32.7160 },
+  { slug: 'damanhur', slugAr: 'دمنهور', nameEn: 'Damanhur', nameAr: 'دمنهور', countrySlug: 'egypt', lat: 31.0409, lng: 30.4714 },
+  { slug: 'hurghada', slugAr: 'الغردقة', nameEn: 'Hurghada', nameAr: 'الغردقة', countrySlug: 'egypt', lat: 27.2579, lng: 33.8116 },
+
+  // ======= MORE JORDAN =======
+  { slug: 'mafraq', slugAr: 'المفرق', nameEn: 'Mafraq', nameAr: 'المفرق', countrySlug: 'jordan', lat: 32.3422, lng: 36.2078 },
+  { slug: 'madaba', slugAr: 'مادبا', nameEn: 'Madaba', nameAr: 'مادبا', countrySlug: 'jordan', lat: 31.7160, lng: 35.7939 },
+  { slug: 'karak', slugAr: 'الكرك', nameEn: 'Karak', nameAr: 'الكرك', countrySlug: 'jordan', lat: 31.1854, lng: 35.7048 },
+  { slug: 'ajloun', slugAr: 'عجلون', nameEn: 'Ajloun', nameAr: 'عجلون', countrySlug: 'jordan', lat: 32.3325, lng: 35.7516 },
+  { slug: 'jerash', slugAr: 'جرش', nameEn: 'Jerash', nameAr: 'جرش', countrySlug: 'jordan', lat: 32.2747, lng: 35.8961 },
+  { slug: 'maan', slugAr: 'معان', nameEn: "Ma'an", nameAr: 'معان', countrySlug: 'jordan', lat: 30.1962, lng: 35.7341 },
+
+  // ======= MORE IRAQ =======
+  { slug: 'kirkuk', slugAr: 'كركوك', nameEn: 'Kirkuk', nameAr: 'كركوك', countrySlug: 'iraq', lat: 35.4681, lng: 44.3922 },
+  { slug: 'hillah', slugAr: 'الحلة', nameEn: 'Hillah', nameAr: 'الحلة', countrySlug: 'iraq', lat: 32.4637, lng: 44.4199 },
+  { slug: 'nasiriyah', slugAr: 'الناصرية', nameEn: 'Nasiriyah', nameAr: 'الناصرية', countrySlug: 'iraq', lat: 31.0439, lng: 46.2581 },
+  { slug: 'duhok', slugAr: 'دهوك', nameEn: 'Duhok', nameAr: 'دهوك', countrySlug: 'iraq', lat: 36.8671, lng: 42.9503 },
+  { slug: 'ramadi', slugAr: 'الرمادي', nameEn: 'Ramadi', nameAr: 'الرمادي', countrySlug: 'iraq', lat: 33.4258, lng: 43.3119 },
+  { slug: 'samarra', slugAr: 'سامراء', nameEn: 'Samarra', nameAr: 'سامراء', countrySlug: 'iraq', lat: 34.1980, lng: 43.8746 },
+  { slug: 'tikrit', slugAr: 'تكريت', nameEn: 'Tikrit', nameAr: 'تكريت', countrySlug: 'iraq', lat: 34.6097, lng: 43.6810 },
+  { slug: 'kut', slugAr: 'الكوت', nameEn: 'Kut', nameAr: 'الكوت', countrySlug: 'iraq', lat: 32.4929, lng: 45.8317 },
+
+  // ======= MORE SYRIA =======
+  { slug: 'hama', slugAr: 'حماة', nameEn: 'Hama', nameAr: 'حماة', countrySlug: 'syria', lat: 35.1318, lng: 36.7514 },
+  { slug: 'deir-ez-zor', slugAr: 'دير-الزور', nameEn: 'Deir ez-Zor', nameAr: 'دير الزور', countrySlug: 'syria', lat: 35.3354, lng: 40.1396 },
+  { slug: 'raqqa', slugAr: 'الرقة', nameEn: 'Raqqa', nameAr: 'الرقة', countrySlug: 'syria', lat: 35.9594, lng: 39.0100 },
+  { slug: 'tartus', slugAr: 'طرطوس', nameEn: 'Tartus', nameAr: 'طرطوس', countrySlug: 'syria', lat: 34.8959, lng: 35.8867 },
+  { slug: 'idlib', slugAr: 'ادلب', nameEn: 'Idlib', nameAr: 'إدلب', countrySlug: 'syria', lat: 35.9306, lng: 36.6339 },
+
+  // ======= MORE LEBANON =======
+  { slug: 'tyre', slugAr: 'صور', nameEn: 'Tyre', nameAr: 'صور', countrySlug: 'lebanon', lat: 33.2705, lng: 35.1956 },
+  { slug: 'baalbek', slugAr: 'بعلبك', nameEn: 'Baalbek', nameAr: 'بعلبك', countrySlug: 'lebanon', lat: 34.0047, lng: 36.2110 },
+  { slug: 'jounieh', slugAr: 'جونية', nameEn: 'Jounieh', nameAr: 'جونية', countrySlug: 'lebanon', lat: 33.9806, lng: 35.6178 },
+  { slug: 'zahle', slugAr: 'زحلة', nameEn: 'Zahle', nameAr: 'زحلة', countrySlug: 'lebanon', lat: 33.8467, lng: 35.9022 },
+
+  // ======= MORE PALESTINE =======
+  { slug: 'bethlehem', slugAr: 'بيت-لحم', nameEn: 'Bethlehem', nameAr: 'بيت لحم', countrySlug: 'palestine', lat: 31.7054, lng: 35.2024 },
+  { slug: 'jenin', slugAr: 'جنين', nameEn: 'Jenin', nameAr: 'جنين', countrySlug: 'palestine', lat: 32.4610, lng: 35.2955 },
+  { slug: 'tulkarm', slugAr: 'طولكرم', nameEn: 'Tulkarm', nameAr: 'طولكرم', countrySlug: 'palestine', lat: 32.3104, lng: 35.0286 },
+  { slug: 'qalqilya', slugAr: 'قلقيلية', nameEn: 'Qalqilya', nameAr: 'قلقيلية', countrySlug: 'palestine', lat: 32.1892, lng: 34.9703 },
+  { slug: 'jericho', slugAr: 'اريحا', nameEn: 'Jericho', nameAr: 'أريحا', countrySlug: 'palestine', lat: 31.8611, lng: 35.4628 },
+
+  // ======= MORE YEMEN =======
+  { slug: 'ibb', slugAr: 'اب', nameEn: 'Ibb', nameAr: 'إب', countrySlug: 'yemen', lat: 13.9759, lng: 44.1709 },
+  { slug: 'dhamar', slugAr: 'ذمار', nameEn: 'Dhamar', nameAr: 'ذمار', countrySlug: 'yemen', lat: 14.5425, lng: 44.4050 },
+  { slug: 'mukalla', slugAr: 'المكلا', nameEn: 'Mukalla', nameAr: 'المكلا', countrySlug: 'yemen', lat: 14.5427, lng: 49.1242 },
+  { slug: 'sayun', slugAr: 'سيئون', nameEn: 'Sayun', nameAr: 'سيئون', countrySlug: 'yemen', lat: 15.9425, lng: 48.7900 },
+  { slug: 'hajjah', slugAr: 'حجة', nameEn: 'Hajjah', nameAr: 'حجة', countrySlug: 'yemen', lat: 15.6914, lng: 43.5975 },
+  { slug: 'amran', slugAr: 'عمران', nameEn: 'Amran', nameAr: 'عمران', countrySlug: 'yemen', lat: 15.6594, lng: 43.9436 },
+
+  // ======= MORE MOROCCO =======
+  { slug: 'meknes', slugAr: 'مكناس', nameEn: 'Meknes', nameAr: 'مكناس', countrySlug: 'morocco', lat: 33.8731, lng: -5.5407 },
+  { slug: 'oujda', slugAr: 'وجدة', nameEn: 'Oujda', nameAr: 'وجدة', countrySlug: 'morocco', lat: 34.6814, lng: -1.9086 },
+  { slug: 'kenitra', slugAr: 'القنيطرة', nameEn: 'Kenitra', nameAr: 'القنيطرة', countrySlug: 'morocco', lat: 34.2610, lng: -6.5802 },
+  { slug: 'tetouan', slugAr: 'تطوان', nameEn: 'Tetouan', nameAr: 'تطوان', countrySlug: 'morocco', lat: 35.5889, lng: -5.3626 },
+  { slug: 'nador', slugAr: 'الناظور', nameEn: 'Nador', nameAr: 'الناظور', countrySlug: 'morocco', lat: 35.1681, lng: -2.9335 },
+  { slug: 'safi', slugAr: 'اسفي', nameEn: 'Safi', nameAr: 'آسفي', countrySlug: 'morocco', lat: 32.3008, lng: -9.2272 },
+  { slug: 'beni-mellal', slugAr: 'بني-ملال', nameEn: 'Beni Mellal', nameAr: 'بني ملال', countrySlug: 'morocco', lat: 32.3373, lng: -6.3498 },
+  { slug: 'el-jadida', slugAr: 'الجديدة', nameEn: 'El Jadida', nameAr: 'الجديدة', countrySlug: 'morocco', lat: 33.2316, lng: -8.5007 },
+
+  // ======= MORE ALGERIA =======
+  { slug: 'blida', slugAr: 'البليدة', nameEn: 'Blida', nameAr: 'البليدة', countrySlug: 'algeria', lat: 36.4694, lng: 2.8292 },
+  { slug: 'batna', slugAr: 'باتنة', nameEn: 'Batna', nameAr: 'باتنة', countrySlug: 'algeria', lat: 35.5597, lng: 6.1744 },
+  { slug: 'djelfa', slugAr: 'الجلفة', nameEn: 'Djelfa', nameAr: 'الجلفة', countrySlug: 'algeria', lat: 34.6704, lng: 3.2500 },
+  { slug: 'biskra', slugAr: 'بسكرة', nameEn: 'Biskra', nameAr: 'بسكرة', countrySlug: 'algeria', lat: 34.8449, lng: 5.7283 },
+  { slug: 'tlemcen', slugAr: 'تلمسان', nameEn: 'Tlemcen', nameAr: 'تلمسان', countrySlug: 'algeria', lat: 34.8828, lng: -1.3167 },
+  { slug: 'bejaia', slugAr: 'بجاية', nameEn: 'Bejaia', nameAr: 'بجاية', countrySlug: 'algeria', lat: 36.7500, lng: 5.0833 },
+  { slug: 'tizi-ouzou', slugAr: 'تيزي-وزو', nameEn: 'Tizi Ouzou', nameAr: 'تيزي وزو', countrySlug: 'algeria', lat: 36.7169, lng: 4.0497 },
+  { slug: 'skikda', slugAr: 'سكيكدة', nameEn: 'Skikda', nameAr: 'سكيكدة', countrySlug: 'algeria', lat: 36.8764, lng: 6.9064 },
+
+  // ======= MORE TUNISIA =======
+  { slug: 'kairouan', slugAr: 'القيروان', nameEn: 'Kairouan', nameAr: 'القيروان', countrySlug: 'tunisia', lat: 35.6781, lng: 10.0963 },
+  { slug: 'bizerte', slugAr: 'بنزرت', nameEn: 'Bizerte', nameAr: 'بنزرت', countrySlug: 'tunisia', lat: 37.2744, lng: 9.8739 },
+  { slug: 'gabes', slugAr: 'قابس', nameEn: 'Gabes', nameAr: 'قابس', countrySlug: 'tunisia', lat: 33.8815, lng: 10.0982 },
+  { slug: 'monastir', slugAr: 'المنستير', nameEn: 'Monastir', nameAr: 'المنستير', countrySlug: 'tunisia', lat: 35.7643, lng: 10.8113 },
+  { slug: 'nabeul', slugAr: 'نابل', nameEn: 'Nabeul', nameAr: 'نابل', countrySlug: 'tunisia', lat: 36.4561, lng: 10.7376 },
+
+  // ======= MORE LIBYA =======
+  { slug: 'sebha', slugAr: 'سبها', nameEn: 'Sebha', nameAr: 'سبها', countrySlug: 'libya', lat: 27.0377, lng: 14.4283 },
+  { slug: 'zawiya', slugAr: 'الزاوية', nameEn: 'Zawiya', nameAr: 'الزاوية', countrySlug: 'libya', lat: 32.7522, lng: 12.7278 },
+  { slug: 'zliten', slugAr: 'زليتن', nameEn: 'Zliten', nameAr: 'زليتن', countrySlug: 'libya', lat: 32.4674, lng: 14.5687 },
+  { slug: 'tobruk', slugAr: 'طبرق', nameEn: 'Tobruk', nameAr: 'طبرق', countrySlug: 'libya', lat: 32.0836, lng: 23.9764 },
+
+  // ======= MORE SUDAN =======
+  { slug: 'kassala', slugAr: 'كسلا', nameEn: 'Kassala', nameAr: 'كسلا', countrySlug: 'sudan', lat: 15.4516, lng: 36.4000 },
+  { slug: 'al-obeid', slugAr: 'الابيض', nameEn: 'Al Obeid', nameAr: 'الأبيض', countrySlug: 'sudan', lat: 13.1833, lng: 30.2167 },
+  { slug: 'wad-madani', slugAr: 'ود-مدني', nameEn: 'Wad Madani', nameAr: 'ود مدني', countrySlug: 'sudan', lat: 14.4012, lng: 33.5199 },
+  { slug: 'nyala', slugAr: 'نيالا', nameEn: 'Nyala', nameAr: 'نيالا', countrySlug: 'sudan', lat: 12.0489, lng: 24.8816 },
+  { slug: 'el-fasher', slugAr: 'الفاشر', nameEn: 'El Fasher', nameAr: 'الفاشر', countrySlug: 'sudan', lat: 13.6292, lng: 25.3489 },
+
+  // ======= MORE PAKISTAN =======
+  { slug: 'hyderabad-pk', slugAr: 'حيدر-اباد-باكستان', nameEn: 'Hyderabad', nameAr: 'حيدر آباد', countrySlug: 'pakistan', lat: 25.3960, lng: 68.3578 },
+  { slug: 'gujranwala', slugAr: 'غوجرانوالا', nameEn: 'Gujranwala', nameAr: 'غوجرانوالا', countrySlug: 'pakistan', lat: 32.1877, lng: 74.1945 },
+  { slug: 'sialkot', slugAr: 'سيالكوت', nameEn: 'Sialkot', nameAr: 'سيالكوت', countrySlug: 'pakistan', lat: 32.4945, lng: 74.5229 },
+  { slug: 'bahawalpur', slugAr: 'بهاوالبور', nameEn: 'Bahawalpur', nameAr: 'بهاوالبور', countrySlug: 'pakistan', lat: 29.3544, lng: 71.6911 },
+  { slug: 'sargodha', slugAr: 'سرغودها', nameEn: 'Sargodha', nameAr: 'سرغودها', countrySlug: 'pakistan', lat: 32.0836, lng: 72.6711 },
+  { slug: 'sukkur', slugAr: 'سكر', nameEn: 'Sukkur', nameAr: 'سكر', countrySlug: 'pakistan', lat: 27.7052, lng: 68.8574 },
+  { slug: 'larkana', slugAr: 'لاركانا', nameEn: 'Larkana', nameAr: 'لاركانا', countrySlug: 'pakistan', lat: 27.5570, lng: 68.2141 },
+  { slug: 'mardan', slugAr: 'ماردان', nameEn: 'Mardan', nameAr: 'ماردان', countrySlug: 'pakistan', lat: 34.1989, lng: 72.0489 },
+  { slug: 'mingora', slugAr: 'مينغورا', nameEn: 'Mingora', nameAr: 'مينغورا', countrySlug: 'pakistan', lat: 34.7717, lng: 72.3600 },
+  { slug: 'dera-ghazi-khan', slugAr: 'ديرة-غازي-خان', nameEn: 'Dera Ghazi Khan', nameAr: 'ديرة غازي خان', countrySlug: 'pakistan', lat: 30.0489, lng: 70.6400 },
+  { slug: 'sahiwal', slugAr: 'ساهيوال', nameEn: 'Sahiwal', nameAr: 'ساهيوال', countrySlug: 'pakistan', lat: 30.6682, lng: 73.1114 },
+  { slug: 'okara', slugAr: 'اوكارا', nameEn: 'Okara', nameAr: 'أوكارا', countrySlug: 'pakistan', lat: 30.8081, lng: 73.4597 },
+
+  // ======= MORE INDIA =======
+  { slug: 'jaipur', slugAr: 'جايبور', nameEn: 'Jaipur', nameAr: 'جايبور', countrySlug: 'india', lat: 26.9124, lng: 75.7873 },
+  { slug: 'pune', slugAr: 'بونة', nameEn: 'Pune', nameAr: 'بونة', countrySlug: 'india', lat: 18.5204, lng: 73.8567 },
+  { slug: 'surat', slugAr: 'سورات', nameEn: 'Surat', nameAr: 'سورات', countrySlug: 'india', lat: 21.1702, lng: 72.8311 },
+  { slug: 'nagpur', slugAr: 'ناغبور', nameEn: 'Nagpur', nameAr: 'ناغبور', countrySlug: 'india', lat: 21.1458, lng: 79.0882 },
+  { slug: 'patna', slugAr: 'باتنا', nameEn: 'Patna', nameAr: 'باتنا', countrySlug: 'india', lat: 25.6093, lng: 85.1376 },
+  { slug: 'bhopal', slugAr: 'بوبال', nameEn: 'Bhopal', nameAr: 'بوبال', countrySlug: 'india', lat: 23.2599, lng: 77.4126 },
+  { slug: 'indore', slugAr: 'اندور', nameEn: 'Indore', nameAr: 'إندور', countrySlug: 'india', lat: 22.7196, lng: 75.8577 },
+  { slug: 'kanpur', slugAr: 'كانبور', nameEn: 'Kanpur', nameAr: 'كانبور', countrySlug: 'india', lat: 26.4499, lng: 80.3319 },
+  { slug: 'varanasi', slugAr: 'فاراناسي', nameEn: 'Varanasi', nameAr: 'فاراناسي', countrySlug: 'india', lat: 25.3176, lng: 82.9739 },
+  { slug: 'aligarh', slugAr: 'عليكره', nameEn: 'Aligarh', nameAr: 'عليكره', countrySlug: 'india', lat: 27.8974, lng: 78.0880 },
+  { slug: 'kozhikode', slugAr: 'كوزيكود', nameEn: 'Kozhikode', nameAr: 'كوزيكود', countrySlug: 'india', lat: 11.2588, lng: 75.7804 },
+  { slug: 'coimbatore', slugAr: 'كويمباتور', nameEn: 'Coimbatore', nameAr: 'كويمباتور', countrySlug: 'india', lat: 11.0168, lng: 76.9558 },
+  { slug: 'kochi', slugAr: 'كوتشي', nameEn: 'Kochi', nameAr: 'كوتشي', countrySlug: 'india', lat: 9.9312, lng: 76.2673 },
+  { slug: 'agra', slugAr: 'اغرا', nameEn: 'Agra', nameAr: 'أغرا', countrySlug: 'india', lat: 27.1767, lng: 78.0081 },
+
+  // ======= MORE BANGLADESH =======
+  { slug: 'khulna', slugAr: 'خولنا', nameEn: 'Khulna', nameAr: 'خولنا', countrySlug: 'bangladesh', lat: 22.8456, lng: 89.5403 },
+  { slug: 'rangpur', slugAr: 'رانغبور', nameEn: 'Rangpur', nameAr: 'رانغبور', countrySlug: 'bangladesh', lat: 25.7439, lng: 89.2752 },
+  { slug: 'barisal', slugAr: 'باريسال', nameEn: 'Barisal', nameAr: 'باريسال', countrySlug: 'bangladesh', lat: 22.7010, lng: 90.3535 },
+  { slug: 'comilla', slugAr: 'كوميلا', nameEn: 'Comilla', nameAr: 'كوميلا', countrySlug: 'bangladesh', lat: 23.4607, lng: 91.1809 },
+  { slug: 'mymensingh', slugAr: 'ماي-مينسينغ', nameEn: 'Mymensingh', nameAr: 'ماي مينسينغ', countrySlug: 'bangladesh', lat: 24.7471, lng: 90.4203 },
+  { slug: 'gazipur', slugAr: 'غازيبور', nameEn: 'Gazipur', nameAr: 'غازيبور', countrySlug: 'bangladesh', lat: 23.9999, lng: 90.4203 },
+
+  // ======= MORE AFGHANISTAN =======
+  { slug: 'kandahar', slugAr: 'قندهار', nameEn: 'Kandahar', nameAr: 'قندهار', countrySlug: 'afghanistan', lat: 31.6133, lng: 65.7101 },
+  { slug: 'jalalabad', slugAr: 'جلال-اباد', nameEn: 'Jalalabad', nameAr: 'جلال آباد', countrySlug: 'afghanistan', lat: 34.4312, lng: 70.4478 },
+  { slug: 'kunduz', slugAr: 'قندوز', nameEn: 'Kunduz', nameAr: 'قندوز', countrySlug: 'afghanistan', lat: 36.7280, lng: 68.8680 },
+  { slug: 'balkh', slugAr: 'بلخ', nameEn: 'Balkh', nameAr: 'بلخ', countrySlug: 'afghanistan', lat: 36.7583, lng: 66.8972 },
+  { slug: 'ghazni', slugAr: 'غزني', nameEn: 'Ghazni', nameAr: 'غزني', countrySlug: 'afghanistan', lat: 33.5536, lng: 68.4269 },
+
+  // ======= MORE SRI LANKA =======
+  { slug: 'kandy', slugAr: 'كاندي', nameEn: 'Kandy', nameAr: 'كاندي', countrySlug: 'sri-lanka', lat: 7.2906, lng: 80.6337 },
+  { slug: 'galle', slugAr: 'غالي', nameEn: 'Galle', nameAr: 'غالي', countrySlug: 'sri-lanka', lat: 6.0535, lng: 80.2210 },
+  { slug: 'batticaloa', slugAr: 'باتيكالوا', nameEn: 'Batticaloa', nameAr: 'باتيكالوا', countrySlug: 'sri-lanka', lat: 7.7310, lng: 81.6924 },
+
+  // ======= MORE INDONESIA =======
+  { slug: 'makassar', slugAr: 'ماكاسار', nameEn: 'Makassar', nameAr: 'ماكاسار', countrySlug: 'indonesia', lat: -5.1477, lng: 119.4327 },
+  { slug: 'palembang', slugAr: 'باليمبانغ', nameEn: 'Palembang', nameAr: 'باليمبانغ', countrySlug: 'indonesia', lat: -2.9761, lng: 104.7754 },
+  { slug: 'denpasar', slugAr: 'دينباسار', nameEn: 'Denpasar', nameAr: 'دينباسار', countrySlug: 'indonesia', lat: -8.6705, lng: 115.2126 },
+  { slug: 'padang', slugAr: 'بادانغ', nameEn: 'Padang', nameAr: 'بادانغ', countrySlug: 'indonesia', lat: -0.9471, lng: 100.4172 },
+  { slug: 'pekanbaru', slugAr: 'بيكانبارو', nameEn: 'Pekanbaru', nameAr: 'بيكانبارو', countrySlug: 'indonesia', lat: 0.5071, lng: 101.4478 },
+  { slug: 'banjarmasin', slugAr: 'بنجرماسين', nameEn: 'Banjarmasin', nameAr: 'بنجرماسين', countrySlug: 'indonesia', lat: -3.3186, lng: 114.5944 },
+  { slug: 'balikpapan', slugAr: 'باليكبابان', nameEn: 'Balikpapan', nameAr: 'باليكبابان', countrySlug: 'indonesia', lat: -1.2654, lng: 116.8312 },
+  { slug: 'pontianak', slugAr: 'بونتياناك', nameEn: 'Pontianak', nameAr: 'بونتياناك', countrySlug: 'indonesia', lat: -0.0263, lng: 109.3425 },
+  { slug: 'manado', slugAr: 'مانادو', nameEn: 'Manado', nameAr: 'مانادو', countrySlug: 'indonesia', lat: 1.4748, lng: 124.8421 },
+  { slug: 'aceh', slugAr: 'اتشيه', nameEn: 'Banda Aceh', nameAr: 'بندا آتشيه', countrySlug: 'indonesia', lat: 5.5483, lng: 95.3238 },
+
+  // ======= MORE MALAYSIA =======
+  { slug: 'ipoh', slugAr: 'ايبوه', nameEn: 'Ipoh', nameAr: 'إيبوه', countrySlug: 'malaysia', lat: 4.5975, lng: 101.0901 },
+  { slug: 'kuching', slugAr: 'كوتشينغ', nameEn: 'Kuching', nameAr: 'كوتشينغ', countrySlug: 'malaysia', lat: 1.5497, lng: 110.3634 },
+  { slug: 'melaka', slugAr: 'ملقا', nameEn: 'Melaka', nameAr: 'ملقا', countrySlug: 'malaysia', lat: 2.1896, lng: 102.2501 },
+  { slug: 'shah-alam', slugAr: 'شاه-علم', nameEn: 'Shah Alam', nameAr: 'شاه علم', countrySlug: 'malaysia', lat: 3.0738, lng: 101.5183 },
+  { slug: 'kuantan', slugAr: 'كوانتان', nameEn: 'Kuantan', nameAr: 'كوانتان', countrySlug: 'malaysia', lat: 3.8077, lng: 103.3260 },
+  { slug: 'alor-setar', slugAr: 'الور-ستار', nameEn: 'Alor Setar', nameAr: 'ألور ستار', countrySlug: 'malaysia', lat: 6.1248, lng: 100.3682 },
+
+  // ======= MORE TURKEY =======
+  { slug: 'adana', slugAr: 'ادنة', nameEn: 'Adana', nameAr: 'أدنة', countrySlug: 'turkey', lat: 37.0000, lng: 35.3213 },
+  { slug: 'gaziantep', slugAr: 'غازي-عنتاب', nameEn: 'Gaziantep', nameAr: 'غازي عنتاب', countrySlug: 'turkey', lat: 37.0662, lng: 37.3833 },
+  { slug: 'mersin', slugAr: 'مرسين', nameEn: 'Mersin', nameAr: 'مرسين', countrySlug: 'turkey', lat: 36.8121, lng: 34.6415 },
+  { slug: 'kayseri', slugAr: 'قيصرية', nameEn: 'Kayseri', nameAr: 'قيصرية', countrySlug: 'turkey', lat: 38.7312, lng: 35.4787 },
+  { slug: 'diyarbakir', slugAr: 'ديار-بكر', nameEn: 'Diyarbakir', nameAr: 'ديار بكر', countrySlug: 'turkey', lat: 37.9250, lng: 40.2110 },
+  { slug: 'eskisehir', slugAr: 'اسكي-شهر', nameEn: 'Eskisehir', nameAr: 'إسكي شهر', countrySlug: 'turkey', lat: 39.7767, lng: 30.5206 },
+  { slug: 'trabzon', slugAr: 'طرابزون', nameEn: 'Trabzon', nameAr: 'طرابزون', countrySlug: 'turkey', lat: 41.0027, lng: 39.7168 },
+  { slug: 'samsun', slugAr: 'سامسون', nameEn: 'Samsun', nameAr: 'سامسون', countrySlug: 'turkey', lat: 41.2867, lng: 36.3300 },
+  { slug: 'malatya', slugAr: 'ملاطية', nameEn: 'Malatya', nameAr: 'ملاطية', countrySlug: 'turkey', lat: 38.3554, lng: 38.3335 },
+  { slug: 'sanliurfa', slugAr: 'شانلي-اورفا', nameEn: 'Sanliurfa', nameAr: 'شانلي أورفا', countrySlug: 'turkey', lat: 37.1674, lng: 38.7955 },
+
+  // ======= MORE IRAN =======
+  { slug: 'ahvaz', slugAr: 'الاهواز', nameEn: 'Ahvaz', nameAr: 'الأهواز', countrySlug: 'iran', lat: 31.3183, lng: 48.6706 },
+  { slug: 'qom', slugAr: 'قم', nameEn: 'Qom', nameAr: 'قم', countrySlug: 'iran', lat: 34.6401, lng: 50.8764 },
+  { slug: 'kermanshah', slugAr: 'كرمانشاه', nameEn: 'Kermanshah', nameAr: 'كرمانشاه', countrySlug: 'iran', lat: 34.3142, lng: 47.0650 },
+  { slug: 'rasht', slugAr: 'رشت', nameEn: 'Rasht', nameAr: 'رشت', countrySlug: 'iran', lat: 37.2808, lng: 49.5832 },
+  { slug: 'zahedan', slugAr: 'زاهدان', nameEn: 'Zahedan', nameAr: 'زاهدان', countrySlug: 'iran', lat: 29.4963, lng: 60.8629 },
+  { slug: 'hamadan', slugAr: 'همدان', nameEn: 'Hamadan', nameAr: 'همدان', countrySlug: 'iran', lat: 34.7988, lng: 48.5146 },
+  { slug: 'yazd', slugAr: 'يزد', nameEn: 'Yazd', nameAr: 'يزد', countrySlug: 'iran', lat: 31.8974, lng: 54.3569 },
+  { slug: 'kerman', slugAr: 'كرمان', nameEn: 'Kerman', nameAr: 'كرمان', countrySlug: 'iran', lat: 30.2839, lng: 57.0834 },
+
+  // ======= MORE NIGERIA =======
+  { slug: 'port-harcourt', slugAr: 'بورت-هاركورت', nameEn: 'Port Harcourt', nameAr: 'بورت هاركورت', countrySlug: 'nigeria', lat: 4.8156, lng: 7.0498 },
+  { slug: 'kaduna', slugAr: 'كادونا', nameEn: 'Kaduna', nameAr: 'كادونا', countrySlug: 'nigeria', lat: 10.5264, lng: 7.4388 },
+  { slug: 'maiduguri', slugAr: 'مايدوغوري', nameEn: 'Maiduguri', nameAr: 'مايدوغوري', countrySlug: 'nigeria', lat: 11.8311, lng: 13.1510 },
+  { slug: 'sokoto', slugAr: 'سوكوتو', nameEn: 'Sokoto', nameAr: 'سوكوتو', countrySlug: 'nigeria', lat: 13.0607, lng: 5.2476 },
+  { slug: 'zaria', slugAr: 'زاريا', nameEn: 'Zaria', nameAr: 'زاريا', countrySlug: 'nigeria', lat: 11.0855, lng: 7.7199 },
+  { slug: 'bauchi', slugAr: 'باوتشي', nameEn: 'Bauchi', nameAr: 'باوتشي', countrySlug: 'nigeria', lat: 10.3158, lng: 9.8442 },
+
+  // ======= MORE SOMALIA =======
+  { slug: 'bosaso', slugAr: 'بوصاصو', nameEn: 'Bosaso', nameAr: 'بوصاصو', countrySlug: 'somalia', lat: 11.2841, lng: 49.1828 },
+  { slug: 'kismayo', slugAr: 'كسمايو', nameEn: 'Kismayo', nameAr: 'كسمايو', countrySlug: 'somalia', lat: -0.3522, lng: 42.5428 },
+  { slug: 'beledweyne', slugAr: 'بلدوين', nameEn: 'Beledweyne', nameAr: 'بلدوين', countrySlug: 'somalia', lat: 4.7358, lng: 45.2036 },
+  { slug: 'garowe', slugAr: 'غاروي', nameEn: 'Garowe', nameAr: 'غاروي', countrySlug: 'somalia', lat: 8.4054, lng: 48.4890 },
+
+  // ======= MORE SENEGAL =======
+  { slug: 'touba', slugAr: 'طوبى', nameEn: 'Touba', nameAr: 'طوبى', countrySlug: 'senegal', lat: 14.8500, lng: -15.8833 },
+  { slug: 'saint-louis', slugAr: 'سان-لويس', nameEn: 'Saint-Louis', nameAr: 'سان لويس', countrySlug: 'senegal', lat: 16.0326, lng: -16.4818 },
+  { slug: 'thies', slugAr: 'تييس', nameEn: 'Thiès', nameAr: 'تييس', countrySlug: 'senegal', lat: 14.7910, lng: -16.9263 },
+
+  // ======= MORE ETHIOPIA =======
+  { slug: 'dire-dawa', slugAr: 'دير-داوا', nameEn: 'Dire Dawa', nameAr: 'دير داوا', countrySlug: 'ethiopia', lat: 9.6009, lng: 41.8503 },
+  { slug: 'harar', slugAr: 'هرر', nameEn: 'Harar', nameAr: 'هرر', countrySlug: 'ethiopia', lat: 9.3100, lng: 42.1200 },
+  { slug: 'jimma', slugAr: 'جيما', nameEn: 'Jimma', nameAr: 'جيما', countrySlug: 'ethiopia', lat: 7.6667, lng: 36.8333 },
+
+  // ======= MORE TANZANIA =======
+  { slug: 'dodoma', slugAr: 'دودوما', nameEn: 'Dodoma', nameAr: 'دودوما', countrySlug: 'tanzania', lat: -6.1630, lng: 35.7516 },
+  { slug: 'zanzibar', slugAr: 'زنجبار', nameEn: 'Zanzibar', nameAr: 'زنجبار', countrySlug: 'tanzania', lat: -6.1659, lng: 39.2026 },
+  { slug: 'mwanza', slugAr: 'موانزا', nameEn: 'Mwanza', nameAr: 'موانزا', countrySlug: 'tanzania', lat: -2.5167, lng: 32.9000 },
+
+  // ======= MORE KENYA =======
+  { slug: 'lamu', slugAr: 'لامو', nameEn: 'Lamu', nameAr: 'لامو', countrySlug: 'kenya', lat: -2.2717, lng: 40.9020 },
+  { slug: 'malindi', slugAr: 'ماليندي', nameEn: 'Malindi', nameAr: 'ماليندي', countrySlug: 'kenya', lat: -3.2138, lng: 40.1169 },
+  { slug: 'garissa', slugAr: 'غاريسا', nameEn: 'Garissa', nameAr: 'غاريسا', countrySlug: 'kenya', lat: -0.4532, lng: 39.6461 },
+  { slug: 'nakuru', slugAr: 'ناكورو', nameEn: 'Nakuru', nameAr: 'ناكورو', countrySlug: 'kenya', lat: -0.3031, lng: 36.0800 },
+
+  // ======= MORE SOUTH AFRICA =======
+  { slug: 'pretoria', slugAr: 'بريتوريا', nameEn: 'Pretoria', nameAr: 'بريتوريا', countrySlug: 'south-africa', lat: -25.7479, lng: 28.2293 },
+  { slug: 'port-elizabeth', slugAr: 'بورت-اليزابيث', nameEn: 'Port Elizabeth', nameAr: 'بورت إليزابيث', countrySlug: 'south-africa', lat: -33.9608, lng: 25.6022 },
+
+  // ======= MORE GHANA =======
+  { slug: 'accra', slugAr: 'اكرا', nameEn: 'Accra', nameAr: 'أكرا', countrySlug: 'ghana', lat: 5.6037, lng: -0.1870 },
+  { slug: 'kumasi', slugAr: 'كوماسي', nameEn: 'Kumasi', nameAr: 'كوماسي', countrySlug: 'ghana', lat: 6.6885, lng: -1.6244 },
+  { slug: 'tamale', slugAr: 'تاماليه', nameEn: 'Tamale', nameAr: 'تاماليه', countrySlug: 'ghana', lat: 9.4034, lng: -0.8393 },
+
+  // ======= MALI =======
+  { slug: 'bamako', slugAr: 'باماكو', nameEn: 'Bamako', nameAr: 'باماكو', countrySlug: 'mali', lat: 12.6392, lng: -8.0029 },
+  { slug: 'timbuktu', slugAr: 'تمبكتو', nameEn: 'Timbuktu', nameAr: 'تمبكتو', countrySlug: 'mali', lat: 16.7665, lng: -3.0026 },
+
+  // ======= NIGER =======
+  { slug: 'niamey', slugAr: 'نيامي', nameEn: 'Niamey', nameAr: 'نيامي', countrySlug: 'niger', lat: 13.5117, lng: 2.1251 },
+  { slug: 'zinder', slugAr: 'زيندر', nameEn: 'Zinder', nameAr: 'زيندر', countrySlug: 'niger', lat: 13.8072, lng: 8.9881 },
+
+  // ======= CAMEROON =======
+  { slug: 'douala', slugAr: 'دوالا', nameEn: 'Douala', nameAr: 'دوالا', countrySlug: 'cameroon', lat: 4.0511, lng: 9.7679 },
+  { slug: 'yaounde', slugAr: 'ياوندي', nameEn: 'Yaoundé', nameAr: 'ياوندي', countrySlug: 'cameroon', lat: 3.8480, lng: 11.5021 },
+
+  // ======= MOZAMBIQUE =======
+  { slug: 'maputo', slugAr: 'مابوتو', nameEn: 'Maputo', nameAr: 'مابوتو', countrySlug: 'mozambique', lat: -25.9692, lng: 32.5732 },
+
+  // ======= UGANDA =======
+  { slug: 'kampala', slugAr: 'كمبالا', nameEn: 'Kampala', nameAr: 'كمبالا', countrySlug: 'uganda', lat: 0.3476, lng: 32.5825 },
+
+  // ======= MORE UK =======
+  { slug: 'liverpool', slugAr: 'ليفربول', nameEn: 'Liverpool', nameAr: 'ليفربول', countrySlug: 'united-kingdom', lat: 53.4084, lng: -2.9916 },
+  { slug: 'sheffield', slugAr: 'شيفيلد', nameEn: 'Sheffield', nameAr: 'شيفيلد', countrySlug: 'united-kingdom', lat: 53.3811, lng: -1.4701 },
+  { slug: 'bristol', slugAr: 'بريستول', nameEn: 'Bristol', nameAr: 'بريستول', countrySlug: 'united-kingdom', lat: 51.4545, lng: -2.5879 },
+  { slug: 'cardiff', slugAr: 'كارديف', nameEn: 'Cardiff', nameAr: 'كارديف', countrySlug: 'united-kingdom', lat: 51.4816, lng: -3.1791 },
+  { slug: 'leicester', slugAr: 'ليستر', nameEn: 'Leicester', nameAr: 'ليستر', countrySlug: 'united-kingdom', lat: 52.6369, lng: -1.1398 },
+  { slug: 'nottingham', slugAr: 'نوتنغهام', nameEn: 'Nottingham', nameAr: 'نوتنغهام', countrySlug: 'united-kingdom', lat: 52.9548, lng: -1.1581 },
+  { slug: 'coventry', slugAr: 'كوفنتري', nameEn: 'Coventry', nameAr: 'كوفنتري', countrySlug: 'united-kingdom', lat: 52.4068, lng: -1.5197 },
+  { slug: 'luton', slugAr: 'لوتن', nameEn: 'Luton', nameAr: 'لوتن', countrySlug: 'united-kingdom', lat: 51.8787, lng: -0.4200 },
+
+  // ======= MORE GERMANY =======
+  { slug: 'dortmund', slugAr: 'دورتموند', nameEn: 'Dortmund', nameAr: 'دورتموند', countrySlug: 'germany', lat: 51.5136, lng: 7.4653 },
+  { slug: 'essen', slugAr: 'إيسن', nameEn: 'Essen', nameAr: 'إيسن', countrySlug: 'germany', lat: 51.4556, lng: 7.0116 },
+  { slug: 'stuttgart', slugAr: 'شتوتغارت', nameEn: 'Stuttgart', nameAr: 'شتوتغارت', countrySlug: 'germany', lat: 48.7758, lng: 9.1829 },
+  { slug: 'dusseldorf', slugAr: 'دوسلدورف', nameEn: 'Düsseldorf', nameAr: 'دوسلدورف', countrySlug: 'germany', lat: 51.2277, lng: 6.7735 },
+  { slug: 'bremen', slugAr: 'بريمن', nameEn: 'Bremen', nameAr: 'بريمن', countrySlug: 'germany', lat: 53.0793, lng: 8.8017 },
+  { slug: 'hannover', slugAr: 'هانوفر', nameEn: 'Hannover', nameAr: 'هانوفر', countrySlug: 'germany', lat: 52.3759, lng: 9.7320 },
+  { slug: 'nuremberg', slugAr: 'نورمبيرغ', nameEn: 'Nuremberg', nameAr: 'نورمبيرغ', countrySlug: 'germany', lat: 49.4521, lng: 11.0767 },
+
+  // ======= MORE FRANCE =======
+  { slug: 'toulouse', slugAr: 'تولوز', nameEn: 'Toulouse', nameAr: 'تولوز', countrySlug: 'france', lat: 43.6047, lng: 1.4442 },
+  { slug: 'nice', slugAr: 'نيس', nameEn: 'Nice', nameAr: 'نيس', countrySlug: 'france', lat: 43.7102, lng: 7.2620 },
+  { slug: 'nantes', slugAr: 'نانت', nameEn: 'Nantes', nameAr: 'نانت', countrySlug: 'france', lat: 47.2184, lng: -1.5536 },
+  { slug: 'montpellier', slugAr: 'مونبلييه', nameEn: 'Montpellier', nameAr: 'مونبلييه', countrySlug: 'france', lat: 43.6108, lng: 3.8767 },
+  { slug: 'lille', slugAr: 'ليل', nameEn: 'Lille', nameAr: 'ليل', countrySlug: 'france', lat: 50.6292, lng: 3.0573 },
+
+  // ======= MORE NETHERLANDS =======
+  { slug: 'utrecht', slugAr: 'اوتريخت', nameEn: 'Utrecht', nameAr: 'أوتريخت', countrySlug: 'netherlands', lat: 52.0907, lng: 5.1214 },
+  { slug: 'eindhoven', slugAr: 'ايندهوفن', nameEn: 'Eindhoven', nameAr: 'أيندهوفن', countrySlug: 'netherlands', lat: 51.4416, lng: 5.4697 },
+
+  // ======= MORE SPAIN =======
+  { slug: 'valencia', slugAr: 'فالنسيا', nameEn: 'Valencia', nameAr: 'فالنسيا', countrySlug: 'spain', lat: 39.4699, lng: -0.3763 },
+  { slug: 'seville', slugAr: 'اشبيلية', nameEn: 'Seville', nameAr: 'إشبيلية', countrySlug: 'spain', lat: 37.3891, lng: -5.9845 },
+  { slug: 'malaga', slugAr: 'ملقة', nameEn: 'Málaga', nameAr: 'ملقة', countrySlug: 'spain', lat: 36.7213, lng: -4.4214 },
+  { slug: 'granada', slugAr: 'غرناطة', nameEn: 'Granada', nameAr: 'غرناطة', countrySlug: 'spain', lat: 37.1773, lng: -3.5986 },
+  { slug: 'cordoba', slugAr: 'قرطبة', nameEn: 'Córdoba', nameAr: 'قرطبة', countrySlug: 'spain', lat: 37.8882, lng: -4.7794 },
+
+  // ======= MORE ITALY =======
+  { slug: 'naples', slugAr: 'نابولي', nameEn: 'Naples', nameAr: 'نابولي', countrySlug: 'italy', lat: 40.8518, lng: 14.2681 },
+  { slug: 'turin', slugAr: 'تورينو', nameEn: 'Turin', nameAr: 'تورينو', countrySlug: 'italy', lat: 45.0703, lng: 7.6869 },
+  { slug: 'palermo', slugAr: 'باليرمو', nameEn: 'Palermo', nameAr: 'باليرمو', countrySlug: 'italy', lat: 38.1157, lng: 13.3615 },
+
+  // ======= MORE NORWAY =======
+  { slug: 'oslo', slugAr: 'اوسلو', nameEn: 'Oslo', nameAr: 'أوسلو', countrySlug: 'norway', lat: 59.9139, lng: 10.7522 },
+  { slug: 'bergen', slugAr: 'بيرغن', nameEn: 'Bergen', nameAr: 'بيرغن', countrySlug: 'norway', lat: 60.3913, lng: 5.3221 },
+
+  // ======= DENMARK =======
+  { slug: 'copenhagen', slugAr: 'كوبنهاغن', nameEn: 'Copenhagen', nameAr: 'كوبنهاغن', countrySlug: 'denmark', lat: 55.6761, lng: 12.5683 },
+  { slug: 'aarhus', slugAr: 'ارهوس', nameEn: 'Aarhus', nameAr: 'آرهوس', countrySlug: 'denmark', lat: 56.1629, lng: 10.2039 },
+
+  // ======= FINLAND =======
+  { slug: 'helsinki', slugAr: 'هلسنكي', nameEn: 'Helsinki', nameAr: 'هلسنكي', countrySlug: 'finland', lat: 60.1699, lng: 24.9384 },
+
+  // ======= SWITZERLAND =======
+  { slug: 'zurich', slugAr: 'زيوريخ', nameEn: 'Zurich', nameAr: 'زيوريخ', countrySlug: 'switzerland', lat: 47.3769, lng: 8.5417 },
+  { slug: 'geneva', slugAr: 'جنيف', nameEn: 'Geneva', nameAr: 'جنيف', countrySlug: 'switzerland', lat: 46.2044, lng: 6.1432 },
+  { slug: 'bern', slugAr: 'برن', nameEn: 'Bern', nameAr: 'برن', countrySlug: 'switzerland', lat: 46.9480, lng: 7.4474 },
+
+  // ======= MORE GREECE =======
+  { slug: 'thessaloniki', slugAr: 'سالونيك', nameEn: 'Thessaloniki', nameAr: 'سالونيك', countrySlug: 'greece', lat: 40.6401, lng: 22.9444 },
+
+  // ======= MORE BOSNIA =======
+  { slug: 'mostar', slugAr: 'موستار', nameEn: 'Mostar', nameAr: 'موستار', countrySlug: 'bosnia', lat: 43.3438, lng: 17.8078 },
+  { slug: 'tuzla', slugAr: 'توزلا', nameEn: 'Tuzla', nameAr: 'توزلا', countrySlug: 'bosnia', lat: 44.5384, lng: 18.6763 },
+  { slug: 'zenica', slugAr: 'زينيتسا', nameEn: 'Zenica', nameAr: 'زينيتسا', countrySlug: 'bosnia', lat: 44.2037, lng: 17.9078 },
+
+  // ======= MORE ALBANIA =======
+  { slug: 'durres', slugAr: 'دوريس', nameEn: 'Durrës', nameAr: 'دوريس', countrySlug: 'albania', lat: 41.3233, lng: 19.4544 },
+  { slug: 'vlore', slugAr: 'فلوري', nameEn: 'Vlorë', nameAr: 'فلوري', countrySlug: 'albania', lat: 40.4667, lng: 19.4897 },
+  { slug: 'shkoder', slugAr: 'شكودر', nameEn: 'Shkodër', nameAr: 'شكودر', countrySlug: 'albania', lat: 42.0693, lng: 19.5033 },
+
+  // ======= KOSOVO =======
+  { slug: 'pristina', slugAr: 'بريشتينا', nameEn: 'Pristina', nameAr: 'بريشتينا', countrySlug: 'kosovo', lat: 42.6629, lng: 21.1655 },
+  { slug: 'prizren', slugAr: 'بريزرن', nameEn: 'Prizren', nameAr: 'بريزرن', countrySlug: 'kosovo', lat: 42.2139, lng: 20.7397 },
+
+  // ======= MORE RUSSIA =======
+  { slug: 'saint-petersburg', slugAr: 'سان-بطرسبرغ', nameEn: 'Saint Petersburg', nameAr: 'سان بطرسبرغ', countrySlug: 'russia', lat: 59.9343, lng: 30.3351 },
+  { slug: 'makhachkala', slugAr: 'محج-قلعة', nameEn: 'Makhachkala', nameAr: 'محج قلعة', countrySlug: 'russia', lat: 42.9849, lng: 47.5047 },
+  { slug: 'ufa', slugAr: 'اوفا', nameEn: 'Ufa', nameAr: 'أوفا', countrySlug: 'russia', lat: 54.7388, lng: 55.9721 },
+  { slug: 'yekaterinburg', slugAr: 'يكاترينبورغ', nameEn: 'Yekaterinburg', nameAr: 'يكاترينبورغ', countrySlug: 'russia', lat: 56.8389, lng: 60.6057 },
+
+  // ======= MORE USA =======
+  { slug: 'philadelphia', slugAr: 'فيلادلفيا', nameEn: 'Philadelphia', nameAr: 'فيلادلفيا', countrySlug: 'united-states', lat: 39.9526, lng: -75.1652 },
+  { slug: 'phoenix', slugAr: 'فينيكس', nameEn: 'Phoenix', nameAr: 'فينيكس', countrySlug: 'united-states', lat: 33.4484, lng: -112.0740 },
+  { slug: 'san-diego', slugAr: 'سان-دييغو', nameEn: 'San Diego', nameAr: 'سان دييغو', countrySlug: 'united-states', lat: 32.7157, lng: -117.1611 },
+  { slug: 'san-antonio', slugAr: 'سان-انطونيو', nameEn: 'San Antonio', nameAr: 'سان أنطونيو', countrySlug: 'united-states', lat: 29.4241, lng: -98.4936 },
+  { slug: 'detroit', slugAr: 'ديترويت', nameEn: 'Detroit', nameAr: 'ديترويت', countrySlug: 'united-states', lat: 42.3314, lng: -83.0458 },
+  { slug: 'seattle', slugAr: 'سياتل', nameEn: 'Seattle', nameAr: 'سياتل', countrySlug: 'united-states', lat: 47.6062, lng: -122.3321 },
+  { slug: 'denver', slugAr: 'دنفر', nameEn: 'Denver', nameAr: 'دنفر', countrySlug: 'united-states', lat: 39.7392, lng: -104.9903 },
+  { slug: 'atlanta', slugAr: 'اتلانتا', nameEn: 'Atlanta', nameAr: 'أتلانتا', countrySlug: 'united-states', lat: 33.7490, lng: -84.3880 },
+  { slug: 'miami', slugAr: 'ميامي', nameEn: 'Miami', nameAr: 'ميامي', countrySlug: 'united-states', lat: 25.7617, lng: -80.1918 },
+  { slug: 'boston', slugAr: 'بوسطن', nameEn: 'Boston', nameAr: 'بوسطن', countrySlug: 'united-states', lat: 42.3601, lng: -71.0589 },
+  { slug: 'minneapolis', slugAr: 'مينيابوليس', nameEn: 'Minneapolis', nameAr: 'مينيابوليس', countrySlug: 'united-states', lat: 44.9778, lng: -93.2650 },
+
+  // ======= MORE CANADA =======
+  { slug: 'edmonton', slugAr: 'ادمنتون', nameEn: 'Edmonton', nameAr: 'إدمنتون', countrySlug: 'canada', lat: 53.5461, lng: -113.4938 },
+  { slug: 'mississauga', slugAr: 'ميسيساغا', nameEn: 'Mississauga', nameAr: 'ميسيساغا', countrySlug: 'canada', lat: 43.5890, lng: -79.6441 },
+  { slug: 'winnipeg', slugAr: 'وينيبيغ', nameEn: 'Winnipeg', nameAr: 'وينيبيغ', countrySlug: 'canada', lat: 49.8951, lng: -97.1384 },
+  { slug: 'hamilton', slugAr: 'هاميلتون', nameEn: 'Hamilton', nameAr: 'هاميلتون', countrySlug: 'canada', lat: 43.2557, lng: -79.8711 },
+  { slug: 'london-ca', slugAr: 'لندن-كندا', nameEn: 'London', nameAr: 'لندن', countrySlug: 'canada', lat: 42.9849, lng: -81.2453 },
+
+  // ======= MORE BRAZIL =======
+  { slug: 'brasilia', slugAr: 'برازيليا', nameEn: 'Brasília', nameAr: 'برازيليا', countrySlug: 'brazil', lat: -15.7975, lng: -47.8919 },
+  { slug: 'salvador', slugAr: 'سلفادور', nameEn: 'Salvador', nameAr: 'سلفادور', countrySlug: 'brazil', lat: -12.9714, lng: -38.5124 },
+  { slug: 'recife', slugAr: 'ريسيفي', nameEn: 'Recife', nameAr: 'ريسيفي', countrySlug: 'brazil', lat: -8.0476, lng: -34.8770 },
+
+  // ======= MORE UZBEKISTAN =======
+  { slug: 'namangan', slugAr: 'نمنجان', nameEn: 'Namangan', nameAr: 'نمنجان', countrySlug: 'uzbekistan', lat: 40.9983, lng: 71.6726 },
+  { slug: 'andijan', slugAr: 'انديجان', nameEn: 'Andijan', nameAr: 'أنديجان', countrySlug: 'uzbekistan', lat: 40.7833, lng: 72.3333 },
+  { slug: 'fergana', slugAr: 'فرغانة', nameEn: 'Fergana', nameAr: 'فرغانة', countrySlug: 'uzbekistan', lat: 40.3842, lng: 71.7889 },
+
+  // ======= MORE KAZAKHSTAN =======
+  { slug: 'shymkent', slugAr: 'شيمكنت', nameEn: 'Shymkent', nameAr: 'شيمكنت', countrySlug: 'kazakhstan', lat: 42.3417, lng: 69.5967 },
+  { slug: 'karaganda', slugAr: 'كاراغندا', nameEn: 'Karaganda', nameAr: 'كاراغندا', countrySlug: 'kazakhstan', lat: 49.8047, lng: 73.1094 },
+  { slug: 'aktobe', slugAr: 'اكتوبي', nameEn: 'Aktobe', nameAr: 'أكتوبي', countrySlug: 'kazakhstan', lat: 50.2839, lng: 57.2070 },
+
+  // ======= TAJIKISTAN =======
+  { slug: 'dushanbe', slugAr: 'دوشنبه', nameEn: 'Dushanbe', nameAr: 'دوشنبه', countrySlug: 'tajikistan', lat: 38.5598, lng: 68.7740 },
+  { slug: 'khujand', slugAr: 'خجند', nameEn: 'Khujand', nameAr: 'خجند', countrySlug: 'tajikistan', lat: 40.2826, lng: 69.6228 },
+
+  // ======= TURKMENISTAN =======
+  { slug: 'ashgabat', slugAr: 'عشق-اباد', nameEn: 'Ashgabat', nameAr: 'عشق آباد', countrySlug: 'turkmenistan', lat: 37.9601, lng: 58.3261 },
+  { slug: 'turkmenabat', slugAr: 'تركمن-اباد', nameEn: 'Turkmenabat', nameAr: 'تركمن آباد', countrySlug: 'turkmenistan', lat: 39.0733, lng: 63.5786 },
+
+  // ======= KYRGYZSTAN =======
+  { slug: 'bishkek', slugAr: 'بيشكك', nameEn: 'Bishkek', nameAr: 'بيشكك', countrySlug: 'kyrgyzstan', lat: 42.8746, lng: 74.5698 },
+  { slug: 'osh', slugAr: 'اوش', nameEn: 'Osh', nameAr: 'أوش', countrySlug: 'kyrgyzstan', lat: 40.5283, lng: 72.7985 },
+
+  // ======= MORE AZERBAIJAN =======
+  { slug: 'ganja', slugAr: 'غنجة', nameEn: 'Ganja', nameAr: 'غنجة', countrySlug: 'azerbaijan', lat: 40.6828, lng: 46.3606 },
+  { slug: 'sumgait', slugAr: 'سومقاييت', nameEn: 'Sumgait', nameAr: 'سومقاييت', countrySlug: 'azerbaijan', lat: 40.5897, lng: 49.6317 },
+
+  // ======= MORE AUSTRALIA =======
+  { slug: 'adelaide', slugAr: 'اديلايد', nameEn: 'Adelaide', nameAr: 'أديلايد', countrySlug: 'australia', lat: -34.9285, lng: 138.6007 },
+  { slug: 'canberra', slugAr: 'كانبيرا', nameEn: 'Canberra', nameAr: 'كانبيرا', countrySlug: 'australia', lat: -35.2809, lng: 149.1300 },
+  { slug: 'gold-coast', slugAr: 'غولد-كوست', nameEn: 'Gold Coast', nameAr: 'غولد كوست', countrySlug: 'australia', lat: -28.0167, lng: 153.4000 },
+
+  // ======= MORE NEW ZEALAND =======
+  { slug: 'wellington', slugAr: 'ويلنغتون', nameEn: 'Wellington', nameAr: 'ويلنغتون', countrySlug: 'new-zealand', lat: -41.2866, lng: 174.7756 },
+  { slug: 'christchurch', slugAr: 'كرايست-تشيرش', nameEn: 'Christchurch', nameAr: 'كرايست تشيرش', countrySlug: 'new-zealand', lat: -43.5320, lng: 172.6306 },
+
+  // ======= MORE CHINA =======
+  { slug: 'shanghai', slugAr: 'شنغهاي', nameEn: 'Shanghai', nameAr: 'شنغهاي', countrySlug: 'china', lat: 31.2304, lng: 121.4737 },
+  { slug: 'xian', slugAr: 'شيآن', nameEn: "Xi'an", nameAr: 'شيآن', countrySlug: 'china', lat: 34.3416, lng: 108.9398 },
+  { slug: 'lanzhou', slugAr: 'لانتشو', nameEn: 'Lanzhou', nameAr: 'لانتشو', countrySlug: 'china', lat: 36.0611, lng: 103.8343 },
+  { slug: 'kashgar', slugAr: 'كاشغر', nameEn: 'Kashgar', nameAr: 'كاشغر', countrySlug: 'china', lat: 39.4704, lng: 75.9899 },
+
+  // ======= MORE JAPAN =======
+  { slug: 'nagoya', slugAr: 'ناغويا', nameEn: 'Nagoya', nameAr: 'ناغويا', countrySlug: 'japan', lat: 35.1815, lng: 136.9066 },
+  { slug: 'kobe', slugAr: 'كوبي', nameEn: 'Kobe', nameAr: 'كوبي', countrySlug: 'japan', lat: 34.6901, lng: 135.1956 },
+
+  // ======= SOUTH KOREA =======
+  { slug: 'seoul', slugAr: 'سيول', nameEn: 'Seoul', nameAr: 'سيول', countrySlug: 'south-korea', lat: 37.5665, lng: 126.9780 },
+  { slug: 'busan', slugAr: 'بوسان', nameEn: 'Busan', nameAr: 'بوسان', countrySlug: 'south-korea', lat: 35.1796, lng: 129.0756 },
+
+  // ======= MORE MEXICO =======
+  { slug: 'guadalajara', slugAr: 'غوادالاخارا', nameEn: 'Guadalajara', nameAr: 'غوادالاخارا', countrySlug: 'mexico', lat: 20.6597, lng: -103.3496 },
+  { slug: 'monterrey', slugAr: 'مونتيري', nameEn: 'Monterrey', nameAr: 'مونتيري', countrySlug: 'mexico', lat: 25.6866, lng: -100.3161 },
+
+  // ======= MORE PHILIPPINES =======
+  { slug: 'davao', slugAr: 'دافاو', nameEn: 'Davao', nameAr: 'دافاو', countrySlug: 'philippines', lat: 7.1907, lng: 125.4553 },
+  { slug: 'cebu', slugAr: 'سيبو', nameEn: 'Cebu', nameAr: 'سيبو', countrySlug: 'philippines', lat: 10.3157, lng: 123.8854 },
+  { slug: 'cotabato', slugAr: 'كوتاباتو', nameEn: 'Cotabato', nameAr: 'كوتاباتو', countrySlug: 'philippines', lat: 7.2047, lng: 124.2310 },
+  { slug: 'marawi', slugAr: 'ماراوي', nameEn: 'Marawi', nameAr: 'ماراوي', countrySlug: 'philippines', lat: 8.0016, lng: 124.2929 },
+
+  // ======= MORE THAILAND =======
+  { slug: 'pattani', slugAr: 'فطاني', nameEn: 'Pattani', nameAr: 'فطاني', countrySlug: 'thailand', lat: 6.8691, lng: 101.2508 },
+  { slug: 'yala', slugAr: 'يالا', nameEn: 'Yala', nameAr: 'يالا', countrySlug: 'thailand', lat: 6.5403, lng: 101.2800 },
+  { slug: 'chiang-mai', slugAr: 'شيانغ-ماي', nameEn: 'Chiang Mai', nameAr: 'شيانغ ماي', countrySlug: 'thailand', lat: 18.7883, lng: 98.9853 },
+
+  // ======= NEPAL =======
+  { slug: 'kathmandu', slugAr: 'كاتماندو', nameEn: 'Kathmandu', nameAr: 'كاتماندو', countrySlug: 'nepal', lat: 27.7172, lng: 85.3240 },
+  { slug: 'pokhara', slugAr: 'بوخارا', nameEn: 'Pokhara', nameAr: 'بوخارا', countrySlug: 'nepal', lat: 28.2096, lng: 83.9856 },
+
+  // ======= MORE ARGENTINA =======
+  { slug: 'cordoba-ar', slugAr: 'قرطبة-الارجنتين', nameEn: 'Córdoba', nameAr: 'قرطبة', countrySlug: 'argentina', lat: -31.4201, lng: -64.1888 },
+  { slug: 'rosario', slugAr: 'روساريو', nameEn: 'Rosario', nameAr: 'روساريو', countrySlug: 'argentina', lat: -32.9468, lng: -60.6393 },
+
+  // ======= MORE UAE =======
+  { slug: 'al-dhafra', slugAr: 'الظفرة', nameEn: 'Al Dhafra', nameAr: 'الظفرة', countrySlug: 'uae', lat: 23.6500, lng: 53.7000 },
+  { slug: 'khor-fakkan', slugAr: 'خورفكان', nameEn: 'Khor Fakkan', nameAr: 'خورفكان', countrySlug: 'uae', lat: 25.3390, lng: 56.3490 },
+  { slug: 'kalba', slugAr: 'كلباء', nameEn: 'Kalba', nameAr: 'كلباء', countrySlug: 'uae', lat: 25.0695, lng: 56.3504 },
+  { slug: 'dibba-al-fujairah', slugAr: 'دبا-الفجيرة', nameEn: 'Dibba Al Fujairah', nameAr: 'دبا الفجيرة', countrySlug: 'uae', lat: 25.6213, lng: 56.2704 },
+
+  // ======= MORE OMAN =======
+  { slug: 'ibri', slugAr: 'عبري', nameEn: 'Ibri', nameAr: 'عبري', countrySlug: 'oman', lat: 23.2258, lng: 56.5164 },
+  { slug: 'rustaq', slugAr: 'الرستاق', nameEn: 'Rustaq', nameAr: 'الرستاق', countrySlug: 'oman', lat: 23.3906, lng: 57.4253 },
+  { slug: 'barka', slugAr: 'بركاء', nameEn: 'Barka', nameAr: 'بركاء', countrySlug: 'oman', lat: 23.7079, lng: 57.8890 },
+  { slug: 'khasab', slugAr: 'خصب', nameEn: 'Khasab', nameAr: 'خصب', countrySlug: 'oman', lat: 26.1794, lng: 56.2478 },
+
+  // ======= MORE QATAR =======
+  { slug: 'dukhan', slugAr: 'دخان', nameEn: 'Dukhan', nameAr: 'دخان', countrySlug: 'qatar', lat: 25.4250, lng: 50.7800 },
+  { slug: 'al-shamal', slugAr: 'الشمال', nameEn: 'Al Shamal', nameAr: 'الشمال', countrySlug: 'qatar', lat: 26.1083, lng: 51.2167 },
+  { slug: 'umm-salal', slugAr: 'ام-صلال', nameEn: 'Umm Salal', nameAr: 'أم صلال', countrySlug: 'qatar', lat: 25.4100, lng: 51.3967 },
+
+  // ======= MORE BAHRAIN =======
+  { slug: 'hamad-town', slugAr: 'مدينة-حمد', nameEn: 'Hamad Town', nameAr: 'مدينة حمد', countrySlug: 'bahrain', lat: 26.1169, lng: 50.5022 },
+  { slug: 'sitra', slugAr: 'سترة', nameEn: 'Sitra', nameAr: 'سترة', countrySlug: 'bahrain', lat: 26.1561, lng: 50.6253 },
+  { slug: 'budaiya', slugAr: 'البديع', nameEn: 'Budaiya', nameAr: 'البديع', countrySlug: 'bahrain', lat: 26.2181, lng: 50.4500 },
+
+  // ======= MORE KUWAIT =======
+  { slug: 'farwaniya', slugAr: 'الفروانية', nameEn: 'Farwaniya', nameAr: 'الفروانية', countrySlug: 'kuwait', lat: 29.2781, lng: 47.9583 },
+  { slug: 'mubarak-al-kabeer', slugAr: 'مبارك-الكبير', nameEn: 'Mubarak Al Kabeer', nameAr: 'مبارك الكبير', countrySlug: 'kuwait', lat: 29.2217, lng: 48.0917 },
+  { slug: 'sabah-al-salem', slugAr: 'صباح-السالم', nameEn: 'Sabah Al Salem', nameAr: 'صباح السالم', countrySlug: 'kuwait', lat: 29.2650, lng: 48.0592 },
+
+  // ======= MALDIVES =======
+  { slug: 'hulhumale', slugAr: 'هولهومالي', nameEn: 'Hulhumalé', nameAr: 'هولهومالي', countrySlug: 'maldives', lat: 4.2117, lng: 73.5403 },
+  { slug: 'addu-city', slugAr: 'مدينة-ادو', nameEn: 'Addu City', nameAr: 'مدينة أدو', countrySlug: 'maldives', lat: -0.6300, lng: 73.0900 },
 ];
 
 export function getCountryBySlug(slug: string): CountryData | undefined {
