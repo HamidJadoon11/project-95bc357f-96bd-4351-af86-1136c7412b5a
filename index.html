@@ -2,20 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mawaqit - Prayer Times, Azkar & Islamic Tools</title>
-    <meta name="description" content="Accurate prayer times worldwide, daily Azkar, Duas, Qibla finder, Zakat calculator, and Islamic calendar. مواقيت الصلاة - أذكار - أدعية" />
-    <meta name="author" content="Mawaqit" />
-    <meta property="og:title" content="Mawaqit - Prayer Times & Islamic Tools" />
-    <meta property="og:description" content="Accurate prayer times, Azkar, Duas, Qibla finder, Zakat calculator. مواقيت الصلاة" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#1a6b5b" />
+    <title>Mawaqit — Prayer Times, Azan, Azkar, Duas & Islamic Tools Worldwide</title>
+    <meta name="description" content="Accurate Mawaqit Salah (prayer times) and Azan times for 600+ cities in 80+ countries. Daily Azkar, Duas, Hadith, Qibla finder, Zakat calculator, and Hijri calendar — updated automatically." />
+    <meta name="keywords" content="prayer times, salah times, mawaqit, azan times, adhan, azkar, duas, qibla direction, zakat calculator, hijri calendar, ramadan timetable, suhoor, iftar, islamic prayer schedule" />
+    <meta name="author" content="Mawaqit Editorial Team — Verified by Islamic scholars" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://mawaqit.app/" />
+    <link rel="alternate" hreflang="en" href="https://mawaqit.app/" />
+    <link rel="alternate" hreflang="ar" href="https://mawaqit.app/ar/" />
+    <link rel="alternate" hreflang="x-default" href="https://mawaqit.app/" />
+
+    <meta property="og:title" content="Mawaqit — Prayer Times & Islamic Tools Worldwide" />
+    <meta property="og:description" content="Accurate prayer times, Azkar, Duas, Qibla finder, Zakat calculator and Ramadan calendars for every city worldwide." />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_SA" />
+    <meta property="og:url" content="https://mawaqit.app/" />
+    <meta property="og:site_name" content="Mawaqit" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@Lovable" />
+    <meta name="twitter:title" content="Mawaqit — Prayer Times Worldwide" />
+    <meta name="twitter:description" content="Accurate prayer times, Azkar, Duas, Qibla and Zakat tools for Muslims worldwide." />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://mawaqit.app/#organization",
+          "name": "Mawaqit",
+          "url": "https://mawaqit.app/",
+          "logo": "https://mawaqit.app/logo.png",
+          "sameAs": ["https://twitter.com/mawaqit", "https://facebook.com/mawaqit"],
+          "knowsAbout": ["Salah", "Adhan", "Qibla", "Hijri Calendar", "Zakat", "Ramadan", "Azkar", "Duas", "Islamic Jurisprudence"],
+          "areaServed": "Worldwide"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://mawaqit.app/#website",
+          "url": "https://mawaqit.app/",
+          "name": "Mawaqit",
+          "publisher": { "@id": "https://mawaqit.app/#organization" },
+          "inLanguage": ["en", "ar"],
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://mawaqit.app/prayer-times?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
