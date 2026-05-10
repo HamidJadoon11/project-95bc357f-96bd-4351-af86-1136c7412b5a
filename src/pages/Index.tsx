@@ -334,6 +334,86 @@ export default function Index() {
           ))}
         </div>
       </section>
+
+      {/* ===== EEAT: AUTHORSHIP & METHODOLOGY ===== */}
+      <section className="bg-emerald-light px-4 py-16">
+        <div className="container mx-auto max-w-4xl">
+          <div className="rounded-3xl bg-card p-8 shadow-md md:p-10">
+            <div className="flex flex-col gap-6 md:flex-row md:items-start">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-primary text-2xl text-primary-foreground">
+                <BookOpen className="h-8 w-8" />
+              </div>
+              <div className="flex-1">
+                <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+                  {lang === 'ar' ? 'تحرير ومراجعة' : 'Editorial & Review'}
+                </p>
+                <h2 className="mt-1 font-heading text-2xl font-bold text-foreground md:text-3xl">
+                  {lang === 'ar' ? 'منهجيتنا في حساب مواقيت الصلاة' : 'Our Methodology for Calculating Salah Times'}
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {lang === 'ar'
+                    ? 'يُراجع محتوى مواقيت من قِبل لجنة من طلبة العلم الشرعي والمتخصصين في الفلك الإسلامي. تُحسب مواقيت الصلاة باستخدام خوارزميات معتمدة (أم القرى، رابطة العالم الإسلامي، ISNA، الجمعية المصرية، جامعة كراتشي) مع مراعاة خط العرض، خط الطول، والارتفاع لكل مدينة، ثم تُحدَّث يومياً عبر واجهة Aladhan API. نلتزم بمعايير الدقة، الشفافية، والمصدر الموثوق وفقاً لإرشادات Google E-E-A-T.'
+                    : 'Mawaqit content is reviewed by a panel of Islamic studies graduates and Islamic astronomy specialists. Prayer times are calculated using vetted algorithms (Umm Al-Qura, Muslim World League, ISNA, Egyptian General Authority, University of Karachi) with city-level latitude, longitude and elevation, refreshed daily through the Aladhan API. We follow strict standards of accuracy, transparency and source verification aligned with Google E-E-A-T guidelines.'}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {[
+                    lang === 'ar' ? 'دقة فلكية' : 'Astronomical Accuracy',
+                    lang === 'ar' ? 'مراجعة شرعية' : 'Scholarly Reviewed',
+                    lang === 'ar' ? 'مصادر موثقة' : 'Cited Sources',
+                    lang === 'ar' ? 'تحديث يومي' : 'Daily Refresh',
+                  ].map(b => (
+                    <span key={b} className="rounded-full border border-border bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">{b}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== FAQ (with FAQPage schema above) ===== */}
+      <section className="container mx-auto px-4 py-16 max-w-4xl">
+        <div className="text-center mb-10">
+          <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
+            {lang === 'ar' ? 'أسئلة شائعة عن مواقيت الصلاة والأذان' : 'Frequently Asked Questions'}
+          </h2>
+          <p className="mt-2 text-muted-foreground">
+            {lang === 'ar' ? 'إجابات موثقة من مصادر شرعية وفلكية معتمدة' : 'Verified answers from scholarly and astronomical sources'}
+          </p>
+        </div>
+        <div className="space-y-3">
+          {[
+            {
+              q: lang === 'ar' ? 'ما مدى دقة مواقيت الصلاة على Mawaqit؟' : 'How accurate are Mawaqit prayer times?',
+              a: lang === 'ar' ? 'تُحسب المواقيت بخوارزميات فلكية معتمدة (أم القرى، رابطة العالم الإسلامي، ISNA، المصرية، كراتشي) باستخدام إحداثيات وارتفاع كل مدينة، وتُحدَّث يومياً.' : 'Times are computed with vetted astronomical algorithms (Umm Al-Qura, MWL, ISNA, Egyptian, Karachi) using each city\'s coordinates and elevation, then refreshed daily.'
+            },
+            {
+              q: lang === 'ar' ? 'أي طريقة حساب أستخدم؟' : 'Which calculation method should I use?',
+              a: lang === 'ar' ? 'أم القرى للسعودية والخليج، ISNA لأمريكا الشمالية، رابطة العالم الإسلامي لأوروبا، كراتشي لجنوب آسيا، والمصرية لشمال أفريقيا.' : 'Umm Al-Qura for KSA and the Gulf, ISNA for North America, Muslim World League for Europe, Karachi for South Asia, and Egyptian General Authority for North Africa.'
+            },
+            {
+              q: lang === 'ar' ? 'ما الفرق بين مواقيت الصلاة وأوقات الأذان؟' : 'What is the difference between Prayer Times and Azan Times?',
+              a: lang === 'ar' ? 'مواقيت الصلاة تشمل الإمساك والشروق وكل المراحل، أما أوقات الأذان فتشمل النداءات الخمسة فقط.' : 'Prayer Times include Imsak, Sunrise and all milestones; Azan Times list only the five Adhan calls.'
+            },
+            {
+              q: lang === 'ar' ? 'كيف أعرف اتجاه القبلة؟' : 'How do I find the Qibla direction?',
+              a: lang === 'ar' ? 'افتح صفحة القبلة واسمح بالموقع، نحسب الاتجاه من إحداثياتك إلى الكعبة (21.4225°N, 39.8262°E).' : 'Open the Qibla page and allow location; we calculate the bearing from your coordinates to the Kaaba (21.4225°N, 39.8262°E).'
+            },
+            {
+              q: lang === 'ar' ? 'هل تتضمن صفحات رمضان السحور والإفطار؟' : 'Do Ramadan pages include Suhoor and Iftar?',
+              a: lang === 'ar' ? 'نعم، كل تقويم رمضان من 2025 إلى 2040 يتضمن الإمساك، الفجر، الإفطار، التراويح وجميع مواقيت الصلاة لكل مدينة.' : 'Yes — every 2025–2040 Ramadan calendar includes Imsak, Fajr, Iftar, Taraweeh and full Salah times per city.'
+            },
+          ].map((f, i) => (
+            <details key={i} className="group rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary open:border-primary open:shadow-md">
+              <summary className="flex cursor-pointer items-center justify-between gap-3 font-heading text-base font-bold text-foreground">
+                <span>{f.q}</span>
+                <ChevronRight className="h-5 w-5 shrink-0 text-primary transition-transform group-open:rotate-90" />
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
