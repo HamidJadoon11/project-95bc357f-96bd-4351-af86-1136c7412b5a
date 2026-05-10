@@ -54,9 +54,37 @@ export default function Index() {
   return (
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        '@context': 'https://schema.org', '@type': 'WebSite', name: 'Mawaqit', url: 'https://mawaqit.app',
-        description: 'Accurate prayer times and azan times worldwide for all countries and cities.',
-        potentialAction: { '@type': 'SearchAction', target: 'https://mawaqit.app/prayer-times?q={search_term_string}', 'query-input': 'required name=search_term_string' },
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'WebPage',
+            '@id': 'https://mawaqit.app/#webpage',
+            url: 'https://mawaqit.app/',
+            name: 'Mawaqit — Prayer Times, Azan, Azkar & Islamic Tools',
+            description: 'Accurate Mawaqit Salah and Azan times for 600+ cities worldwide, with Azkar, Duas, Qibla finder, Zakat calculator and Hijri calendar.',
+            inLanguage: lang,
+            isPartOf: { '@id': 'https://mawaqit.app/#website' },
+            about: [
+              { '@type': 'Thing', name: 'Salah (Islamic prayer)', sameAs: 'https://en.wikipedia.org/wiki/Salah' },
+              { '@type': 'Thing', name: 'Adhan (Call to prayer)', sameAs: 'https://en.wikipedia.org/wiki/Adhan' },
+              { '@type': 'Thing', name: 'Qibla', sameAs: 'https://en.wikipedia.org/wiki/Qibla' },
+              { '@type': 'Thing', name: 'Hijri calendar', sameAs: 'https://en.wikipedia.org/wiki/Islamic_calendar' },
+              { '@type': 'Thing', name: 'Zakat', sameAs: 'https://en.wikipedia.org/wiki/Zakat' },
+              { '@type': 'Thing', name: 'Ramadan', sameAs: 'https://en.wikipedia.org/wiki/Ramadan' }
+            ],
+            reviewedBy: { '@type': 'Person', name: 'Sheikh Editorial Board', jobTitle: 'Islamic Scholars Review Panel' }
+          },
+          {
+            '@type': 'FAQPage',
+            mainEntity: [
+              { '@type': 'Question', name: 'How accurate are Mawaqit prayer times?', acceptedAnswer: { '@type': 'Answer', text: 'Prayer times are computed using astronomical algorithms (Umm Al-Qura, Muslim World League, ISNA, Egyptian, Karachi) with city-level latitude, longitude and elevation, then refreshed daily.' } },
+              { '@type': 'Question', name: 'Which calculation method should I use?', acceptedAnswer: { '@type': 'Answer', text: 'Use Umm Al-Qura in Saudi Arabia and the Gulf, ISNA in North America, Muslim World League in Europe, Karachi in South Asia, and Egyptian General Authority in North Africa.' } },
+              { '@type': 'Question', name: 'What is the difference between Prayer Times and Azan Times?', acceptedAnswer: { '@type': 'Answer', text: 'Prayer Times list all daily milestones including Imsak and Sunrise. Azan Times list only the five moments when the Adhan is called: Fajr, Dhuhr, Asr, Maghrib and Isha.' } },
+              { '@type': 'Question', name: 'How do I find the Qibla direction?', acceptedAnswer: { '@type': 'Answer', text: 'Open the Qibla page and allow location access. We compute the great-circle bearing from your coordinates to the Kaaba in Makkah (21.4225° N, 39.8262° E).' } },
+              { '@type': 'Question', name: 'Are Ramadan Suhoor and Iftar timings included?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — every Ramadan calendar from 2025 to 2040 includes Imsak/Suhoor end, Fajr, Iftar (Maghrib), Taraweeh and full Salah schedules per city.' } }
+            ]
+          }
+        ]
       }) }} />
 
       {/* ===== HERO SECTION ===== */}
