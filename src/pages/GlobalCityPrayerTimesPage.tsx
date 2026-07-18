@@ -80,7 +80,19 @@ export default function GlobalCityPrayerTimesPage() {
     if (meta) meta.setAttribute('content', lang === 'ar'
       ? `مواقيت الصلاة اليوم في ${city.nameAr}، ${country.nameAr}. الفجر، الشروق، الظهر، العصر، المغرب، العشاء. جدول شهري وتقويم هجري. أوقات الأذان والإمساك والإفطار.`
       : `Today's prayer times in ${city.nameEn}, ${country.nameEn}. Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha times. Monthly timetable and Hijri calendar. Azan, Imsak and Iftar schedules.`);
-  }, [city, country, lang]);
+    // Canonical + hreflang
+    const path = `/prayer-times/${countrySlug}/${citySlug}`;
+    const setLink = (rel: string, hreflang: string | null, href: string) => {
+      const sel = hreflang ? `link[rel="${rel}"][hreflang="${hreflang}"]` : `link[rel="${rel}"]:not([hreflang])`;
+      let el = document.head.querySelector<HTMLLinkElement>(sel);
+      if (!el) { el = document.createElement('link'); el.rel = rel; if (hreflang) el.setAttribute('hreflang', hreflang); document.head.appendChild(el); }
+      el.href = href;
+    };
+    setLink('canonical', null, path);
+    setLink('alternate', 'en', path);
+    setLink('alternate', 'ar', path);
+    setLink('alternate', 'x-default', path);
+  }, [city, country, lang, countrySlug, citySlug]);
 
   if (!city || !country) {
     return (
