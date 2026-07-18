@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Globe, Clock, BookOpen, Compass, Shield, Heart } from 'lucide-react';
+import { useSeo } from '@/hooks/useSeo';
 
 export default function AboutPage() {
   const { lang } = useLanguage();
+  useSeo({ title: lang === 'ar' ? 'عن مواقيت - رسالتنا وقيمنا ومنهجنا في حساب مواقيت الصلاة | مواقيت' : 'About Mawaqit - Our Mission, Values & Prayer Time Methodology | Mawaqit', description: lang === 'ar' ? 'تعرّف على مواقيت: منصة إسلامية عالمية تقدم مواقيت الصلاة الدقيقة، الأذكار، الأدعية، القبلة، والزكاة لأكثر من 80 دولة و600 مدينة. رسالتنا، منهجنا، ومصادرنا الموثوقة.' : 'Learn about Mawaqit: a global Islamic platform providing accurate prayer times, azkar, duas, Qibla, and zakat for 80+ countries and 600+ cities. Our mission, methodology, and trusted sources.', path: '/about' });
 
   useEffect(() => {
     document.title = lang === 'ar' ? 'عن مواقيت - رفيقك الإسلامي اليومي' : 'About Mawaqit - Your Daily Islamic Companion';

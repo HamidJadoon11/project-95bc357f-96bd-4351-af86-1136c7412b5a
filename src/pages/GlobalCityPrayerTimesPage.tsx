@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { getCountryBySlug, getGlobalCityBySlug, getCitiesByCountry } from '@/data/countries';
 import { usePrayerTimes, getNextPrayer } from '@/hooks/usePrayerTimes';
+import { useSeo } from '@/hooks/useSeo';
 import { TranslationKey } from '@/i18n/translations';
 import { MapPin, Clock, Calendar, Loader2, ChevronLeft, ChevronRight, Bell, Moon, Star, BookOpen } from 'lucide-react';
 
@@ -71,28 +72,77 @@ export default function GlobalCityPrayerTimesPage() {
   monthDate.setMonth(monthDate.getMonth() + monthOffset);
   const monthLabel = monthDate.toLocaleDateString(lang === 'ar' ? 'ar-SA' : 'en-US', { month: 'long', year: 'numeric' });
 
-  useEffect(() => {
-    if (!city || !country) return;
-    document.title = lang === 'ar'
-      ? `مواقيت الصلاة في ${city.nameAr}، ${country.nameAr} اليوم - الفجر، الظهر، العصر، المغرب، العشاء - مواقيت`
-      : `Prayer Times in ${city.nameEn}, ${country.nameEn} Today - Fajr, Dhuhr, Asr, Maghrib, Isha - Mawaqit`;
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute('content', lang === 'ar'
-      ? `مواقيت الصلاة اليوم في ${city.nameAr}، ${country.nameAr}. الفجر، الشروق، الظهر، العصر، المغرب، العشاء. جدول شهري وتقويم هجري. أوقات الأذان والإمساك والإفطار.`
-      : `Today's prayer times in ${city.nameEn}, ${country.nameEn}. Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha times. Monthly timetable and Hijri calendar. Azan, Imsak and Iftar schedules.`);
-    // Canonical + hreflang
-    const path = `/prayer-times/${countrySlug}/${citySlug}`;
-    const setLink = (rel: string, hreflang: string | null, href: string) => {
-      const sel = hreflang ? `link[rel="${rel}"][hreflang="${hreflang}"]` : `link[rel="${rel}"]:not([hreflang])`;
-      let el = document.head.querySelector<HTMLLinkElement>(sel);
-      if (!el) { el = document.createElement('link'); el.rel = rel; if (hreflang) el.setAttribute('hreflang', hreflang); document.head.appendChild(el); }
-      el.href = href;
-    };
-    setLink('canonical', null, path);
-    setLink('alternate', 'en', path);
-    setLink('alternate', 'ar', path);
-    setLink('alternate', 'x-default', path);
-  }, [city, country, lang, countrySlug, citySlug]);
+  const path = `/prayer-times/${countrySlug}/${citySlug}`;
+  const todayIso = new Date().toISOString().split('T')[0];
+  const title = city && country
+    ? (lang === 'ar'
+        ? `مواقيت الصلاة في ${city.nameAr} اليوم ${todayIso} | الفجر، الظهر، العصر، المغرب، العشاء - ${country.nameAr}`
+        : `Prayer Times in ${city.nameEn} Today ${todayIso} | Fajr, Dhuhr, Asr, Maghrib, Isha - ${country.nameEn}`)
+    : 'Prayer Times';
+  const description = city && country && times
+    ? (lang === 'ar'
+        ? `مواقيت الصلاة اليوم في ${city.nameAr}، ${country.nameAr}: الفجر ${times.fajr}، الشروق ${times.sunrise}، الظهر ${times.dhuhr}، العصر ${times.asr}، المغرب ${times.maghrib}، العشاء ${times.isha}. جدول شهري، تقويم هجري، وأوقات الأذان والإمساك.`
+        : `Today's prayer times in ${city.nameEn}, ${country.nameEn}: Fajr ${times.fajr}, Sunrise ${times.sunrise}, Dhuhr ${times.dhuhr}, Asr ${times.asr}, Maghrib ${times.maghrib}, Isha ${times.isha}. Monthly timetable, Hijri calendar and Azan/Imsak schedules.`)
+    : (lang === 'ar'
+        ? `مواقيت الصلاة اليوم في ${city?.nameAr || ''}، ${country?.nameAr || ''}. الفجر، الشروق، الظهر، العصر، المغرب، العشاء وجدول شهري كامل.`
+        : `Today's prayer times in ${city?.nameEn || ''}, ${country?.nameEn || ''}. Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha and full monthly timetable.`);
+  const keywords = city && country
+    ? (lang === 'ar'
+        ? `مواقيت الصلاة في ${city.nameAr}, أوقات الصلاة ${city.nameAr}, أذان ${city.nameAr}, صلاة الفجر ${city.nameAr}, صلاة المغرب ${city.nameAr}, رمضان ${city.nameAr}, إمساكية ${city.nameAr}, ${country.nameAr}`
+        : `prayer times ${city.nameEn}, ${city.nameEn} prayer times, azan times ${city.nameEn}, salah times ${city.nameEn}, fajr time ${city.nameEn}, maghrib time ${city.nameEn}, ramadan ${city.nameEn}, imsak ${city.nameEn}, ${country.nameEn} prayer times`)
+    : undefined;
+
+  const jsonLd = city && country && times ? [
+    {
+      '@context': 'https://schema.org', '@type': 'WebPage',
+      name: title, description, url: path, inLanguage: lang === 'ar' ? 'ar' : 'en',
+      breadcrumb: {
+        '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: lang === 'ar' ? 'الرئيسية' : 'Home', item: '/' },
+          { '@type': 'ListItem', position: 2, name: lang === 'ar' ? 'مواقيت الصلاة' : 'Prayer Times', item: '/prayer-times' },
+          { '@type': 'ListItem', position: 3, name: lang === 'ar' ? country.nameAr : country.nameEn, item: `/prayer-times/${countrySlug}` },
+          { '@type': 'ListItem', position: 4, name: lang === 'ar' ? city.nameAr : city.nameEn, item: path },
+        ]
+      },
+      mainEntity: {
+        '@type': 'Place', name: lang === 'ar' ? city.nameAr : city.nameEn,
+        address: { '@type': 'PostalAddress', addressLocality: city.nameEn, addressCountry: country.nameEn },
+        geo: { '@type': 'GeoCoordinates', latitude: city.lat, longitude: city.lng },
+      },
+    },
+    // PrayerTimes-as-Schedule + individual Event entries for each of the 5 prayers today
+    {
+      '@context': 'https://schema.org', '@type': 'Schedule',
+      name: lang === 'ar' ? `مواقيت الصلاة في ${city.nameAr} - ${todayIso}` : `Prayer Times in ${city.nameEn} - ${todayIso}`,
+      description,
+      startDate: todayIso, endDate: todayIso,
+      repeatFrequency: 'P1D', scheduleTimezone: 'UTC',
+      location: { '@type': 'Place', name: lang === 'ar' ? city.nameAr : city.nameEn, geo: { '@type': 'GeoCoordinates', latitude: city.lat, longitude: city.lng } },
+      byDay: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+    },
+    {
+      '@context': 'https://schema.org', '@graph': [
+        { key: 'fajr', name: lang === 'ar' ? 'صلاة الفجر' : 'Fajr Prayer', time: times.fajr, desc: lang === 'ar' ? 'أول الصلوات الخمس، تُؤدى قبل شروق الشمس' : 'First of the five daily prayers, performed before sunrise' },
+        { key: 'dhuhr', name: lang === 'ar' ? 'صلاة الظهر' : 'Dhuhr Prayer', time: times.dhuhr, desc: lang === 'ar' ? 'صلاة منتصف النهار عند زوال الشمس' : 'Midday prayer when the sun passes the meridian' },
+        { key: 'asr', name: lang === 'ar' ? 'صلاة العصر' : 'Asr Prayer', time: times.asr, desc: lang === 'ar' ? 'صلاة ما بعد الظهر' : 'Afternoon prayer' },
+        { key: 'maghrib', name: lang === 'ar' ? 'صلاة المغرب' : 'Maghrib Prayer', time: times.maghrib, desc: lang === 'ar' ? 'صلاة عند غروب الشمس، ووقت الإفطار في رمضان' : 'Prayer at sunset, which marks Iftar during Ramadan' },
+        { key: 'isha', name: lang === 'ar' ? 'صلاة العشاء' : 'Isha Prayer', time: times.isha, desc: lang === 'ar' ? 'آخر الصلوات الخمس، بعد غياب الشفق' : 'Last of the five daily prayers, after twilight disappears' },
+      ].map(p => ({
+        '@type': 'Event', '@id': `${path}#${p.key}-${todayIso}`,
+        name: `${p.name} - ${lang === 'ar' ? city.nameAr : city.nameEn}`,
+        description: p.desc,
+        startDate: `${todayIso}T${p.time}:00`,
+        endDate: `${todayIso}T${p.time}:00`,
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        eventStatus: 'https://schema.org/EventScheduled',
+        location: { '@type': 'Place', name: `${lang === 'ar' ? city.nameAr : city.nameEn}, ${lang === 'ar' ? country.nameAr : country.nameEn}`, geo: { '@type': 'GeoCoordinates', latitude: city.lat, longitude: city.lng } },
+        organizer: { '@type': 'Organization', name: 'Mawaqit', url: '/' },
+        isAccessibleForFree: true,
+      })),
+    },
+  ] : undefined;
+
+  useSeo({ title, description, path, keywords, jsonLd });
 
   if (!city || !country) {
     return (
@@ -107,20 +157,6 @@ export default function GlobalCityPrayerTimesPage() {
 
   return (
     <div>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        '@context': 'https://schema.org', '@type': 'WebPage',
-        name: `Prayer Times in ${city.nameEn}, ${country.nameEn}`,
-        description: `Accurate daily prayer times and azan times for ${city.nameEn}, ${country.nameEn}. Fajr, Dhuhr, Asr, Maghrib, Isha.`,
-        url: `https://mawaqit.app/prayer-times/${countrySlug}/${citySlug}`,
-        inLanguage: lang === 'ar' ? 'ar' : 'en',
-        breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Prayer Times', item: '/prayer-times' },
-          { '@type': 'ListItem', position: 2, name: country.nameEn, item: `/prayer-times/${countrySlug}` },
-          { '@type': 'ListItem', position: 3, name: city.nameEn },
-        ]},
-        mainEntity: { '@type': 'Place', name: city.nameEn, geo: { '@type': 'GeoCoordinates', latitude: city.lat, longitude: city.lng } },
-      }) }} />
-
       {/* Hero */}
       <section className="islamic-pattern hero-gradient px-4 py-12 text-primary-foreground">
         <div className="container mx-auto">

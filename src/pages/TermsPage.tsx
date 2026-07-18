@@ -5,7 +5,10 @@ export default function TermsPage() {
   const { lang } = useLanguage();
 
   useEffect(() => {
-    document.title = lang === 'ar' ? 'شروط الاستخدام - مواقيت' : 'Terms of Use - Mawaqit';
+    document.title = lang === 'ar' ? 'شروط الاستخدام - اتفاقية استخدام موقع مواقيت' : 'Terms of Use - Mawaqit Website Usage Agreement | Mawaqit';
+    const desc = lang === 'ar' ? 'شروط وأحكام استخدام موقع مواقيت: قبول الشروط، الاستخدام المقبول، إخلاء المسؤولية، والملكية الفكرية.' : 'Mawaqit terms and conditions: acceptance of terms, acceptable use, disclaimers, and intellectual property rights.';
+    let m = document.querySelector<HTMLMetaElement>('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
+    let c = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]:not([hreflang])'); if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c);} c.setAttribute('href','/terms');
   }, [lang]);
 
   if (lang === 'ar') {

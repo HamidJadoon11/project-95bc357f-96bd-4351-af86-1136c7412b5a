@@ -4,6 +4,7 @@ import { countries, getCitiesByCountry } from '@/data/countries';
 import { Bell, MapPin, Globe } from 'lucide-react';
 import { useEffect } from 'react';
 import CitySearch from '@/components/CitySearch';
+import { useSeo } from '@/hooks/useSeo';
 
 const regions = [
   { key: 'gulf', en: 'Gulf Countries', ar: 'دول الخليج', slugs: ['saudi-arabia', 'uae', 'qatar', 'kuwait', 'bahrain', 'oman'] },
@@ -16,6 +17,7 @@ const regions = [
 
 export default function AzanTimesIndexPage() {
   const { lang } = useLanguage();
+  useSeo({ title: lang === 'ar' ? 'أوقات الأذان في جميع دول العالم - جدول الأذان الشهري | مواقيت' : 'Azan Times for All Countries Worldwide - Monthly Azan Schedule | Mawaqit', description: lang === 'ar' ? 'اختر بلدك لعرض أوقات الأذان الدقيقة لأذان الفجر والظهر والعصر والمغرب والعشاء في مدنه، مع جدول شهري كامل.' : 'Choose your country to see accurate Azan times for Fajr, Dhuhr, Asr, Maghrib, and Isha in its cities, with a complete monthly schedule.', path: '/azan-times' });
 
   useEffect(() => {
     document.title = lang === 'ar'

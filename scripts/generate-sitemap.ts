@@ -11,7 +11,7 @@ const today = new Date().toISOString().split('T')[0];
 const staticPaths = [
   '/', '/prayer-times', '/azan-times', '/azkar', '/duas', '/ahadees',
   '/ramadan', '/qibla', '/zakat', '/calendar',
-  '/about', '/contact', '/privacy', '/terms',
+  '/about', '/contact', '/privacy', '/terms', '/disclaimer',
 ];
 
 const ramadanYears = Array.from({ length: 16 }, (_, i) => `/ramadan/${2025 + i}`);

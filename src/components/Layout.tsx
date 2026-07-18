@@ -107,6 +107,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Link to="/contact" className="block text-xs opacity-70 hover:opacity-100 transition-opacity">{t('contact')}</Link>
                 <Link to="/privacy" className="block text-xs opacity-70 hover:opacity-100 transition-opacity">{t('privacy')}</Link>
                 <Link to="/terms" className="block text-xs opacity-70 hover:opacity-100 transition-opacity">{t('terms')}</Link>
+                <Link to="/disclaimer" className="block text-xs opacity-70 hover:opacity-100 transition-opacity">{lang === 'ar' ? 'إخلاء المسؤولية' : 'Disclaimer'}</Link>
               </div>
             </div>
           </div>
