@@ -7,7 +7,10 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    document.title = lang === 'ar' ? 'اتصل بنا - مواقيت' : 'Contact Us - Mawaqit';
+    document.title = lang === 'ar' ? 'اتصل بنا - راسل فريق مواقيت للدعم والاقتراحات' : 'Contact Us - Reach the Mawaqit Team for Support & Feedback | Mawaqit';
+    const desc = lang === 'ar' ? 'تواصل مع فريق مواقيت للإبلاغ عن أخطاء في مواقيت الصلاة، اقتراح مدن جديدة، أو تقديم ملاحظاتك.' : 'Contact the Mawaqit team to report prayer time errors, suggest new cities, or share your feedback.';
+    let m = document.querySelector('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
+    let c = document.head.querySelector('link[rel="canonical"]:not([hreflang])'); if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c);} c.setAttribute('href','/contact');
   }, [lang]);
 
   const handleSubmit = (e: React.FormEvent) => {
