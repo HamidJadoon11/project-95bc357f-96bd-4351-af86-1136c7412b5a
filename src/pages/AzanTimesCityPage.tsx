@@ -63,9 +63,12 @@ export default function AzanTimesCityPage() {
 
   useEffect(() => {
     if (!city || !country) return;
-    document.title = lang === 'ar'
-      ? `أوقات الأذان في ${city.nameAr}، ${country.nameAr} اليوم - مواقيت`
-      : `Azan Times in ${city.nameEn}, ${country.nameEn} Today - Mawaqit`;
+    document.title = lang === 'ar' ? `أوقات الأذان في ${city.nameAr} اليوم - أذان الفجر، الظهر، العصر، المغرب، العشاء | ${country.nameAr} - مواقيت` : `Azan Times in ${city.nameEn} Today - Fajr, Dhuhr, Asr, Maghrib, Isha Azan | ${country.nameEn} - Mawaqit`;
+    const desc = lang === 'ar' ? `أوقات الأذان اليوم في ${city.nameAr}، ${country.nameAr}: أذان الفجر، الظهر، العصر، المغرب، والعشاء مع جدول أذان شهري كامل وتقويم هجري.` : `Today's Azan times in ${city.nameEn}, ${country.nameEn}: Fajr, Dhuhr, Asr, Maghrib, and Isha Azan with a complete monthly Azan timetable and Hijri calendar.`;
+    let m = document.querySelector('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
+    const path = `/azan-times/${countrySlug}/${citySlug}`;
+    const setLink = (rel, hreflang, href) => { const sel = hreflang ? `link[rel="${rel}"][hreflang="${hreflang}"]` : `link[rel="${rel}"]:not([hreflang])`; let el = document.head.querySelector(sel); if (!el) { el = document.createElement('link'); el.rel = rel; if (hreflang) el.setAttribute('hreflang', hreflang); document.head.appendChild(el); } el.href = href; };
+    setLink('canonical', null, path); setLink('alternate','en',path); setLink('alternate','ar',path); setLink('alternate','x-default',path);
   }, [city, country, lang]);
 
   if (!city || !country) {
