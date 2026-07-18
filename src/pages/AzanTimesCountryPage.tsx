@@ -14,9 +14,9 @@ export default function AzanTimesCountryPage() {
     if (!country) return;
     document.title = lang === 'ar' ? `أوقات الأذان في ${country.nameAr} اليوم - جميع المدن (${cities.length}) | الفجر، الظهر، العصر، المغرب، العشاء - مواقيت` : `Azan Times in ${country.nameEn} Today - All ${cities.length} Cities | Fajr, Dhuhr, Asr, Maghrib, Isha Azan - Mawaqit`;
     const desc = lang === 'ar' ? `أوقات الأذان الدقيقة لأذان الفجر، الظهر، العصر، المغرب، والعشاء في ${cities.length} مدينة من مدن ${country.nameAr} مع جدول أذان شهري كامل.` : `Accurate Fajr, Dhuhr, Asr, Maghrib, and Isha Azan times in ${cities.length} cities across ${country.nameEn} with a full monthly azan schedule.`;
-    let m = document.querySelector('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
+    let m = document.querySelector<HTMLMetaElement>('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
     const path = `/azan-times/${countrySlug}`;
-    const setLink = (rel, hreflang, href) => { const sel = hreflang ? `link[rel="${rel}"][hreflang="${hreflang}"]` : `link[rel="${rel}"]:not([hreflang])`; let el = document.head.querySelector(sel); if (!el) { el = document.createElement('link'); el.rel = rel; if (hreflang) el.setAttribute('hreflang', hreflang); document.head.appendChild(el); } el.href = href; };
+    const setLink = (rel, hreflang, href) => { const sel = hreflang ? `link[rel="${rel}"][hreflang="${hreflang}"]` : `link[rel="${rel}"]:not([hreflang])`; let el = document.head.querySelector<HTMLLinkElement>(sel); if (!el) { el = document.createElement('link'); el.rel = rel; if (hreflang) el.setAttribute('hreflang', hreflang); document.head.appendChild(el); } el.href = href; };
     setLink('canonical', null, path); setLink('alternate','en',path); setLink('alternate','ar',path); setLink('alternate','x-default',path);
   }, [country, lang]);
 

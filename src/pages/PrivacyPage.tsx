@@ -7,8 +7,8 @@ export default function PrivacyPage() {
   useEffect(() => {
     document.title = lang === 'ar' ? 'سياسة الخصوصية - كيف نحمي بياناتك على مواقيت' : 'Privacy Policy - How Mawaqit Protects Your Data | Mawaqit';
     const desc = lang === 'ar' ? 'سياسة الخصوصية الرسمية لموقع مواقيت: كيف نجمع ونستخدم ونحمي بيانات الموقع الجغرافي، التخزين المحلي، والإعلانات.' : 'Official Mawaqit privacy policy: how we collect, use and protect your location data, local storage, and third-party ad practices.';
-    let m = document.querySelector('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
-    let c = document.head.querySelector('link[rel="canonical"]:not([hreflang])'); if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c);} c.setAttribute('href','/privacy');
+    let m = document.querySelector<HTMLMetaElement>('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
+    let c = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]:not([hreflang])'); if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c);} c.setAttribute('href','/privacy');
   }, [lang]);
 
   if (lang === 'ar') {

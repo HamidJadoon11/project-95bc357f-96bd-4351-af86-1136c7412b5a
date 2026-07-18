@@ -9,7 +9,7 @@ const NISAB_GOLD = 85 * GOLD_PRICE_PER_GRAM;
 const NISAB_SILVER = 595 * SILVER_PRICE_PER_GRAM;
 
 export default function ZakatPage() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   useSeo({ title: lang === 'ar' ? 'حاسبة الزكاة الإسلامية - احسب زكاة المال والذهب والفضة | مواقيت' : 'Islamic Zakat Calculator - Calculate Zakat on Cash, Gold & Silver | Mawaqit', description: lang === 'ar' ? 'حاسبة زكاة مجانية ودقيقة تحسب زكاة المال والذهب والفضة والاستثمارات وفقاً للنصاب الشرعي (85 غ ذهب / 595 غ فضة) ونسبة 2.5%.' : 'Free and accurate zakat calculator for cash, gold, silver, and investments based on the shariah nisab (85g gold / 595g silver) and 2.5% rate.', path: '/zakat' });
   const [gold, setGold] = useState('');
   const [silver, setSilver] = useState('');

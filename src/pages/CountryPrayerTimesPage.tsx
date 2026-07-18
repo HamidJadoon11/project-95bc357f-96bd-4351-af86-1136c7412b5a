@@ -15,9 +15,9 @@ export default function CountryPrayerTimesPage() {
     if (!country) return;
     document.title = lang === 'ar' ? `مواقيت الصلاة في ${country.nameAr} - جميع المدن اليوم | ${cities.length} مدينة - مواقيت` : `Prayer Times in ${country.nameEn} - All ${cities.length} Cities Today | Fajr, Dhuhr, Asr, Maghrib, Isha | Mawaqit`;
     const desc = lang === 'ar' ? `مواقيت الصلاة الدقيقة والمحدثة يومياً في ${cities.length} مدينة من مدن ${country.nameAr}: الفجر، الشروق، الظهر، العصر، المغرب، والعشاء مع جدول شهري وتقويم هجري.` : `Accurate daily prayer times for ${cities.length} cities in ${country.nameEn}: Fajr, Sunrise, Dhuhr, Asr, Maghrib, and Isha with monthly timetables and Hijri calendar.`;
-    let m = document.querySelector('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
+    let m = document.querySelector<HTMLMetaElement>('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
     const path = `/prayer-times/${countrySlug}`;
-    const setLink = (rel, hreflang, href) => { const sel = hreflang ? `link[rel="${rel}"][hreflang="${hreflang}"]` : `link[rel="${rel}"]:not([hreflang])`; let el = document.head.querySelector(sel); if (!el) { el = document.createElement('link'); el.rel = rel; if (hreflang) el.setAttribute('hreflang', hreflang); document.head.appendChild(el); } el.href = href; };
+    const setLink = (rel, hreflang, href) => { const sel = hreflang ? `link[rel="${rel}"][hreflang="${hreflang}"]` : `link[rel="${rel}"]:not([hreflang])`; let el = document.head.querySelector<HTMLLinkElement>(sel); if (!el) { el = document.createElement('link'); el.rel = rel; if (hreflang) el.setAttribute('hreflang', hreflang); document.head.appendChild(el); } el.href = href; };
     setLink('canonical', null, path); setLink('alternate','en',path); setLink('alternate','ar',path); setLink('alternate','x-default',path);
   }, [country, lang]);
 
