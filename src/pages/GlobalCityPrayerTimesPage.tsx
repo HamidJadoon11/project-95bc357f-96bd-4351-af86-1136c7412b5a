@@ -144,6 +144,19 @@ export default function GlobalCityPrayerTimesPage() {
 
   useSeo({ title, description, path, keywords, jsonLd });
 
+  if (!city || !country) {
+    return (
+      <div className="container mx-auto px-4 py-16 text-center">
+        <h1 className="text-2xl font-bold text-foreground">{lang === 'ar' ? 'المدينة غير موجودة' : 'City not found'}</h1>
+        <Link to="/prayer-times" className="mt-4 inline-block text-primary underline">← {lang === 'ar' ? 'العودة' : 'Back'}</Link>
+      </div>
+    );
+  }
+
+  const otherCities = getCitiesByCountry(countrySlug || '').filter(c => c.slug !== citySlug).slice(0, 20);
+
+  return (
+    <div>
       {/* Hero */}
       <section className="islamic-pattern hero-gradient px-4 py-12 text-primary-foreground">
         <div className="container mx-auto">
