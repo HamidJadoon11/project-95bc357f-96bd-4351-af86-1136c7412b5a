@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { ahadees, hadithCategories } from '@/data/ahadees';
 import { BookOpen } from 'lucide-react';
+import { useSeo } from '@/hooks/useSeo';
 
 export default function AhadeesPage() {
   const { lang } = useLanguage();
+  useSeo({ title: lang === 'ar' ? 'أحاديث نبوية شريفة صحيحة مع الترجمة - صحيح البخاري ومسلم | مواقيت' : 'Authentic Prophetic Ahadees (Hadith) with Translation - Sahih Al-Bukhari & Muslim | Mawaqit', description: lang === 'ar' ? 'مجموعة مختارة من الأحاديث النبوية الصحيحة من صحيح البخاري وصحيح مسلم مصنفة حسب الموضوع مع الشرح والترجمة الإنجليزية.' : 'A curated collection of authentic hadith from Sahih Al-Bukhari and Sahih Muslim, categorized by topic with commentary and English translation.', path: '/ahadees' });
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
   const filtered = activeCategory === 'all' ? ahadees : ahadees.filter(h => h.category === activeCategory);

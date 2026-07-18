@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { getPopularCities, GlobalCityData } from '@/data/countries';
 import { Loader2, Moon, ArrowRight, Calendar, Clock, Star, MapPin, BookOpen, Heart, ChevronDown } from 'lucide-react';
+import { useSeo } from '@/hooks/useSeo';
 
 const ramadanYears = Array.from({ length: 16 }, (_, i) => 2025 + i);
 
@@ -43,6 +44,7 @@ const dailyTips = [
 export default function RamadanPage() {
   const { year: yearParam } = useParams<{ year: string }>();
   const { lang } = useLanguage();
+  useSeo({ title: lang === 'ar' ? 'رمضان 2026 - إمساكية رمضان وأوقات السحور والإفطار والتراويح | مواقيت' : 'Ramadan 2026 - Ramadan Imsakiya, Suhoor, Iftar & Taraweeh Times | Mawaqit', description: lang === 'ar' ? 'إمساكية رمضان 2026 كاملة: أوقات السحور والإمساك والإفطار وصلاة التراويح لأي مدينة، مع أدعية رمضان وليلة القدر وزكاة الفطر.' : 'Complete Ramadan 2026 Imsakiya: Suhoor, Imsak, Iftar, and Taraweeh prayer times for any city, with Ramadan duas, Laylat al-Qadr guidance, and Zakat al-Fitr.', path: '/ramadan' });
   const year = yearParam ? parseInt(yearParam) : new Date().getFullYear();
   const hijriYear = getRamadanHijriYear(year);
   const [data, setData] = useState<any[]>([]);

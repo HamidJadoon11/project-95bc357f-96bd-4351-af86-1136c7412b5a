@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { useLocation as useGeoLocation } from '@/hooks/usePrayerTimes';
 import { Compass, MapPin, Loader2 } from 'lucide-react';
+import { useSeo } from '@/hooks/useSeo';
 
 function calculateQibla(lat: number, lng: number): number {
   const meccaLat = (21.4225 * Math.PI) / 180;
@@ -19,6 +20,7 @@ function calculateQibla(lat: number, lng: number): number {
 
 export default function QiblaPage() {
   const { t } = useLanguage();
+  useSeo({ title: lang === 'ar' ? 'اتجاه القبلة - بوصلة القبلة الدقيقة نحو الكعبة المشرفة | مواقيت' : 'Qibla Direction - Accurate Qibla Compass to the Kaaba in Makkah | Mawaqit', description: lang === 'ar' ? 'تحديد اتجاه القبلة بدقة نحو الكعبة المشرفة في مكة المكرمة باستخدام GPS وصيغة الدائرة العظمى. بوصلة قبلة تفاعلية تعمل في أي مكان في العالم.' : 'Find the exact Qibla direction to the Kaaba in Makkah using GPS and the Great Circle formula. An interactive Qibla compass that works anywhere in the world.', path: '/qibla' });
   const { location, loading } = useGeoLocation();
   const [qiblaAngle, setQiblaAngle] = useState<number | null>(null);
   const [heading, setHeading] = useState<number>(0);

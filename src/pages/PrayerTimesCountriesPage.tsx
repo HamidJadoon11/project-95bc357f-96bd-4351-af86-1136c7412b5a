@@ -4,6 +4,7 @@ import { countries, getCitiesByCountry } from '@/data/countries';
 import { MapPin, Globe, Search } from 'lucide-react';
 import { useEffect } from 'react';
 import CitySearch from '@/components/CitySearch';
+import { useSeo } from '@/hooks/useSeo';
 
 const regions = [
   { key: 'gulf', en: 'Gulf Countries', ar: 'دول الخليج', slugs: ['saudi-arabia', 'uae', 'qatar', 'kuwait', 'bahrain', 'oman'] },
@@ -18,6 +19,7 @@ const regions = [
 
 export default function PrayerTimesCountriesPage() {
   const { lang } = useLanguage();
+  useSeo({ title: lang === 'ar' ? 'مواقيت الصلاة في جميع دول العالم - قائمة الدول | مواقيت' : 'Prayer Times for All Countries Worldwide - Countries Index | Mawaqit', description: lang === 'ar' ? 'اختر بلدك لعرض مواقيت الصلاة الدقيقة لكل مدنه: السعودية، الإمارات، مصر، تركيا، باكستان، إندونيسيا، الولايات المتحدة، بريطانيا وأكثر من 80 دولة.' : 'Choose your country to view accurate prayer times for all its cities: Saudi Arabia, UAE, Egypt, Turkey, Pakistan, Indonesia, USA, UK, and over 80 countries.', path: '/prayer-times' });
 
   useEffect(() => {
     document.title = lang === 'ar'
