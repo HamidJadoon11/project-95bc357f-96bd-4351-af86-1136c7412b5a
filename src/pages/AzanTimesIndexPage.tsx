@@ -17,11 +17,11 @@ const regions = [
 
 export default function AzanTimesIndexPage() {
   const { lang } = useLanguage();
-  useSeo({ title: lang === 'ar' ? 'أوقات الأذان في جميع دول العالم - جدول الأذان الشهري | مواقيت' : 'Azan Times for All Countries Worldwide - Monthly Azan Schedule | Prayer Times', description: lang === 'ar' ? 'اختر بلدك لعرض أوقات الأذان الدقيقة لأذان الفجر والظهر والعصر والمغرب والعشاء في مدنه، مع جدول شهري كامل.' : 'Choose your country to see accurate Azan times for Fajr, Dhuhr, Asr, Maghrib, and Isha in its cities, with a complete monthly schedule.', path: '/azan-times' });
+  useSeo({ title: lang === 'ar' ? 'أوقات الأذان في جميع دول العالم - جدول الأذان الشهري | مواقيت الصلاة' : 'Azan Times for All Countries Worldwide - Monthly Azan Schedule | Prayer Times', description: lang === 'ar' ? 'اختر بلدك لعرض أوقات الأذان الدقيقة لأذان الفجر والظهر والعصر والمغرب والعشاء في مدنه، مع جدول شهري كامل.' : 'Choose your country to see accurate Azan times for Fajr, Dhuhr, Asr, Maghrib, and Isha in its cities, with a complete monthly schedule.', path: '/azan-times' });
 
   useEffect(() => {
     document.title = lang === 'ar'
-      ? 'أوقات الأذان في جميع الدول - مواقيت الأذان حول العالم - مواقيت'
+      ? 'أوقات الأذان في جميع الدول - مواقيت الصلاة الأذان حول العالم - مواقيت الصلاة'
       : 'Azan Times Worldwide - Adhan Schedule for All Countries | Prayer Times';
   }, [lang]);
 
@@ -85,7 +85,7 @@ export default function AzanTimesIndexPage() {
               : 'The Azan (also written as Adhan or Azaan) is the Islamic call to prayer, proclaimed five times daily to mark the beginning of each of the five obligatory prayers: Fajr, Dhuhr, Asr, Maghrib, and Isha. The Azan was prescribed in the first year after Hijrah, when Abdullah ibn Zaid had a dream about the call to prayer which the Prophet Muhammad (peace be upon him) confirmed. The Azan begins with "Allahu Akbar" (God is Greatest) and concludes with "La ilaha illallah" (There is no god but Allah). It serves as both an announcement that the prayer time has entered and an invitation for Muslims to come to the mosque for congregational prayer.'}
             </p>
             <p>{lang === 'ar'
-              ? 'يوفر موقع مواقيت أوقات الأذان المنفصلة والمستقلة عن صفحات مواقيت الصلاة. يتضمن كل صفحة مدينة أوقات الأذان الخمسة لليوم الحالي والجدول الشهري الكامل. نغطي أكثر من 80 دولة وأكثر من 300 مدينة حول العالم. أوقات الأذان تتزامن مع أوقات بداية الصلاة (باستثناء الشروق الذي ليس وقت صلاة مفروضة). يتم تحديث الأوقات يومياً باستخدام حسابات فلكية دقيقة.'
+              ? 'يوفر موقع مواقيت الصلاة أوقات الأذان المنفصلة والمستقلة عن صفحات مواقيت الصلاة. يتضمن كل صفحة مدينة أوقات الأذان الخمسة لليوم الحالي والجدول الشهري الكامل. نغطي أكثر من 80 دولة وأكثر من 300 مدينة حول العالم. أوقات الأذان تتزامن مع أوقات بداية الصلاة (باستثناء الشروق الذي ليس وقت صلاة مفروضة). يتم تحديث الأوقات يومياً باستخدام حسابات فلكية دقيقة.'
               : 'Prayer Times provides separate and independent Azan times pages distinct from prayer times pages. Each city page includes the five daily Azan times for the current day and a complete monthly timetable. We cover over 80 countries and 300+ cities worldwide. Azan times coincide with the start of each prayer time (excluding Sunrise, which is not an obligatory prayer time). Times are updated daily using precise astronomical calculations and trusted Islamic authority methods.'}
             </p>
           </div>

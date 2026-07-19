@@ -9,7 +9,7 @@ export default function PrayerTimesIndexPage() {
 
   useEffect(() => {
     document.title = lang === 'ar'
-      ? 'مواقيت الصلاة في جميع مدن السعودية - مواقيت'
+      ? 'مواقيت الصلاة في جميع مدن السعودية - مواقيت الصلاة'
       : 'Prayer Times in All Saudi Cities - Prayer Times';
   }, [lang]);
 
@@ -60,7 +60,7 @@ export default function PrayerTimesIndexPage() {
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             {lang === 'ar'
-              ? 'نوفر لك مواقيت الصلاة الدقيقة لجميع مدن المملكة العربية السعودية، بما في ذلك الفجر والشروق والظهر والعصر والمغرب والعشاء. يتم تحديث المواقيت تلقائياً بناءً على الحسابات الفلكية الدقيقة وفق طريقة أم القرى.'
+              ? 'نوفر لك مواقيت الصلاة الدقيقة لجميع مدن المملكة العربية السعودية، بما في ذلك الفجر والشروق والظهر والعصر والمغرب والعشاء. يتم تحديث المواقيت الصلاة تلقائياً بناءً على الحسابات الفلكية الدقيقة وفق طريقة أم القرى.'
               : 'We provide accurate prayer times for all cities in Saudi Arabia, including Fajr, Sunrise, Dhuhr, Asr, Maghrib, and Isha. Times are automatically updated daily based on precise astronomical calculations using the Umm Al-Qura method.'}
           </p>
         </div>

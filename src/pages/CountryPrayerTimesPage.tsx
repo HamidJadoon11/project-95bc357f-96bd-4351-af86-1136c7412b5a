@@ -13,7 +13,7 @@ export default function CountryPrayerTimesPage() {
 
   useEffect(() => {
     if (!country) return;
-    document.title = lang === 'ar' ? `مواقيت الصلاة في ${country.nameAr} - جميع المدن اليوم | ${cities.length} مدينة - مواقيت` : `Prayer Times in ${country.nameEn} - All ${cities.length} Cities Today | Fajr, Dhuhr, Asr, Maghrib, Isha | Prayer Times`;
+    document.title = lang === 'ar' ? `مواقيت الصلاة في ${country.nameAr} - جميع المدن اليوم | ${cities.length} مدينة - مواقيت الصلاة` : `Prayer Times in ${country.nameEn} - All ${cities.length} Cities Today | Fajr, Dhuhr, Asr, Maghrib, Isha | Prayer Times`;
     const desc = lang === 'ar' ? `مواقيت الصلاة الدقيقة والمحدثة يومياً في ${cities.length} مدينة من مدن ${country.nameAr}: الفجر، الشروق، الظهر، العصر، المغرب، والعشاء مع جدول شهري وتقويم هجري.` : `Accurate daily prayer times for ${cities.length} cities in ${country.nameEn}: Fajr, Sunrise, Dhuhr, Asr, Maghrib, and Isha with monthly timetables and Hijri calendar.`;
     let m = document.querySelector<HTMLMetaElement>('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
     const path = `/prayer-times/${countrySlug}`;
@@ -86,7 +86,7 @@ export default function CountryPrayerTimesPage() {
           </h2>
           <div className="mt-3 space-y-3 text-sm leading-relaxed text-muted-foreground">
             <p>{lang === 'ar'
-              ? `تعرض هذه الصفحة مواقيت الصلاة الدقيقة لجميع المدن الرئيسية في ${countryName}. نغطي ${cities.length} مدينة بأوقات صلاة محدثة يومياً تشمل الفجر والشروق والظهر والعصر والمغرب والعشاء. يتم حساب المواقيت باستخدام طرق فلكية دقيقة معتمدة من هيئات إسلامية رسمية. كل مدينة لها صفحة مخصصة تعرض مواقيت الصلاة اليومية والجدول الشهري والتقويم الهجري وأوقات الأذان. يمكنك أيضاً العثور على أوقات الإمساك والإفطار خلال شهر رمضان المبارك.`
+              ? `تعرض هذه الصفحة مواقيت الصلاة الدقيقة لجميع المدن الرئيسية في ${countryName}. نغطي ${cities.length} مدينة بأوقات صلاة محدثة يومياً تشمل الفجر والشروق والظهر والعصر والمغرب والعشاء. يتم حساب المواقيت الصلاة باستخدام طرق فلكية دقيقة معتمدة من هيئات إسلامية رسمية. كل مدينة لها صفحة مخصصة تعرض مواقيت الصلاة اليومية والجدول الشهري والتقويم الهجري وأوقات الأذان. يمكنك أيضاً العثور على أوقات الإمساك والإفطار خلال شهر رمضان المبارك.`
               : `This page displays accurate prayer times for all major cities in ${countryName}. We cover ${cities.length} cities with daily-updated prayer times including Fajr, Sunrise, Dhuhr, Asr, Maghrib, and Isha. Times are calculated using precise astronomical methods endorsed by official Islamic authorities. Each city has a dedicated page displaying daily prayer times, monthly timetable, Hijri calendar, and Azan times. You can also find Imsak and Iftar times during the blessed month of Ramadan. Our comprehensive coverage ensures that Muslims across ${countryName} can easily find accurate prayer times for their specific location.`}
             </p>
             <p>{lang === 'ar'
