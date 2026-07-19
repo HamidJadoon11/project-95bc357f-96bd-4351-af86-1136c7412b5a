@@ -2,7 +2,7 @@ export type Lang = 'en' | 'ar';
 
 export const translations = {
   en: {
-    siteName: 'Mawaqit',
+    siteName: 'Prayer Times',
     siteTagline: 'Your Daily Islamic Companion',
     home: 'Home',
     prayerTimes: 'Prayer Times',
@@ -60,7 +60,7 @@ export const translations = {
     searchCity: 'Search for a city...',
     nawafil: 'Nawafil Prayers',
     aboutPrayerTimes: 'About Prayer Times',
-    aboutPrayerTimesDesc: 'Prayer times are calculated using precise astronomical methods. Mawaqit provides accurate Fajr, Sunrise, Dhuhr, Asr, Maghrib, and Isha times for thousands of cities worldwide. Times are automatically updated daily using the Aladhan API with the Umm Al-Qura calculation method.',
+    aboutPrayerTimesDesc: 'Prayer times are calculated using precise astronomical methods. Prayer Times provides accurate Fajr, Sunrise, Dhuhr, Asr, Maghrib, and Isha times for thousands of cities worldwide. Times are automatically updated daily using the Aladhan API with the Umm Al-Qura calculation method.',
     whyPrayerTimesImportant: 'Why Are Prayer Times Important?',
     whyPrayerTimesImportantDesc: 'The five daily prayers (Salah) are one of the five pillars of Islam. Performing prayers at their prescribed times is obligatory for every Muslim. Knowing the exact prayer times helps Muslims fulfill this fundamental duty. The Quran states: "Indeed, prayer has been decreed upon the believers at specified times" (Quran 4:103).',
   },

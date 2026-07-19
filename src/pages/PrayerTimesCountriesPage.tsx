@@ -19,12 +19,12 @@ const regions = [
 
 export default function PrayerTimesCountriesPage() {
   const { lang } = useLanguage();
-  useSeo({ title: lang === 'ar' ? 'مواقيت الصلاة في جميع دول العالم - قائمة الدول | مواقيت' : 'Prayer Times for All Countries Worldwide - Countries Index | Mawaqit', description: lang === 'ar' ? 'اختر بلدك لعرض مواقيت الصلاة الدقيقة لكل مدنه: السعودية، الإمارات، مصر، تركيا، باكستان، إندونيسيا، الولايات المتحدة، بريطانيا وأكثر من 80 دولة.' : 'Choose your country to view accurate prayer times for all its cities: Saudi Arabia, UAE, Egypt, Turkey, Pakistan, Indonesia, USA, UK, and over 80 countries.', path: '/prayer-times' });
+  useSeo({ title: lang === 'ar' ? 'مواقيت الصلاة في جميع دول العالم - قائمة الدول | مواقيت' : 'Prayer Times for All Countries Worldwide - Countries Index | Prayer Times', description: lang === 'ar' ? 'اختر بلدك لعرض مواقيت الصلاة الدقيقة لكل مدنه: السعودية، الإمارات، مصر، تركيا، باكستان، إندونيسيا، الولايات المتحدة، بريطانيا وأكثر من 80 دولة.' : 'Choose your country to view accurate prayer times for all its cities: Saudi Arabia, UAE, Egypt, Turkey, Pakistan, Indonesia, USA, UK, and over 80 countries.', path: '/prayer-times' });
 
   useEffect(() => {
     document.title = lang === 'ar'
       ? 'مواقيت الصلاة في جميع الدول - أكثر من 80 دولة و300 مدينة - مواقيت'
-      : 'Prayer Times Worldwide - 80+ Countries & 300+ Cities | Mawaqit';
+      : 'Prayer Times Worldwide - 80+ Countries & 300+ Cities | Prayer Times';
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', lang === 'ar'
       ? 'مواقيت الصلاة الدقيقة في جميع دول العالم. الفجر، الظهر، العصر، المغرب، العشاء. أكثر من 80 دولة و300 مدينة.'
@@ -97,7 +97,7 @@ export default function PrayerTimesCountriesPage() {
           <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
             <p>{lang === 'ar'
               ? 'نوفر في موقع مواقيت أدق مواقيت الصلاة لأكثر من 80 دولة وأكثر من 300 مدينة حول العالم. يتم تحديث الأوقات يومياً باستخدام حسابات فلكية دقيقة وفق أشهر طرق الحساب المعتمدة عالمياً مثل أم القرى ورابطة العالم الإسلامي. نغطي جميع دول الخليج العربي والشرق الأوسط وشمال أفريقيا وجنوب آسيا وجنوب شرق آسيا وأوروبا والأمريكيتين وأفريقيا. كل مدينة لها صفحة مخصصة بمواقيت الصلاة اليومية والجدول الشهري والتقويم الهجري.'
-              : 'At Mawaqit, we provide the most accurate prayer times for over 80 countries and 300+ cities worldwide. Times are updated daily using precise astronomical calculations following globally recognized methods including Umm Al-Qura and the Muslim World League. We cover all Gulf countries, the Middle East, North Africa, South Asia, Southeast Asia, Europe, the Americas, and Africa. Each city has a dedicated page with daily prayer times, monthly timetable, and Hijri calendar.'}
+              : 'At Prayer Times, we provide the most accurate prayer times for over 80 countries and 300+ cities worldwide. Times are updated daily using precise astronomical calculations following globally recognized methods including Umm Al-Qura and the Muslim World League. We cover all Gulf countries, the Middle East, North Africa, South Asia, Southeast Asia, Europe, the Americas, and Africa. Each city has a dedicated page with daily prayer times, monthly timetable, and Hijri calendar.'}
             </p>
             <p>{lang === 'ar'
               ? 'تشمل كل صفحة مدينة: مواقيت الصلوات الخمس (الفجر، الشروق، الظهر، العصر، المغرب، العشاء)، ومؤقت العد التنازلي للصلاة القادمة، وأوقات الأذان المنفصلة، والجدول الشهري الكامل، والتقويم الهجري. نوفر أيضاً إمكانية تحديد الموقع تلقائياً لعرض مواقيت الصلاة بناءً على موقعك الجغرافي الحالي.'

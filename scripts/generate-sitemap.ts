@@ -4,7 +4,7 @@ import { resolve } from 'path';
 import { countries, globalCities } from '../src/data/countries';
 
 // TODO: replace with your project URL once a project name or custom domain is set.
-const BASE_URL = '';
+const BASE_URL = 'https://modern-muslim-compass.lovable.app';
 
 const today = new Date().toISOString().split('T')[0];
 

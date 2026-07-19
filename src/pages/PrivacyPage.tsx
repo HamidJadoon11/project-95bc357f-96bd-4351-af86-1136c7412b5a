@@ -5,8 +5,8 @@ export default function PrivacyPage() {
   const { lang } = useLanguage();
 
   useEffect(() => {
-    document.title = lang === 'ar' ? 'سياسة الخصوصية - كيف نحمي بياناتك على مواقيت' : 'Privacy Policy - How Mawaqit Protects Your Data | Mawaqit';
-    const desc = lang === 'ar' ? 'سياسة الخصوصية الرسمية لموقع مواقيت: كيف نجمع ونستخدم ونحمي بيانات الموقع الجغرافي، التخزين المحلي، والإعلانات.' : 'Official Mawaqit privacy policy: how we collect, use and protect your location data, local storage, and third-party ad practices.';
+    document.title = lang === 'ar' ? 'سياسة الخصوصية - كيف نحمي بياناتك على مواقيت' : 'Privacy Policy - How Prayer Times Protects Your Data | Prayer Times';
+    const desc = lang === 'ar' ? 'سياسة الخصوصية الرسمية لموقع مواقيت: كيف نجمع ونستخدم ونحمي بيانات الموقع الجغرافي، التخزين المحلي، والإعلانات.' : 'Official Prayer Times privacy policy: how we collect, use and protect your location data, local storage, and third-party ad practices.';
     let m = document.querySelector<HTMLMetaElement>('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
     let c = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]:not([hreflang])'); if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c);} c.setAttribute('href','/privacy');
   }, [lang]);
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
       <div className="mt-8 space-y-6 text-sm leading-relaxed text-foreground">
         <section>
           <h2 className="font-heading text-xl font-bold">Introduction</h2>
-          <p className="mt-2">Welcome to Mawaqit. We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect and use your information when you use our website.</p>
+          <p className="mt-2">Welcome to Prayer Times. We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect and use your information when you use our website.</p>
         </section>
 
         <section>

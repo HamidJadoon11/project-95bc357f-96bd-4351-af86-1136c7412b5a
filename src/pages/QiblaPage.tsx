@@ -20,7 +20,7 @@ function calculateQibla(lat: number, lng: number): number {
 
 export default function QiblaPage() {
   const { t, lang } = useLanguage();
-  useSeo({ title: lang === 'ar' ? 'اتجاه القبلة - بوصلة القبلة الدقيقة نحو الكعبة المشرفة | مواقيت' : 'Qibla Direction - Accurate Qibla Compass to the Kaaba in Makkah | Mawaqit', description: lang === 'ar' ? 'تحديد اتجاه القبلة بدقة نحو الكعبة المشرفة في مكة المكرمة باستخدام GPS وصيغة الدائرة العظمى. بوصلة قبلة تفاعلية تعمل في أي مكان في العالم.' : 'Find the exact Qibla direction to the Kaaba in Makkah using GPS and the Great Circle formula. An interactive Qibla compass that works anywhere in the world.', path: '/qibla' });
+  useSeo({ title: lang === 'ar' ? 'اتجاه القبلة - بوصلة القبلة الدقيقة نحو الكعبة المشرفة | مواقيت' : 'Qibla Direction - Accurate Qibla Compass to the Kaaba in Makkah | Prayer Times', description: lang === 'ar' ? 'تحديد اتجاه القبلة بدقة نحو الكعبة المشرفة في مكة المكرمة باستخدام GPS وصيغة الدائرة العظمى. بوصلة قبلة تفاعلية تعمل في أي مكان في العالم.' : 'Find the exact Qibla direction to the Kaaba in Makkah using GPS and the Great Circle formula. An interactive Qibla compass that works anywhere in the world.', path: '/qibla' });
   const { location, loading } = useGeoLocation();
   const [qiblaAngle, setQiblaAngle] = useState<number | null>(null);
   const [heading, setHeading] = useState<number>(0);

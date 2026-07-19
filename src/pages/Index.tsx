@@ -46,7 +46,7 @@ export default function Index() {
   useEffect(() => {
     document.title = lang === 'ar'
       ? 'مواقيت الصلاة اليوم - أوقات الصلاة والأذان الدقيقة لجميع المدن | مواقيت'
-      : 'Prayer Times Today (مواقيت الصلاة) - Accurate Salah & Azan Times Worldwide | Mawaqit';
+      : 'Prayer Times Today (مواقيت الصلاة) - Accurate Salah & Azan Times Worldwide | Prayer Times';
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', lang === 'ar'
       ? 'مواقيت الصلاة اليوم بدقة: الفجر، الشروق، الظهر، العصر، المغرب، العشاء لجميع مدن العالم. أوقات الأذان، اتجاه القبلة، التقويم الهجري وجدول رمضان 1446.'
@@ -68,8 +68,8 @@ export default function Index() {
             '@type': 'WebPage',
             '@id': 'https://mawaqit.app/#webpage',
             url: 'https://mawaqit.app/',
-            name: 'Mawaqit — Prayer Times, Azan, Azkar & Islamic Tools',
-            description: 'Accurate Mawaqit Salah and Azan times for 600+ cities worldwide, with Azkar, Duas, Qibla finder, Zakat calculator and Hijri calendar.',
+            name: 'Prayer Times — Prayer Times, Azan, Azkar & Islamic Tools',
+            description: 'Accurate Prayer Times Salah and Azan times for 600+ cities worldwide, with Azkar, Duas, Qibla finder, Zakat calculator and Hijri calendar.',
             inLanguage: lang,
             isPartOf: { '@id': 'https://mawaqit.app/#website' },
             about: [
@@ -85,7 +85,7 @@ export default function Index() {
           {
             '@type': 'FAQPage',
             mainEntity: [
-              { '@type': 'Question', name: 'How accurate are Mawaqit prayer times?', acceptedAnswer: { '@type': 'Answer', text: 'Prayer times are computed using astronomical algorithms (Umm Al-Qura, Muslim World League, ISNA, Egyptian, Karachi) with city-level latitude, longitude and elevation, then refreshed daily.' } },
+              { '@type': 'Question', name: 'How accurate are Prayer Times prayer times?', acceptedAnswer: { '@type': 'Answer', text: 'Prayer times are computed using astronomical algorithms (Umm Al-Qura, Muslim World League, ISNA, Egyptian, Karachi) with city-level latitude, longitude and elevation, then refreshed daily.' } },
               { '@type': 'Question', name: 'Which calculation method should I use?', acceptedAnswer: { '@type': 'Answer', text: 'Use Umm Al-Qura in Saudi Arabia and the Gulf, ISNA in North America, Muslim World League in Europe, Karachi in South Asia, and Egyptian General Authority in North Africa.' } },
               { '@type': 'Question', name: 'What is the difference between Prayer Times and Azan Times?', acceptedAnswer: { '@type': 'Answer', text: 'Prayer Times list all daily milestones including Imsak and Sunrise. Azan Times list only the five moments when the Adhan is called: Fajr, Dhuhr, Asr, Maghrib and Isha.' } },
               { '@type': 'Question', name: 'How do I find the Qibla direction?', acceptedAnswer: { '@type': 'Answer', text: 'Open the Qibla page and allow location access. We compute the great-circle bearing from your coordinates to the Kaaba in Makkah (21.4225° N, 39.8262° E).' } },
@@ -278,13 +278,13 @@ export default function Index() {
           <div className="space-y-6 text-sm leading-relaxed text-muted-foreground">
             <p>{lang === 'ar'
               ? 'مواقيت الصلاة هي الأوقات المحددة شرعاً لأداء الصلوات الخمس المفروضة على كل مسلم بالغ عاقل. هذه الصلوات هي: الفجر والظهر والعصر والمغرب والعشاء. يتم تحديد مواقيت الصلاة بناءً على موقع الشمس في السماء بالنسبة للموقع الجغرافي، مما يعني أن أوقات الصلاة تختلف من مدينة لأخرى ومن يوم لآخر. يعتمد موقع مواقيت على حسابات فلكية دقيقة باستخدام طرق حساب معتمدة عالمياً مثل طريقة أم القرى المستخدمة في المملكة العربية السعودية، وطريقة رابطة العالم الإسلامي، وطريقة الجمعية الإسلامية لأمريكا الشمالية.'
-              : 'Prayer times (Salah times) are the designated times established by Islamic law for performing the five daily obligatory prayers that every adult Muslim must observe. These prayers are: Fajr (pre-dawn), Dhuhr (midday), Asr (afternoon), Maghrib (sunset), and Isha (night). Prayer times are determined by the position of the sun relative to the observer\'s geographical location, which means they vary from city to city and from day to day throughout the year. Mawaqit relies on precise astronomical calculations using globally recognized methods such as the Umm Al-Qura method used in Saudi Arabia, the Muslim World League method, and the Islamic Society of North America (ISNA) method.'}
+              : 'Prayer times (Salah times) are the designated times established by Islamic law for performing the five daily obligatory prayers that every adult Muslim must observe. These prayers are: Fajr (pre-dawn), Dhuhr (midday), Asr (afternoon), Maghrib (sunset), and Isha (night). Prayer times are determined by the position of the sun relative to the observer\'s geographical location, which means they vary from city to city and from day to day throughout the year. Prayer Times relies on precise astronomical calculations using globally recognized methods such as the Umm Al-Qura method used in Saudi Arabia, the Muslim World League method, and the Islamic Society of North America (ISNA) method.'}
             </p>
 
             <h3 className="font-heading text-xl font-bold text-foreground pt-2">{t('whyPrayerTimesImportant')}</h3>
             <p>{lang === 'ar'
               ? 'الصلوات الخمس هي الركن الثاني من أركان الإسلام الخمسة، وهي أعظم العبادات بعد الشهادتين. أداء الصلاة في وقتها من أحب الأعمال إلى الله تعالى، كما ورد في الحديث الشريف: «أي العمل أحب إلى الله؟ قال: الصلاة على وقتها» (رواه البخاري ومسلم). وقد أمر الله تعالى بالمحافظة على الصلاة في أوقاتها في قوله: ﴿إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا﴾ (النساء: ١٠٣). لذلك فإن معرفة مواقيت الصلاة الدقيقة أمر بالغ الأهمية لكل مسلم. يوفر موقع مواقيت أوقات صلاة دقيقة ومحدثة يومياً لأكثر من 300 مدينة في أكثر من 80 دولة حول العالم، مما يساعد المسلمين على أداء صلاتهم في وقتها أينما كانوا.'
-              : 'The five daily prayers constitute the second pillar of Islam, representing the most important act of worship after the declaration of faith (Shahada). Performing prayer at its prescribed time is among the most beloved deeds to Allah, as narrated in the authentic hadith: "Which deed is most beloved to Allah? He said: Prayer at its proper time" (Sahih Bukhari and Muslim). Allah commands in the Holy Quran: "Indeed, prayer has been decreed upon the believers at specified times" (Quran 4:103). Therefore, knowing the exact prayer times is of paramount importance for every Muslim. Mawaqit provides accurate and daily-updated prayer times for over 300 cities across more than 80 countries worldwide, helping Muslims fulfill their prayers on time wherever they may be. Our platform uses the most trusted astronomical calculation methods to ensure precision and reliability.'}
+              : 'The five daily prayers constitute the second pillar of Islam, representing the most important act of worship after the declaration of faith (Shahada). Performing prayer at its prescribed time is among the most beloved deeds to Allah, as narrated in the authentic hadith: "Which deed is most beloved to Allah? He said: Prayer at its proper time" (Sahih Bukhari and Muslim). Allah commands in the Holy Quran: "Indeed, prayer has been decreed upon the believers at specified times" (Quran 4:103). Therefore, knowing the exact prayer times is of paramount importance for every Muslim. Prayer Times provides accurate and daily-updated prayer times for over 300 cities across more than 80 countries worldwide, helping Muslims fulfill their prayers on time wherever they may be. Our platform uses the most trusted astronomical calculation methods to ensure precision and reliability.'}
             </p>
 
             <h3 className="font-heading text-xl font-bold text-foreground pt-2">
@@ -308,7 +308,7 @@ export default function Index() {
             </h3>
             <p>{lang === 'ar'
               ? 'نحرص في موقع مواقيت على توفير أدق مواقيت الصلاة والأذان. نستخدم واجهة برمجة الأذان (Aladhan API) التي تعتمد على خوارزميات فلكية معتمدة من هيئات إسلامية رسمية. تُحدث البيانات تلقائياً كل يوم لضمان الدقة. نغطي حالياً أكثر من 80 دولة و300 مدينة، ونعمل على إضافة المزيد من المدن باستمرار. إذا لم تجد مدينتك، يمكنك استخدام خاصية تحديد الموقع التلقائي للحصول على مواقيت الصلاة بناءً على موقعك الجغرافي الحالي.'
-              : 'At Mawaqit, we are committed to providing the most accurate prayer and azan times available. We use the Aladhan API, which relies on astronomical algorithms endorsed by official Islamic authorities. Our data is automatically updated every day to ensure accuracy. We currently cover over 80 countries and 300+ cities, and we are continuously working to add more locations. If you cannot find your city, you can use our automatic location detection feature to get prayer times based on your current geographical position. Our team regularly verifies the accuracy of our data against official sources to maintain the highest standards of reliability.'}
+              : 'At Prayer Times, we are committed to providing the most accurate prayer and azan times available. We use the Aladhan API, which relies on astronomical algorithms endorsed by official Islamic authorities. Our data is automatically updated every day to ensure accuracy. We currently cover over 80 countries and 300+ cities, and we are continuously working to add more locations. If you cannot find your city, you can use our automatic location detection feature to get prayer times based on your current geographical position. Our team regularly verifies the accuracy of our data against official sources to maintain the highest standards of reliability.'}
             </p>
           </div>
         </div>
@@ -361,7 +361,7 @@ export default function Index() {
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {lang === 'ar'
                     ? 'يُراجع محتوى مواقيت من قِبل لجنة من طلبة العلم الشرعي والمتخصصين في الفلك الإسلامي. تُحسب مواقيت الصلاة باستخدام خوارزميات معتمدة (أم القرى، رابطة العالم الإسلامي، ISNA، الجمعية المصرية، جامعة كراتشي) مع مراعاة خط العرض، خط الطول، والارتفاع لكل مدينة، ثم تُحدَّث يومياً عبر واجهة Aladhan API. نلتزم بمعايير الدقة، الشفافية، والمصدر الموثوق وفقاً لإرشادات Google E-E-A-T.'
-                    : 'Mawaqit content is reviewed by a panel of Islamic studies graduates and Islamic astronomy specialists. Prayer times are calculated using vetted algorithms (Umm Al-Qura, Muslim World League, ISNA, Egyptian General Authority, University of Karachi) with city-level latitude, longitude and elevation, refreshed daily through the Aladhan API. We follow strict standards of accuracy, transparency and source verification aligned with Google E-E-A-T guidelines.'}
+                    : 'Prayer Times content is reviewed by a panel of Islamic studies graduates and Islamic astronomy specialists. Prayer times are calculated using vetted algorithms (Umm Al-Qura, Muslim World League, ISNA, Egyptian General Authority, University of Karachi) with city-level latitude, longitude and elevation, refreshed daily through the Aladhan API. We follow strict standards of accuracy, transparency and source verification aligned with Google E-E-A-T guidelines.'}
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {[
@@ -392,7 +392,7 @@ export default function Index() {
         <div className="space-y-3">
           {[
             {
-              q: lang === 'ar' ? 'ما مدى دقة مواقيت الصلاة على Mawaqit؟' : 'How accurate are Mawaqit prayer times?',
+              q: lang === 'ar' ? 'ما مدى دقة مواقيت الصلاة على Prayer Times؟' : 'How accurate are Prayer Times prayer times?',
               a: lang === 'ar' ? 'تُحسب المواقيت بخوارزميات فلكية معتمدة (أم القرى، رابطة العالم الإسلامي، ISNA، المصرية، كراتشي) باستخدام إحداثيات وارتفاع كل مدينة، وتُحدَّث يومياً.' : 'Times are computed with vetted astronomical algorithms (Umm Al-Qura, MWL, ISNA, Egyptian, Karachi) using each city\'s coordinates and elevation, then refreshed daily.'
             },
             {

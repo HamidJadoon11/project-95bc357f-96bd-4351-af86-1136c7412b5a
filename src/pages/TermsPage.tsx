@@ -5,8 +5,8 @@ export default function TermsPage() {
   const { lang } = useLanguage();
 
   useEffect(() => {
-    document.title = lang === 'ar' ? 'شروط الاستخدام - اتفاقية استخدام موقع مواقيت' : 'Terms of Use - Mawaqit Website Usage Agreement | Mawaqit';
-    const desc = lang === 'ar' ? 'شروط وأحكام استخدام موقع مواقيت: قبول الشروط، الاستخدام المقبول، إخلاء المسؤولية، والملكية الفكرية.' : 'Mawaqit terms and conditions: acceptance of terms, acceptable use, disclaimers, and intellectual property rights.';
+    document.title = lang === 'ar' ? 'شروط الاستخدام - اتفاقية استخدام موقع مواقيت' : 'Terms of Use - Prayer Times Website Usage Agreement | Prayer Times';
+    const desc = lang === 'ar' ? 'شروط وأحكام استخدام موقع مواقيت: قبول الشروط، الاستخدام المقبول، إخلاء المسؤولية، والملكية الفكرية.' : 'Prayer Times terms and conditions: acceptance of terms, acceptable use, disclaimers, and intellectual property rights.';
     let m = document.querySelector<HTMLMetaElement>('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
     let c = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]:not([hreflang])'); if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c);} c.setAttribute('href','/terms');
   }, [lang]);
@@ -62,11 +62,11 @@ export default function TermsPage() {
       <div className="mt-8 space-y-6 text-sm leading-relaxed text-foreground">
         <section>
           <h2 className="font-heading text-xl font-bold">Acceptance of Terms</h2>
-          <p className="mt-2">By using the Mawaqit website, you agree to be bound by these terms and conditions. If you do not agree to any of these terms, please do not use the website.</p>
+          <p className="mt-2">By using the Prayer Times website, you agree to be bound by these terms and conditions. If you do not agree to any of these terms, please do not use the website.</p>
         </section>
         <section>
           <h2 className="font-heading text-xl font-bold">Description of Service</h2>
-          <p className="mt-2">Mawaqit provides prayer and azan times, azkar and duas, Qibla direction, zakat calculator, and Hijri calendar services. All information provided is for guidance purposes, and we strive to provide the most accurate information possible.</p>
+          <p className="mt-2">Prayer Times provides prayer and azan times, azkar and duas, Qibla direction, zakat calculator, and Hijri calendar services. All information provided is for guidance purposes, and we strive to provide the most accurate information possible.</p>
         </section>
         <section>
           <h2 className="font-heading text-xl font-bold">Accuracy of Information</h2>
@@ -83,7 +83,7 @@ export default function TermsPage() {
         </section>
         <section>
           <h2 className="font-heading text-xl font-bold">Intellectual Property</h2>
-          <p className="mt-2">All content, designs, and trademarks on this website are the exclusive property of Mawaqit and are protected under intellectual property laws.</p>
+          <p className="mt-2">All content, designs, and trademarks on this website are the exclusive property of Prayer Times and are protected under intellectual property laws.</p>
         </section>
         <section>
           <h2 className="font-heading text-xl font-bold">Disclaimer</h2>

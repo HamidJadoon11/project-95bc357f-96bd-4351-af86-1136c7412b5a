@@ -10,7 +10,7 @@ export default function PrayerTimesIndexPage() {
   useEffect(() => {
     document.title = lang === 'ar'
       ? 'مواقيت الصلاة في جميع مدن السعودية - مواقيت'
-      : 'Prayer Times in All Saudi Cities - Mawaqit';
+      : 'Prayer Times in All Saudi Cities - Prayer Times';
   }, [lang]);
 
   return (

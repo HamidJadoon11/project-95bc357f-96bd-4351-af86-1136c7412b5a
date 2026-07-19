@@ -77,7 +77,7 @@ export default function CityPrayerTimesPage() {
     if (!city) return;
     document.title = lang === 'ar'
       ? `مواقيت الصلاة في ${city.nameAr} - مواقيت`
-      : `Prayer Times in ${city.nameEn} - Mawaqit`;
+      : `Prayer Times in ${city.nameEn} - Prayer Times`;
   }, [city, lang]);
 
   if (!city) {
