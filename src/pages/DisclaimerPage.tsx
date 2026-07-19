@@ -7,10 +7,10 @@ export default function DisclaimerPage() {
   useSeo({
     title: lang === 'ar'
       ? 'إخلاء المسؤولية - مواقيت الصلاة والمحتوى الإسلامي | مواقيت'
-      : 'Disclaimer - Prayer Times & Islamic Content Accuracy | Mawaqit',
+      : 'Disclaimer - Prayer Times & Islamic Content Accuracy | Prayer Times',
     description: lang === 'ar'
       ? 'إخلاء المسؤولية الرسمي لموقع مواقيت حول دقة مواقيت الصلاة، وحسابات الزكاة، واتجاه القبلة، والمحتوى الإسلامي. اعرف حدود مسؤوليتنا وكيفية استخدام المعلومات.'
-      : 'Official Mawaqit disclaimer covering prayer time accuracy, zakat calculations, Qibla direction, and Islamic content. Understand our liability limits and how to use the information.',
+      : 'Official Prayer Times disclaimer covering prayer time accuracy, zakat calculations, Qibla direction, and Islamic content. Understand our liability limits and how to use the information.',
     path: '/disclaimer',
   });
 
@@ -89,7 +89,7 @@ export default function DisclaimerPage() {
       <div className="mt-8 space-y-6 text-sm leading-relaxed text-foreground">
         <section>
           <h2 className="font-heading text-xl font-bold">General Disclaimer</h2>
-          <p className="mt-2">The information provided on Mawaqit (hereinafter "the Website") is for general informational and dawah purposes only. While we strive to provide accurate and up-to-date information, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, or suitability of the information for a particular purpose.</p>
+          <p className="mt-2">The information provided on Prayer Times (hereinafter "the Website") is for general informational and dawah purposes only. While we strive to provide accurate and up-to-date information, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, or suitability of the information for a particular purpose.</p>
         </section>
 
         <section>

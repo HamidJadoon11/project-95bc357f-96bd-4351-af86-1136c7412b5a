@@ -44,7 +44,7 @@ const dailyTips = [
 export default function RamadanPage() {
   const { year: yearParam } = useParams<{ year: string }>();
   const { lang } = useLanguage();
-  useSeo({ title: lang === 'ar' ? 'رمضان 2026 - إمساكية رمضان وأوقات السحور والإفطار والتراويح | مواقيت' : 'Ramadan 2026 - Ramadan Imsakiya, Suhoor, Iftar & Taraweeh Times | Mawaqit', description: lang === 'ar' ? 'إمساكية رمضان 2026 كاملة: أوقات السحور والإمساك والإفطار وصلاة التراويح لأي مدينة، مع أدعية رمضان وليلة القدر وزكاة الفطر.' : 'Complete Ramadan 2026 Imsakiya: Suhoor, Imsak, Iftar, and Taraweeh prayer times for any city, with Ramadan duas, Laylat al-Qadr guidance, and Zakat al-Fitr.', path: '/ramadan' });
+  useSeo({ title: lang === 'ar' ? 'رمضان 2026 - إمساكية رمضان وأوقات السحور والإفطار والتراويح | مواقيت' : 'Ramadan 2026 - Ramadan Imsakiya, Suhoor, Iftar & Taraweeh Times | Prayer Times', description: lang === 'ar' ? 'إمساكية رمضان 2026 كاملة: أوقات السحور والإمساك والإفطار وصلاة التراويح لأي مدينة، مع أدعية رمضان وليلة القدر وزكاة الفطر.' : 'Complete Ramadan 2026 Imsakiya: Suhoor, Imsak, Iftar, and Taraweeh prayer times for any city, with Ramadan duas, Laylat al-Qadr guidance, and Zakat al-Fitr.', path: '/ramadan' });
   const year = yearParam ? parseInt(yearParam) : new Date().getFullYear();
   const hijriYear = getRamadanHijriYear(year);
   const [data, setData] = useState<any[]>([]);
@@ -57,7 +57,7 @@ export default function RamadanPage() {
   useEffect(() => {
     document.title = lang === 'ar'
       ? `تقويم رمضان ${year} / ${hijriYear} هـ - إمساكية ومواقيت الصلاة - مواقيت`
-      : `Ramadan ${year} / ${hijriYear} AH Calendar - Suhoor & Iftar Timetable - Mawaqit`;
+      : `Ramadan ${year} / ${hijriYear} AH Calendar - Suhoor & Iftar Timetable - Prayer Times`;
   }, [year, hijriYear, lang]);
 
   useEffect(() => {

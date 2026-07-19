@@ -14,7 +14,7 @@ const categories = [
 
 export default function AzkarPage() {
   const { t, lang } = useLanguage();
-  useSeo({ title: lang === 'ar' ? 'أذكار الصباح والمساء وأذكار النوم وبعد الصلاة - حصن المسلم | مواقيت' : 'Morning & Evening Azkar, After-Prayer & Sleep Dhikr - Hisn al-Muslim | Mawaqit', description: lang === 'ar' ? 'أذكار الصباح والمساء الصحيحة من حصن المسلم، أذكار ما بعد الصلاة، وأذكار النوم مع عداد تلقائي، النص العربي، والترجمة الإنجليزية.' : 'Authentic morning and evening azkar from Hisn al-Muslim, after-prayer dhikr, and sleep azkar with an automatic counter, Arabic text, and English translation.', path: '/azkar' });
+  useSeo({ title: lang === 'ar' ? 'أذكار الصباح والمساء وأذكار النوم وبعد الصلاة - حصن المسلم | مواقيت' : 'Morning & Evening Azkar, After-Prayer & Sleep Dhikr - Hisn al-Muslim | Prayer Times', description: lang === 'ar' ? 'أذكار الصباح والمساء الصحيحة من حصن المسلم، أذكار ما بعد الصلاة، وأذكار النوم مع عداد تلقائي، النص العربي، والترجمة الإنجليزية.' : 'Authentic morning and evening azkar from Hisn al-Muslim, after-prayer dhikr, and sleep azkar with an automatic counter, Arabic text, and English translation.', path: '/azkar' });
   const [activeCategory, setActiveCategory] = useState<Dhikr['category']>('morning');
   const [counters, setCounters] = useState<Record<number, number>>({});
 

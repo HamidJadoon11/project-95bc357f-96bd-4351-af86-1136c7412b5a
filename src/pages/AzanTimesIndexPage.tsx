@@ -17,12 +17,12 @@ const regions = [
 
 export default function AzanTimesIndexPage() {
   const { lang } = useLanguage();
-  useSeo({ title: lang === 'ar' ? 'أوقات الأذان في جميع دول العالم - جدول الأذان الشهري | مواقيت' : 'Azan Times for All Countries Worldwide - Monthly Azan Schedule | Mawaqit', description: lang === 'ar' ? 'اختر بلدك لعرض أوقات الأذان الدقيقة لأذان الفجر والظهر والعصر والمغرب والعشاء في مدنه، مع جدول شهري كامل.' : 'Choose your country to see accurate Azan times for Fajr, Dhuhr, Asr, Maghrib, and Isha in its cities, with a complete monthly schedule.', path: '/azan-times' });
+  useSeo({ title: lang === 'ar' ? 'أوقات الأذان في جميع دول العالم - جدول الأذان الشهري | مواقيت' : 'Azan Times for All Countries Worldwide - Monthly Azan Schedule | Prayer Times', description: lang === 'ar' ? 'اختر بلدك لعرض أوقات الأذان الدقيقة لأذان الفجر والظهر والعصر والمغرب والعشاء في مدنه، مع جدول شهري كامل.' : 'Choose your country to see accurate Azan times for Fajr, Dhuhr, Asr, Maghrib, and Isha in its cities, with a complete monthly schedule.', path: '/azan-times' });
 
   useEffect(() => {
     document.title = lang === 'ar'
       ? 'أوقات الأذان في جميع الدول - مواقيت الأذان حول العالم - مواقيت'
-      : 'Azan Times Worldwide - Adhan Schedule for All Countries | Mawaqit';
+      : 'Azan Times Worldwide - Adhan Schedule for All Countries | Prayer Times';
   }, [lang]);
 
   return (
@@ -86,7 +86,7 @@ export default function AzanTimesIndexPage() {
             </p>
             <p>{lang === 'ar'
               ? 'يوفر موقع مواقيت أوقات الأذان المنفصلة والمستقلة عن صفحات مواقيت الصلاة. يتضمن كل صفحة مدينة أوقات الأذان الخمسة لليوم الحالي والجدول الشهري الكامل. نغطي أكثر من 80 دولة وأكثر من 300 مدينة حول العالم. أوقات الأذان تتزامن مع أوقات بداية الصلاة (باستثناء الشروق الذي ليس وقت صلاة مفروضة). يتم تحديث الأوقات يومياً باستخدام حسابات فلكية دقيقة.'
-              : 'Mawaqit provides separate and independent Azan times pages distinct from prayer times pages. Each city page includes the five daily Azan times for the current day and a complete monthly timetable. We cover over 80 countries and 300+ cities worldwide. Azan times coincide with the start of each prayer time (excluding Sunrise, which is not an obligatory prayer time). Times are updated daily using precise astronomical calculations and trusted Islamic authority methods.'}
+              : 'Prayer Times provides separate and independent Azan times pages distinct from prayer times pages. Each city page includes the five daily Azan times for the current day and a complete monthly timetable. We cover over 80 countries and 300+ cities worldwide. Azan times coincide with the start of each prayer time (excluding Sunrise, which is not an obligatory prayer time). Times are updated daily using precise astronomical calculations and trusted Islamic authority methods.'}
             </p>
           </div>
         </div>

@@ -136,7 +136,7 @@ export default function GlobalCityPrayerTimesPage() {
         eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
         eventStatus: 'https://schema.org/EventScheduled',
         location: { '@type': 'Place', name: `${lang === 'ar' ? city.nameAr : city.nameEn}, ${lang === 'ar' ? country.nameAr : country.nameEn}`, geo: { '@type': 'GeoCoordinates', latitude: city.lat, longitude: city.lng } },
-        organizer: { '@type': 'Organization', name: 'Mawaqit', url: '/' },
+        organizer: { '@type': 'Organization', name: 'Prayer Times', url: '/' },
         isAccessibleForFree: true,
       })),
     },

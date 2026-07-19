@@ -13,7 +13,7 @@ export default function CountryPrayerTimesPage() {
 
   useEffect(() => {
     if (!country) return;
-    document.title = lang === 'ar' ? `مواقيت الصلاة في ${country.nameAr} - جميع المدن اليوم | ${cities.length} مدينة - مواقيت` : `Prayer Times in ${country.nameEn} - All ${cities.length} Cities Today | Fajr, Dhuhr, Asr, Maghrib, Isha | Mawaqit`;
+    document.title = lang === 'ar' ? `مواقيت الصلاة في ${country.nameAr} - جميع المدن اليوم | ${cities.length} مدينة - مواقيت` : `Prayer Times in ${country.nameEn} - All ${cities.length} Cities Today | Fajr, Dhuhr, Asr, Maghrib, Isha | Prayer Times`;
     const desc = lang === 'ar' ? `مواقيت الصلاة الدقيقة والمحدثة يومياً في ${cities.length} مدينة من مدن ${country.nameAr}: الفجر، الشروق، الظهر، العصر، المغرب، والعشاء مع جدول شهري وتقويم هجري.` : `Accurate daily prayer times for ${cities.length} cities in ${country.nameEn}: Fajr, Sunrise, Dhuhr, Asr, Maghrib, and Isha with monthly timetables and Hijri calendar.`;
     let m = document.querySelector<HTMLMetaElement>('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
     const path = `/prayer-times/${countrySlug}`;
