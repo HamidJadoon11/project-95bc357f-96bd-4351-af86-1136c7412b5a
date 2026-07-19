@@ -5,8 +5,8 @@ export default function PrivacyPage() {
   const { lang } = useLanguage();
 
   useEffect(() => {
-    document.title = lang === 'ar' ? 'سياسة الخصوصية - كيف نحمي بياناتك على مواقيت' : 'Privacy Policy - How Prayer Times Protects Your Data | Prayer Times';
-    const desc = lang === 'ar' ? 'سياسة الخصوصية الرسمية لموقع مواقيت: كيف نجمع ونستخدم ونحمي بيانات الموقع الجغرافي، التخزين المحلي، والإعلانات.' : 'Official Prayer Times privacy policy: how we collect, use and protect your location data, local storage, and third-party ad practices.';
+    document.title = lang === 'ar' ? 'سياسة الخصوصية - كيف نحمي بياناتك على مواقيت الصلاة' : 'Privacy Policy - How Prayer Times Protects Your Data | Prayer Times';
+    const desc = lang === 'ar' ? 'سياسة الخصوصية الرسمية لموقع مواقيت الصلاة: كيف نجمع ونستخدم ونحمي بيانات الموقع الجغرافي، التخزين المحلي، والإعلانات.' : 'Official Prayer Times privacy policy: how we collect, use and protect your location data, local storage, and third-party ad practices.';
     let m = document.querySelector<HTMLMetaElement>('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
     let c = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]:not([hreflang])'); if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c);} c.setAttribute('href','/privacy');
   }, [lang]);
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         <div className="mt-8 space-y-6 text-sm leading-relaxed text-foreground">
           <section>
             <h2 className="font-heading text-xl font-bold">مقدمة</h2>
-            <p className="mt-2">مرحباً بك في مواقيت. نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية. توضح سياسة الخصوصية هذه كيفية جمعنا واستخدامنا لمعلوماتك عند استخدام موقعنا الإلكتروني.</p>
+            <p className="mt-2">مرحباً بك في مواقيت الصلاة. نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية. توضح سياسة الخصوصية هذه كيفية جمعنا واستخدامنا لمعلوماتك عند استخدام موقعنا الإلكتروني.</p>
           </section>
 
           <section>

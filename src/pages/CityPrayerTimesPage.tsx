@@ -76,7 +76,7 @@ export default function CityPrayerTimesPage() {
   useEffect(() => {
     if (!city) return;
     document.title = lang === 'ar'
-      ? `مواقيت الصلاة في ${city.nameAr} - مواقيت`
+      ? `مواقيت الصلاة في ${city.nameAr} - مواقيت الصلاة`
       : `Prayer Times in ${city.nameEn} - Prayer Times`;
   }, [city, lang]);
 

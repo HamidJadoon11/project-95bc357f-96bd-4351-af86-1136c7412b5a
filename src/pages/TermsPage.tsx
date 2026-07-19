@@ -5,8 +5,8 @@ export default function TermsPage() {
   const { lang } = useLanguage();
 
   useEffect(() => {
-    document.title = lang === 'ar' ? 'شروط الاستخدام - اتفاقية استخدام موقع مواقيت' : 'Terms of Use - Prayer Times Website Usage Agreement | Prayer Times';
-    const desc = lang === 'ar' ? 'شروط وأحكام استخدام موقع مواقيت: قبول الشروط، الاستخدام المقبول، إخلاء المسؤولية، والملكية الفكرية.' : 'Prayer Times terms and conditions: acceptance of terms, acceptable use, disclaimers, and intellectual property rights.';
+    document.title = lang === 'ar' ? 'شروط الاستخدام - اتفاقية استخدام موقع مواقيت الصلاة' : 'Terms of Use - Prayer Times Website Usage Agreement | Prayer Times';
+    const desc = lang === 'ar' ? 'شروط وأحكام استخدام موقع مواقيت الصلاة: قبول الشروط، الاستخدام المقبول، إخلاء المسؤولية، والملكية الفكرية.' : 'Prayer Times terms and conditions: acceptance of terms, acceptable use, disclaimers, and intellectual property rights.';
     let m = document.querySelector<HTMLMetaElement>('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
     let c = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]:not([hreflang])'); if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c);} c.setAttribute('href','/terms');
   }, [lang]);
@@ -19,15 +19,15 @@ export default function TermsPage() {
         <div className="mt-8 space-y-6 text-sm leading-relaxed text-foreground">
           <section>
             <h2 className="font-heading text-xl font-bold">قبول الشروط</h2>
-            <p className="mt-2">باستخدامك لموقع مواقيت، فإنك توافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي من هذه الشروط، يرجى عدم استخدام الموقع.</p>
+            <p className="mt-2">باستخدامك لموقع مواقيت الصلاة، فإنك توافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي من هذه الشروط، يرجى عدم استخدام الموقع.</p>
           </section>
           <section>
             <h2 className="font-heading text-xl font-bold">وصف الخدمة</h2>
-            <p className="mt-2">يوفر موقع مواقيت مواقيت الصلاة والأذان، والأذكار والأدعية، واتجاه القبلة، وحاسبة الزكاة، والتقويم الهجري. جميع المعلومات المقدمة هي لأغراض إرشادية ونسعى لتوفير أدق المعلومات الممكنة.</p>
+            <p className="mt-2">يوفر موقع مواقيت الصلاة مواقيت الصلاة والأذان، والأذكار والأدعية، واتجاه القبلة، وحاسبة الزكاة، والتقويم الهجري. جميع المعلومات المقدمة هي لأغراض إرشادية ونسعى لتوفير أدق المعلومات الممكنة.</p>
           </section>
           <section>
             <h2 className="font-heading text-xl font-bold">دقة المعلومات</h2>
-            <p className="mt-2">نبذل قصارى جهدنا لتوفير مواقيت صلاة دقيقة باستخدام حسابات فلكية معتمدة. ومع ذلك، قد تحدث اختلافات طفيفة بسبب عوامل محلية. ننصح دائماً بالرجوع إلى المسجد المحلي للتأكيد.</p>
+            <p className="mt-2">نبذل قصارى جهدنا لتوفير مواقيت الصلاة صلاة دقيقة باستخدام حسابات فلكية معتمدة. ومع ذلك، قد تحدث اختلافات طفيفة بسبب عوامل محلية. ننصح دائماً بالرجوع إلى المسجد المحلي للتأكيد.</p>
           </section>
           <section>
             <h2 className="font-heading text-xl font-bold">الاستخدام المقبول</h2>
@@ -40,7 +40,7 @@ export default function TermsPage() {
           </section>
           <section>
             <h2 className="font-heading text-xl font-bold">الملكية الفكرية</h2>
-            <p className="mt-2">جميع المحتويات والتصاميم والعلامات التجارية على هذا الموقع هي ملكية حصرية لمواقيت ومحمية بموجب قوانين الملكية الفكرية.</p>
+            <p className="mt-2">جميع المحتويات والتصاميم والعلامات التجارية على هذا الموقع هي ملكية حصرية لمواقيت الصلاة ومحمية بموجب قوانين الملكية الفكرية.</p>
           </section>
           <section>
             <h2 className="font-heading text-xl font-bold">إخلاء المسؤولية</h2>

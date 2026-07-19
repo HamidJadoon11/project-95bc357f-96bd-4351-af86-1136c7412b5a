@@ -14,7 +14,7 @@ const categories = [
 
 export default function DuasPage() {
   const { t, lang } = useLanguage();
-  useSeo({ title: lang === 'ar' ? 'أدعية إسلامية - أدعية الحياة اليومية والسفر والحماية والطعام | مواقيت' : 'Islamic Duas - Daily Life, Travel, Protection & Food Duas | Prayer Times', description: lang === 'ar' ? 'مجموعة كاملة من الأدعية الإسلامية المأثورة من القرآن والسنة: أدعية الحياة اليومية، السفر، الحماية، والطعام مع النص العربي والترجمة والمصدر.' : 'A complete collection of authentic Islamic duas from the Quran and Sunnah: daily life, travel, protection and food duas with Arabic text, translation and source.', path: '/duas' });
+  useSeo({ title: lang === 'ar' ? 'أدعية إسلامية - أدعية الحياة اليومية والسفر والحماية والطعام | مواقيت الصلاة' : 'Islamic Duas - Daily Life, Travel, Protection & Food Duas | Prayer Times', description: lang === 'ar' ? 'مجموعة كاملة من الأدعية الإسلامية المأثورة من القرآن والسنة: أدعية الحياة اليومية، السفر، الحماية، والطعام مع النص العربي والترجمة والمصدر.' : 'A complete collection of authentic Islamic duas from the Quran and Sunnah: daily life, travel, protection and food duas with Arabic text, translation and source.', path: '/duas' });
   const [activeCategory, setActiveCategory] = useState<Dua['category'] | 'all'>('all');
   const [search, setSearch] = useState('');
   const [favorites, setFavorites] = useState<number[]>(() => {

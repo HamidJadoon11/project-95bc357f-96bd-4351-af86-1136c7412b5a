@@ -310,7 +310,7 @@ export default function GlobalCityPrayerTimesPage() {
             </h2>
             <div className="mt-3 space-y-3 text-sm leading-relaxed text-muted-foreground">
               <p>{lang === 'ar'
-                ? `تعرض هذه الصفحة مواقيت الصلاة الدقيقة والمحدثة يومياً في مدينة ${cityName}، ${countryName}. تشمل المواقيت جميع الصلوات الخمس المفروضة: صلاة الفجر وهي أول صلوات اليوم وتُؤدى قبل شروق الشمس، صلاة الظهر عند زوال الشمس عن كبد السماء، صلاة العصر في فترة ما بعد الظهر، صلاة المغرب عند غروب الشمس، وصلاة العشاء بعد غياب الشفق الأحمر من السماء. بالإضافة إلى ذلك، نعرض وقت الشروق الذي يُحدد نهاية وقت صلاة الفجر.`
+                ? `تعرض هذه الصفحة مواقيت الصلاة الدقيقة والمحدثة يومياً في مدينة ${cityName}، ${countryName}. تشمل المواقيت الصلاة جميع الصلوات الخمس المفروضة: صلاة الفجر وهي أول صلوات اليوم وتُؤدى قبل شروق الشمس، صلاة الظهر عند زوال الشمس عن كبد السماء، صلاة العصر في فترة ما بعد الظهر، صلاة المغرب عند غروب الشمس، وصلاة العشاء بعد غياب الشفق الأحمر من السماء. بالإضافة إلى ذلك، نعرض وقت الشروق الذي يُحدد نهاية وقت صلاة الفجر.`
                 : `This page displays accurate and daily-updated prayer times for ${cityName}, ${countryName}. The timings include all five obligatory daily prayers: Fajr prayer which is the first prayer of the day performed before sunrise, Dhuhr prayer at the time when the sun passes its zenith, Asr prayer during the late afternoon, Maghrib prayer at sunset, and Isha prayer after the red twilight disappears from the sky. Additionally, we display the Sunrise time which marks the end of the Fajr prayer window.`}
               </p>
               <p>{lang === 'ar'

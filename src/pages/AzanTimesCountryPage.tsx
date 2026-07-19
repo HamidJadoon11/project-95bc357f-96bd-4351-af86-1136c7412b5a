@@ -12,7 +12,7 @@ export default function AzanTimesCountryPage() {
 
   useEffect(() => {
     if (!country) return;
-    document.title = lang === 'ar' ? `أوقات الأذان في ${country.nameAr} اليوم - جميع المدن (${cities.length}) | الفجر، الظهر، العصر، المغرب، العشاء - مواقيت` : `Azan Times in ${country.nameEn} Today - All ${cities.length} Cities | Fajr, Dhuhr, Asr, Maghrib, Isha Azan - Prayer Times`;
+    document.title = lang === 'ar' ? `أوقات الأذان في ${country.nameAr} اليوم - جميع المدن (${cities.length}) | الفجر، الظهر، العصر، المغرب، العشاء - مواقيت الصلاة` : `Azan Times in ${country.nameEn} Today - All ${cities.length} Cities | Fajr, Dhuhr, Asr, Maghrib, Isha Azan - Prayer Times`;
     const desc = lang === 'ar' ? `أوقات الأذان الدقيقة لأذان الفجر، الظهر، العصر، المغرب، والعشاء في ${cities.length} مدينة من مدن ${country.nameAr} مع جدول أذان شهري كامل.` : `Accurate Fajr, Dhuhr, Asr, Maghrib, and Isha Azan times in ${cities.length} cities across ${country.nameEn} with a full monthly azan schedule.`;
     let m = document.querySelector<HTMLMetaElement>('meta[name="description"]'); if(!m){m=document.createElement('meta');m.setAttribute('name','description');document.head.appendChild(m);} m.setAttribute('content', desc);
     const path = `/azan-times/${countrySlug}`;

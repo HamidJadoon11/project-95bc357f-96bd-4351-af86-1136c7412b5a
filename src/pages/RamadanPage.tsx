@@ -44,7 +44,7 @@ const dailyTips = [
 export default function RamadanPage() {
   const { year: yearParam } = useParams<{ year: string }>();
   const { lang } = useLanguage();
-  useSeo({ title: lang === 'ar' ? 'رمضان 2026 - إمساكية رمضان وأوقات السحور والإفطار والتراويح | مواقيت' : 'Ramadan 2026 - Ramadan Imsakiya, Suhoor, Iftar & Taraweeh Times | Prayer Times', description: lang === 'ar' ? 'إمساكية رمضان 2026 كاملة: أوقات السحور والإمساك والإفطار وصلاة التراويح لأي مدينة، مع أدعية رمضان وليلة القدر وزكاة الفطر.' : 'Complete Ramadan 2026 Imsakiya: Suhoor, Imsak, Iftar, and Taraweeh prayer times for any city, with Ramadan duas, Laylat al-Qadr guidance, and Zakat al-Fitr.', path: '/ramadan' });
+  useSeo({ title: lang === 'ar' ? 'رمضان 2026 - إمساكية رمضان وأوقات السحور والإفطار والتراويح | مواقيت الصلاة' : 'Ramadan 2026 - Ramadan Imsakiya, Suhoor, Iftar & Taraweeh Times | Prayer Times', description: lang === 'ar' ? 'إمساكية رمضان 2026 كاملة: أوقات السحور والإمساك والإفطار وصلاة التراويح لأي مدينة، مع أدعية رمضان وليلة القدر وزكاة الفطر.' : 'Complete Ramadan 2026 Imsakiya: Suhoor, Imsak, Iftar, and Taraweeh prayer times for any city, with Ramadan duas, Laylat al-Qadr guidance, and Zakat al-Fitr.', path: '/ramadan' });
   const year = yearParam ? parseInt(yearParam) : new Date().getFullYear();
   const hijriYear = getRamadanHijriYear(year);
   const [data, setData] = useState<any[]>([]);
@@ -56,7 +56,7 @@ export default function RamadanPage() {
 
   useEffect(() => {
     document.title = lang === 'ar'
-      ? `تقويم رمضان ${year} / ${hijriYear} هـ - إمساكية ومواقيت الصلاة - مواقيت`
+      ? `تقويم رمضان ${year} / ${hijriYear} هـ - إمساكية ومواقيت الصلاة - مواقيت الصلاة`
       : `Ramadan ${year} / ${hijriYear} AH Calendar - Suhoor & Iftar Timetable - Prayer Times`;
   }, [year, hijriYear, lang]);
 
@@ -318,7 +318,7 @@ export default function RamadanPage() {
                 ? `يتميز شهر رمضان ${year} الموافق لرمضان ${hijriYear} هجرية بعدة خصائص روحية عظيمة. من أبرزها ليلة القدر التي هي خير من ألف شهر، وتُلتمس في العشر الأواخر من رمضان. كما يُستحب في رمضان الإكثار من تلاوة القرآن الكريم وصلاة التراويح والقيام والصدقة وإطعام الصائمين. صلاة التراويح هي صلاة نافلة تُؤدى بعد صلاة العشاء في كل ليلة من ليالي رمضان، وعادة ما تكون عشرين أو ثماني ركعات.`
                 : `Ramadan ${year}, corresponding to Ramadan ${hijriYear} AH, carries immense spiritual characteristics. Among the most notable is Laylat al-Qadr (the Night of Power), which is better than a thousand months and is sought during the last ten nights of Ramadan. During Ramadan, Muslims are encouraged to increase their recitation of the Holy Quran, perform Taraweeh prayers, engage in night prayers (Qiyam), give charity, and feed those who are fasting. Taraweeh prayer is a special voluntary prayer performed after Isha prayer every night of Ramadan, typically consisting of eight or twenty rak'ahs (units of prayer).`}</p>
               <p>{lang === 'ar'
-                ? `إمساكية رمضان ${year} توفر مواقيت دقيقة للسحور والإفطار. وقت السحور (الإمساك) هو الوقت الذي يجب أن يتوقف فيه المسلم عن الأكل والشرب قبل أذان الفجر، ويُستحب أن يؤخر المسلم سحوره إلى قبيل الفجر. أما وقت الإفطار فيكون عند غروب الشمس (أذان المغرب)، ويُستحب تعجيل الفطور. من السنة أن يفطر المسلم على تمر وماء قبل أداء صلاة المغرب.`
+                ? `إمساكية رمضان ${year} توفر مواقيت الصلاة دقيقة للسحور والإفطار. وقت السحور (الإمساك) هو الوقت الذي يجب أن يتوقف فيه المسلم عن الأكل والشرب قبل أذان الفجر، ويُستحب أن يؤخر المسلم سحوره إلى قبيل الفجر. أما وقت الإفطار فيكون عند غروب الشمس (أذان المغرب)، ويُستحب تعجيل الفطور. من السنة أن يفطر المسلم على تمر وماء قبل أداء صلاة المغرب.`
                 : `The Ramadan ${year} timetable provides accurate Suhoor and Iftar times. Suhoor (Imsak) time is when Muslims must stop eating and drinking before the Fajr Azan, and it is recommended to delay Suhoor until just before dawn. Iftar time is at sunset (Maghrib Azan), and it is Sunnah to hasten the breaking of the fast. The Prophet Muhammad (peace be upon him) used to break his fast with dates and water before performing Maghrib prayer.`}</p>
               <p>{lang === 'ar'
                 ? `من الأعمال المستحبة في رمضان: صلاة التراويح، وختم القرآن الكريم، والاعتكاف في العشر الأواخر، وزكاة الفطر التي تجب على كل مسلم قبل صلاة عيد الفطر. كما يحرص المسلمون على إطعام المساكين وتفطير الصائمين طلباً للأجر العظيم. قال النبي ﷺ: «من فطّر صائماً كان له مثل أجره» (رواه الترمذي). نسأل الله أن يبلغنا رمضان ${year} وأن يتقبل صيامنا وقيامنا.`
