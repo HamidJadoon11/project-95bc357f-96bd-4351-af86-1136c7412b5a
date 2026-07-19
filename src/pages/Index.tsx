@@ -45,8 +45,16 @@ export default function Index() {
 
   useEffect(() => {
     document.title = lang === 'ar'
-      ? 'مواقيت - مواقيت الصلاة والأذان حول العالم'
-      : 'Mawaqit - Prayer Times & Azan Times Worldwide';
+      ? 'مواقيت الصلاة اليوم - أوقات الصلاة والأذان الدقيقة لجميع المدن | مواقيت'
+      : 'Prayer Times Today (مواقيت الصلاة) - Accurate Salah & Azan Times Worldwide | Mawaqit';
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', lang === 'ar'
+      ? 'مواقيت الصلاة اليوم بدقة: الفجر، الشروق، الظهر، العصر، المغرب، العشاء لجميع مدن العالم. أوقات الأذان، اتجاه القبلة، التقويم الهجري وجدول رمضان 1446.'
+      : 'Accurate prayer times (مواقيت الصلاة) today for every city worldwide: Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha. Azan times, Qibla direction, Hijri calendar & Ramadan timetable.');
+    const ogT = document.querySelector('meta[property="og:title"]');
+    if (ogT) ogT.setAttribute('content', document.title);
+    const twT = document.querySelector('meta[name="twitter:title"]');
+    if (twT) twT.setAttribute('content', document.title);
   }, [lang]);
 
   const loading = locLoading || timesLoading;
